@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="陈玉" />
+
+
+
+<meta name="description" content="图解http知识总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解http知识总结">
+<meta property="og:url" content="http://yoursite.com/2016/09/10/图解http知识总结/index.html">
+<meta property="og:site_name" content="陈玉的博客">
+<meta property="og:description" content="图解http知识总结">
+<meta property="og:updated_time" content="2016-09-14T03:28:51.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图解http知识总结">
+<meta name="twitter:description" content="图解http知识总结">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="陈玉的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>图解http知识总结 | 陈玉的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈玉</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/协议/">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈玉</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈玉</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-图解http知识总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/图解http知识总结/" class="article-date">
+      <time datetime="2016-09-10T07:30:16.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图解http知识总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/计算机基础知识/">计算机基础知识</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/协议/">协议</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="图解http知识总结"><a href="#图解http知识总结" class="headerlink" title="图解http知识总结"></a>图解http知识总结</h1><p>[TOC]</p>
+<h2 id="HTTP-1-1虽然是无状态协议，"><a href="#HTTP-1-1虽然是无状态协议，" class="headerlink" title="HTTP/1.1虽然是无状态协议，"></a>HTTP/1.1虽然是无状态协议，</h2><p>但为了实现期望的保持状态功能，于是引入了Cookie技术。有cookie再用http协议通信，就可以管理状态了。</p>
+<h2 id="HTTP-1-1的使用方法："><a href="#HTTP-1-1的使用方法：" class="headerlink" title="HTTP/1.1的使用方法："></a>HTTP/1.1的使用方法：</h2><ul>
+<li>GET:获取资源<br>GET方法用来请求访问已被URI识别的资源。指定的资源经服务器端解析后返回响应内容。也就是如果是请求的资源的是文本，那就保持原样返回。如果是CGI（通用网关接口）那样的程序，那返回经过执行后的输出结果。</li>
+<li>POST：传输实体主体<br>post方法用来传输实体的主体<br>虽然用get方法也可以传输实体的主体。但一般不用get方法进行传输。而是用post方法，虽说post的功能与get很相似，但post的主要目的并不是获取响应的主体内容。</li>
+</ul>
+<blockquote>
+<p>GET与POST方式的区别：<br>ＧＥＴ与ＰＯＳＴ请求提交方式<br>从性能上来讲post请求比get请求消耗更多一些，用相同数据比较，get最多比post快两倍</p>
+<ol>
+<li>在web程序上，get一般是URL提交请求如：demo.php?name=lee&amp;age=100<br>post 一般是web表单提交 如：<form method="post"><input type="text" name="name" value="bob"><input type="password" name="passqord"></form><br>两种头信息：查看方式：firebug-》网络</li>
+<li>响应头信息：服务器返回的信息，客户端可以获取，但不可以设置</li>
+<li>请求头信息：客户端发送的信息，客户端可以设置，但不可以获取<br>1-1解决中文乱码问题，ajax返回的数据其实是utf-8的，最简单解决措施，全部设置为utf-8<br>1-2特殊字符，需要通过encodeURLComponent来编码解决</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//get方式</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt; </div><div class="line"> addEvent(document,&apos;click&apos;,function()&#123;</div><div class="line">      var xhr=creatXHR();</div><div class="line">      var url=&apos;demo.php?rand=&apos;+Math.random();</div><div class="line">      url=params(url,&apos;name&apos;,&apos;lee&apos;);</div><div class="line">        url=params(url,&apos;age&apos;,100);</div><div class="line">        alert(url);</div><div class="line">      xhr.onreadystatechange=function()&#123;</div><div class="line">         if(xhr.readyState==4)&#123;</div><div class="line">       if(xhr.status==200)&#123;</div><div class="line">       //alert(xhr.getAllResponseHeaders()) ;//获取全部响应头信息</div><div class="line">       //alert(xhr.getResponseHeader(&apos;Content-Type&apos;));//获取单个响应头信息       </div><div class="line">               alert(xhr.responseText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;else&#123;</div><div class="line">   alert(&apos;获取数据错误！错误代号：&apos;+xhr.status+&apos;,错误信息：&apos;+xhr.statusText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line"></div><div class="line">      &#125;;</div><div class="line">    xhr.open(&apos;get&apos;,url+Math.random(),true);</div><div class="line">    xhr.send(null);</div><div class="line">    xhr.about();//取消异步请求，放在send（）之前会报错，放在responseText（）之前会得到一个空值</div><div class="line">&#125;);</div><div class="line"></div><div class="line">   function params(url,name,value)&#123;</div><div class="line">     url+=url.indexOf==-1?&apos;?&apos;:&apos;&amp;&apos;;</div><div class="line">     url+=encodeURLComponent(name)+&apos;=&apos;+encodeURLComponent(value);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line"></div><div class="line">//post方式</div><div class="line"></div><div class="line">addEvent(document,&apos;click&apos;,function()&#123;</div><div class="line">      var xhr=creatXHR();</div><div class="line">      var url=&apos;demo.php?rand=&apos;+Math.random();</div><div class="line">      url=params(url,&apos;name&apos;,&apos;lee&apos;);</div><div class="line">        url=params(url,&apos;age&apos;,100);</div><div class="line">        alert(url);</div><div class="line">      xhr.onreadystatechange=function()&#123;</div><div class="line">         if(xhr.readyState==4)&#123;</div><div class="line">       if(xhr.status==200)&#123;</div><div class="line">       //alert(xhr.getAllResponseHeaders()) ;//获取全部响应头信息</div><div class="line">       //alert(xhr.getResponseHeader(&apos;Content-Type&apos;));//获取单个响应头信息       </div><div class="line">               alert(xhr.responseText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;else&#123;</div><div class="line">   alert(&apos;获取数据错误！错误代号：&apos;+xhr.status+&apos;,错误信息：&apos;+xhr.statusText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line"></div><div class="line">      &#125;;</div><div class="line">    xhr.open(&apos;post&apos;,url,true);//第一步改为post</div><div class="line">    xhr.setRequestHeader(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencoded&apos;);//第三步模仿表单提交</div><div class="line">    xhr.send(&apos;name=Lee&amp;age=100&apos;);//第二步将名值放入send（）方法里</div><div class="line">    xhr.about();//取消异步请求，放在send（）之前会报错，放在responseText（）之前会得到一个空值</div><div class="line">&#125;);</div><div class="line"></div><div class="line">   function params(url,name,value)&#123;</div><div class="line">     url+=url.indexOf==-1?&apos;?&apos;:&apos;&amp;&apos;;</div><div class="line">     url+=encodeURLComponent(name)+&apos;=&apos;+encodeURLComponent(value);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>PUT:传输文件</li>
+<li>PUT方法用来传输文件。就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存在URI指定的位置。（存在安全性）</li>
+<li>HEAD:获取报文首部<br>HEAD方法和GET方法一样，只是不返回报文主体部分。用于确认URI的有效性以及资源的更新的日期时间等。</li>
+<li>DELETE：删除文件<br>DELETE方法用来删除文件，是与PUT相反的方法。DELETE方法按请求URI删除指定的资源。</li>
+<li>OPTIONS:询问支持的方法<br>OPTIONS方法用来查询针对请求URI指定的资源支持的方法。</li>
+<li>TRACE:追踪路径<br>TRACE方法是让WEB服务器端将之前的请求通信环回给客户端的方法</li>
+<li>CONNECT:要求用隧道协议链接代理<br>CONNECT方法要求与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL（安全套接层）和TLS（传输层安全）协议把通信内容加密后经过网络隧道进行传输。<h2 id="使用Cookie的状态管理"><a href="#使用Cookie的状态管理" class="headerlink" title="使用Cookie的状态管理"></a>使用Cookie的状态管理</h2>HTTP是无状态的协议，它不对之前发生过得请求和响应的状态进行管理，也就是说，无法根据之前的状态进行本次的请求处理。<br>（假设要求登录认证的Web页面本身无法进行状态的管理即不记录已登录的状态，那么每次跳转新页面不是要再次登录，就是要在每次请求报文中附加参数来管理登录状态）<br>Cookie会根据从服务器端发送的响应报文中写入Cookie信息来控制客户端的状态。</li>
+</ul>
+<h2 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h2><p>缓存是指代理服务器或客服端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</p>
+<ol>
+<li>缓存的有效时期</li>
+<li>客户端的缓存<br>##为Cookie服务的首部字段<br>Cookie的工作机制用户识别以及状态管理。</li>
+<li>为Cookie服务的首部字段 </li>
+</ol>
+<ul>
+<li>Set-Cookie（响应首部字段 ）:开始状态管理所使用的Cookie信息</li>
+<li>Cookie（请求首部字段）:服务器接受到的Cookie信息</li>
+</ul>
+<ol>
+<li>Set-Cookie字段的属性</li>
+</ol>
+<ul>
+<li>expires属性（=DATE）Cookie的有效日期（若不明确指定则默认为浏览器关闭前为止）<br><code>注意：</code>一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显示删除Cookie的方法。但可以通过覆盖已过期的Cookie，实现对客户端的Cookie的实质性的删除操作。<br>＊path属性（=PATH）将服务器上的文件目录作为Cookie的适用对象（若不能指定则默认为文档所在的而文件目录）</li>
+<li>domain（=域名）作为Cookie适用对象的域名，（若不指定则默认为常见Cookie的服务器的域名）<br>（不指定域名显得更加安全）</li>
+<li><p>secure属性（只写上secure即可）仅在HTTPS安全通信时才会发送Cookie</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:name=value;secure</div></pre></td></tr></table></figure>
+</li>
+<li><p>HttpOnly属性，其主要目的是为防止跨站脚本攻击（XSS）对Cookie的信息窃取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:name=value;HttpOnly</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="HTTP的缺点"><a href="#HTTP的缺点" class="headerlink" title="HTTP的缺点"></a>HTTP的缺点</h2><ul>
+<li>通信使用明文（不加密），内容可能会被窃听</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装</li>
+<li>无法证明报文的完整性，所以有可能已遭到篡改</li>
+<li>窃听：对于收集互联网上的流动数据包（帧）解析工作，可交给抓包（Packet Capture）或者嗅探器（Sniffer）工具，如常见的：Wireshark</li>
+</ul>
+<ol>
+<li>通信加密：HTTP协议没有加密机制，但可以通过SSL（安全套接层）或者TLS（安全层传输协议）的组合使用，加密HTTP的通信内容。（HTTP与SSL的组合使用被称为HTTPS（HTTP Secure），超文本传输安全协议）</li>
+<li>HTTP+加密+认证+完整性保护=HTTPS<h2 id="为什么不一直使用HTTPS"><a href="#为什么不一直使用HTTPS" class="headerlink" title="为什么不一直使用HTTPS"></a>为什么不一直使用HTTPS</h2>原因：与纯文本通信相比，加密通信会消耗更多的资源（购买证书等）<h2 id="基于HTTP的功能的追加协议"><a href="#基于HTTP的功能的追加协议" class="headerlink" title="基于HTTP的功能的追加协议"></a>基于HTTP的功能的追加协议</h2></li>
+<li>Ajax的解决办法<br>是一种有效利用js和DOM的操作，以达到Web页面替换加载的异步通信手段。只更新页面的部分内容。</li>
+<li>Comet的解决办法<br>一旦服务器端有内容更新，Comet不会让请求等待，而是直接给客户端返回响应。这是一种通过延迟应答，模拟实现服务器端向客服端推送的功能。</li>
+<li>使用浏览器进行全双工通信的WebSocket<h2 id="与Web服务器及程序协作的CGI"><a href="#与Web服务器及程序协作的CGI" class="headerlink" title="与Web服务器及程序协作的CGI"></a>与Web服务器及程序协作的CGI</h2>CGI（通用网关接口）是指Web服务器在接受到客户端发送过来的请求后转发给程序的一组机制。在CGI的作用下，程序会对请求内容做出相应的动作，使用CGI的程序叫做CGI程序，通常用Perl,php,ruby和c等编程语言编写而成。<h2 id="因Java而普及的Servlet"><a href="#因Java而普及的Servlet" class="headerlink" title="因Java而普及的Servlet"></a>因Java而普及的Servlet</h2>（Servlet=Server+Applet）表示轻量服务程序<br>Servlet是一种能子服务器上创建动态内容的程序。Servlet是用Java语言实现的一个接口，属于企业级Java（JavaEE，JavaEnterprise Edition）的一部分<br>（Servlet常驻内存，因此每次请求的时，可启动相对进程级别更为轻量的Servlet，程序的执行效率从而变的更高）<h2 id="Web的攻击技术"><a href="#Web的攻击技术" class="headerlink" title="Web的攻击技术"></a>Web的攻击技术</h2>对Web应用的攻击模式有两种：主动攻击，被动攻击</li>
+<li>以服务器为目标的主动攻击<br>主动攻击：是指攻击者通过直接访问Web应用，把攻击代码传入的攻击模式。由于该模式是直接针对服务器上的资源进行攻击，因此攻击者需要能够访问到那些资源。</li>
+<li>以服务器为目标的被动攻击<br>被动攻击：指利用圈套策略执行攻击代码的攻击模式。在被动攻击的过程中，攻击者不直接对目标Web应用访问发起攻击。</li>
+<li>因输出值转义不完全引发的安全漏洞<br>实施Web应用的安全对策课分为两个部分。</li>
+</ol>
+<ul>
+<li>客户端的验证</li>
+<li>Web应用端（服务器端）的验证</li>
+<li>输入值验证</li>
+<li>输出值转义</li>
+</ul>
+<ol>
+<li>跨站脚本攻击（XSS）指通过存在安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或js进行的一种攻击。<br>影响：</li>
+</ol>
+<ul>
+<li>利用虚假输入表单骗取用户的个人信息</li>
+<li>利用脚本窃取用户Cookie值，被害者在不知情的情况下，帮助攻击者发送恶意请求。</li>
+<li>显示伪造的文章或图片</li>
+</ul>
+<ol>
+<li>对用户Cookie的窃取攻击</li>
+<li>SOL注入攻击<br>（1）会执行非法SQL的SQL注入攻击<br>影响:</li>
+</ol>
+<ul>
+<li>非法查看或篡改数据库内的数据</li>
+<li>规避认证</li>
+<li>执行和数据库服务器业务关联的程序等</li>
+<li>SQL注入攻击破坏SQL语句结构的案例</li>
+</ul>
+<ol>
+<li>OS命令注入攻击<br>指通过Web应用，执行非法的操作系统命令达到攻击目的。只要在能调用Shell函数的地方就有存在被攻击的风险。</li>
+<li>HTTP首部注入攻击<br>是指攻击者通过在响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击。属于被动攻击模式。 向首部主题内添加内容的攻击称为HTTP响应截断攻击。<br>影响：</li>
+</ol>
+<ul>
+<li>设置任何Cookie信息</li>
+<li>重定向至任意URL</li>
+<li>显示任意的主体（HTTP响应截断攻击）</li>
+</ul>
+<ol>
+<li>HTTP响应截断攻击</li>
+<li>邮件首部注入攻击</li>
+<li>目录遍历攻击</li>
+<li>远程文件包含漏洞</li>
+<li>因设置或设计上的缺陷引发的安全漏洞</li>
+<li>不正确的错误消息处理</li>
+<li>开放重定向</li>
+<li>因会话管理疏忽引发的安全漏洞</li>
+<li>会话固定攻击</li>
+<li>跨站点请求伪造（CSRF）</li>
+<li>其他安全漏洞</li>
+</ol>
+<ul>
+<li>密码破解（穷举法/暴力破解法，字典攻击）</li>
+<li>点击劫持</li>
+</ul>
+<ol>
+<li>DoS攻击<br>DoS攻击是一种让运行中的服务呈停止状态的攻击，有时也叫做服务停止攻击或者拒绝服务攻击。<br>DoS攻击方式：</li>
+</ol>
+<ul>
+<li>集中利用访问请求造成资源过载，资源用尽的同时，实际上服务也呈停止状态。</li>
+<li>通过攻击安全漏洞使服务停止</li>
+</ul>
+<ol>
+<li>后台程序</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/10/图解http知识总结/">图解http知识总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
+        <p><span>发布时间:</span>2016-09-10, 15:30:16</p>
+        <p><span>最后更新:</span>2016-09-14, 11:28:51</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/10/图解http知识总结/" title="图解http知识总结">http://yoursite.com/2016/09/10/图解http知识总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/10/图解http知识总结/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/02/谈谈清除浮动/">
+                    
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图解http知识总结"><span class="toc-number">1.</span> <span class="toc-text">图解http知识总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-1-1虽然是无状态协议，"><span class="toc-number">1.1.</span> <span class="toc-text">HTTP/1.1虽然是无状态协议，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-1-1的使用方法："><span class="toc-number">1.2.</span> <span class="toc-text">HTTP/1.1的使用方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Cookie的状态管理"><span class="toc-number">1.3.</span> <span class="toc-text">使用Cookie的状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存资源的缓存"><span class="toc-number">1.4.</span> <span class="toc-text">保存资源的缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的缺点"><span class="toc-number">1.5.</span> <span class="toc-text">HTTP的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么不一直使用HTTPS"><span class="toc-number">1.6.</span> <span class="toc-text">为什么不一直使用HTTPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于HTTP的功能的追加协议"><span class="toc-number">1.7.</span> <span class="toc-text">基于HTTP的功能的追加协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与Web服务器及程序协作的CGI"><span class="toc-number">1.8.</span> <span class="toc-text">与Web服务器及程序协作的CGI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因Java而普及的Servlet"><span class="toc-number">1.9.</span> <span class="toc-text">因Java而普及的Servlet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web的攻击技术"><span class="toc-number">1.10.</span> <span class="toc-text">Web的攻击技术</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"图解http知识总结　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/02/谈谈清除浮动/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">谈谈清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/关于ps的基础知识/">关于ps的基础知识</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 陈玉
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
