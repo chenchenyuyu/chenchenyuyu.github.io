@@ -15,16 +15,46 @@
 
 
 
-<meta name="description" content="关于ps的基础知识">
+<meta name="description" content="DOM(文档对象模型)
+文档节点的知识点
+文档节点是每个文档的根节点，称文档元素，为文档的最外层元素
+每个文档只能有一个文档元素
+在html页面中，文档元素始终都是&amp;lt;html&amp;gt;元素
+在xml中任何元素都能成为文档元素Node类型
+
+
+除了IE外，其他所有浏览器都能访问到这个类型
+js中所有类型都继承自Node类型
+每个节点都有一个nodeType属性，用于表明节点类型nodeName和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ps的基础知识">
-<meta property="og:url" content="http://yoursite.com/2015/09/02/关于ps的基础知识/index.html">
+<meta property="og:title" content="陈玉的博客">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/DOM(文档对象模型)/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="关于ps的基础知识">
-<meta property="og:updated_time" content="2016-09-14T06:58:30.805Z">
+<meta property="og:description" content="DOM(文档对象模型)
+文档节点的知识点
+文档节点是每个文档的根节点，称文档元素，为文档的最外层元素
+每个文档只能有一个文档元素
+在html页面中，文档元素始终都是&amp;lt;html&amp;gt;元素
+在xml中任何元素都能成为文档元素Node类型
+
+
+除了IE外，其他所有浏览器都能访问到这个类型
+js中所有类型都继承自Node类型
+每个节点都有一个nodeType属性，用于表明节点类型nodeName和">
+<meta property="og:updated_time" content="2016-08-01T09:30:44.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ps的基础知识">
-<meta name="twitter:description" content="关于ps的基础知识">
+<meta name="twitter:title" content="陈玉的博客">
+<meta name="twitter:description" content="DOM(文档对象模型)
+文档节点的知识点
+文档节点是每个文档的根节点，称文档元素，为文档的最外层元素
+每个文档只能有一个文档元素
+在html页面中，文档元素始终都是&amp;lt;html&amp;gt;元素
+在xml中任何元素都能成为文档元素Node类型
+
+
+除了IE外，其他所有浏览器都能访问到这个类型
+js中所有类型都继承自Node类型
+每个节点都有一个nodeType属性，用于表明节点类型nodeName和">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +86,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ps的基础知识 | 陈玉的博客</title>
+<title>陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -260,11 +290,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-关于ps的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DOM(文档对象模型)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/02/关于ps的基础知识/" class="article-date">
-      <time datetime="2015-09-02T03:30:16.000Z" itemprop="datePublished">2015-09-02</time>
+      <a href="/2016/08/24/DOM(文档对象模型)/" class="article-date">
+      <time datetime="2016-08-24T14:56:55.630Z" itemprop="datePublished">2016-08-24</time>
 </a>
 
 
@@ -275,69 +305,51 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      ps的基础知识
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ps/">ps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##前端ps基础技能需求：<strong>切图</strong>，<strong>修图</strong>，<strong>测量</strong></p>
-<p> <strong>前端常用 ps工具：</strong><br> 移动工具，矩形选框工具，裁切工具，吸管工具，横排文字工具，手抓，缩放，标尺，自由变换<br> <strong>ps快捷键：</strong><br>窗口（历史记录，信息（F8），图层（F7））<br>视图（参考线设置）<br>图像（图像大小（alt+ctrl+i），画布大小（alt+ctrl+c），剪裁，剪切）<br>文件（存储为web和设备所用格式（alt+shift+ctrl+c））<br>左侧工具栏的使用（移动工具，矩形选框工具，吸管工具，横排文字工具，抓手工具，放大/缩小工具）<br>Ctrl+/ctrl-放大、缩小  Ctrl+R标尺 shift+tab调板  Ctrl+h 参考线</p>
-<blockquote>
-<p>图片的导出格式：<br>保存文件格式:</p>
-<ol>
-<li>psd（源文件：没办法直接使用）</li>
-<li>JPG：不支持透明半透明，所有空白区域填充白色（应用：网页中的大图，高清图（体积大））</li>
-<li>GIF（png8：小图标）：支持透明，不支持半透明（小图标（动画图片）</li>
-<li>png24：支持透明，也支持半透明（图像中存在半透明效果的图片）</li>
-</ol>
-</blockquote>
-<p>  <em>psd测量注意事项：</em><br>文字右方和下方会有1像素的默认间隙 </p>
-<p>ps一些基本操作：</p>
-<ul>
-<li>删除图片上的文字：</li>
+        <h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h1><hr>
+<h2 id="文档节点的知识点"><a href="#文档节点的知识点" class="headerlink" title="文档节点的知识点"></a>文档节点的知识点</h2><ul>
+<li>文档节点是每个文档的根节点，称文档元素，为文档的最外层元素</li>
+<li>每个文档只能有一个文档元素</li>
+<li>在html页面中，文档元素始终都是<code>&lt;html&gt;</code>元素</li>
+<li>在xml中任何元素都能成为文档元素<h2 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h2></li>
 </ul>
 <ol>
-<li>矩形选框选中删除区域，按delete删除键</li>
-<li>矩形选中相应模块（盖住文字的部分），再按Ctrl+t（自由变换）推动模块，即可盖住文字</li>
+<li>除了IE外，其他所有浏览器都能访问到这个类型</li>
+<li>js中所有类型都继承自Node类型</li>
+<li>每个节点都有一个nodeType属性，用于表明节点类型<h3 id="nodeName和nodeValue属性"><a href="#nodeName和nodeValue属性" class="headerlink" title="nodeName和nodeValue属性"></a>nodeName和nodeValue属性</h3></li>
 </ol>
 <ul>
-<li>如何把选中图像变成白色：</li>
+<li>在使用前先检测节点类型<h3 id="节点关系："><a href="#节点关系：" class="headerlink" title="节点关系："></a>节点关系：</h3></li>
+<li>每个节点有一个childNodes属性，其中保存有一个NodesList对象（一种类数组对象），<br><code>注意：</code>它不是Array的实例，具有length属性，保存在NodesList中的节点可以通过方括号，也可以使用item()方法访问</li>
+</ul>
+<p>  `<br>        function covertToArray(){<br>        var array=null;<br>            try{<br>                array=Array.prototype.slice.call(nodes,0);<br>                //针对非IE浏览器        </p>
+<pre><code>    }catch(ex){
+            array=new Array();
+            for(i=0;len=nodes.length;i&lt;len;i++){
+                array.push(nodes[i]);
+    }
+    return array;
+}
+</code></pre><p>`</p>
+<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><p> 1.appendChild()，用于向childNodes列表的末尾加入一个节点<br><code>注意：</code>如果传入到appendChild()中的节点已经是文档的一部分，那结果就是将该节点从文档的原位置转移到新位置</p>
+<ol>
+<li>insertBefore(要插入的节点，作为参照的节点)</li>
+<li>relaceChild(要插入的节点，要替换的节点)<br><code>注意：</code>尽管从技术的角度，被替换的节点仍然还在文档当中，但它已失去在文档中的位置</li>
+<li>removeChild(要移除的节点)移除节点而不是替换节点<br><code>注意：</code>与replaceChild()一样尽管从技术的角度，被替换的节点仍然还在文档当中，但它已失去在文档中的位置<ol>
+<li>其他方法:cloneNode()与normalLize()是所有类型的节点都有的</li>
+</ol>
+<ul>
+<li>cloneNode()用于创建调用这个方法的节点的一个完全相同的副本<br>cloneNode(true)执行深复制，也就是复制节点及其整个子节点树<br>cloneNode(false)执行浅复制，即只复制节点本身，复制后返回的节点副本属于文档所有，但没有为它指定父节点<br><code>注意：</code>cloneNode()方法不会复制添加到DOM节点中的js属性，如事件处理程序等，这个方法只复制特性，（在明确指定的情况下也复制）子节点，其他一切都不会复制，IE也存在bug，它会复制事件的处理程序，建议在复制之前将处理程序移除<br>normalLize()方法唯一的作用就是处理文档中的文本节点，<br><code>注意:</code>可能会出现的两种情况：由于解析器的实现和DOM的操作等原因，可能出现（文本节点不包含文本，接连出现两个文本节点的情况）<br>当某节点调用此方法时候：就会查找上述两种情况，找到空文本节点则删除它，若找到相邻的两个文本节点，则将它们合并为一个文本节点<h2 id="Document-类型"><a href="#Document-类型" class="headerlink" title="Document 类型"></a>Document 类型</h2>js通过Document 类型表示文档，在浏览器中document对象是继承自Document的一个实例</li>
 </ul>
 <ol>
-<li>选中要变白的图像并且选中相应图层—将右下角背景调为白色–点击油漆桶工具（位于渐变工具一栏）即可</li>
+<li>文档的子节点：DocumentType,Element,ProcessingInstruction 或Commet</li>
+<li>文档信息：URL,domain,referrer</li>
+<li>查找和元素：<br>document.getElementById(“要取得元素的id”);<br><code>注意：</code>如果不存在带有相应元素的id则返回null<br>document.getElementsByTagName(“元素标签名”);<br><code>注意：</code>返回的是带有包含零个或多个元素NodeList<br>要想取得文档中所有元素，可向geTElementsByTagName(‘＊’)<br>document.getElementByName()此方法返回带有name特性的所有元素<br>也会返回一个HTMLCollection<h3 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h3></li>
 </ol>
-<ul>
-<li>图像放大了之后，目的就是要仔细观察细节，图像太大以至于画布装不下了，要拖动滚动条吧太麻烦，这里不用拖动滚动条。按住“空格键”不松手，赶紧观察，发现情况了没有，鼠标变成抓手工具形状了</li>
-<li>如果要将图像调整到什么程度，要求图像都能清晰显示窗口–&gt;图层–&gt;智能对象–&gt;图像–&gt;画布大小</li>
-<li>将图像改变方向：图像–&gt;图像旋转（180度，90度，90度逆时针等）</li>
-</ul>
-<blockquote>
-<p>切图：实现精确选图：拉出参考线后，选择矩形区域，按住Ctrl键（图像颜色表现有变浅的表现）<br>图层：图层后优先级与后面出现的数字无关，与排列在前面的顺序有关</p>
-</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -346,13 +358,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/24/DOM(文档对象模型)/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
-        <p><span>发布时间:</span>2015-09-02, 11:30:16</p>
-        <p><span>最后更新:</span>2016-09-14, 14:58:30</p>
+        <p><span>发布时间:</span>2016-08-24, 22:56:55</p>
+        <p><span>最后更新:</span>2016-08-01, 17:30:44</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/09/02/关于ps的基础知识/" title="ps的基础知识">http://yoursite.com/2015/09/02/关于ps的基础知识/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/02/关于ps的基础知识/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/24/DOM(文档对象模型)/" title="">http://yoursite.com/2016/08/24/DOM(文档对象模型)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/08/24/DOM(文档对象模型)/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -365,11 +377,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/24/DOM(文档对象模型)/">
+                <a href="/2016/08/24/JSON（JavaScript Object Notation）/">
                     
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/09/02/关于ps的基础知识/">
+                    ps的基础知识
+                </a>
+            </div>
         
     </nav>
 
@@ -379,7 +397,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM-文档对象模型"><span class="toc-number">1.</span> <span class="toc-text">DOM(文档对象模型)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文档节点的知识点"><span class="toc-number">1.1.</span> <span class="toc-text">文档节点的知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node类型"><span class="toc-number">1.2.</span> <span class="toc-text">Node类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nodeName和nodeValue属性"><span class="toc-number">1.2.1.</span> <span class="toc-text">nodeName和nodeValue属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点关系："><span class="toc-number">1.2.2.</span> <span class="toc-text">节点关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作节点"><span class="toc-number">1.2.3.</span> <span class="toc-text">操作节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Document-类型"><span class="toc-number">1.3.</span> <span class="toc-text">Document 类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Element类型"><span class="toc-number">1.3.1.</span> <span class="toc-text">Element类型</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -415,7 +433,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ps的基础知识　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,7 +453,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/24/DOM(文档对象模型)/" title="上一篇: ">
+            <a href="/2016/08/24/JSON（JavaScript Object Notation）/" title="上一篇: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -443,7 +461,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2015/09/02/关于ps的基础知识/" title="下一篇: ps的基础知识">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

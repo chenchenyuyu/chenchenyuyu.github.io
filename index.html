@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -259,7 +259,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
   
@@ -399,6 +399,307 @@
 
 
   
+    <article id="post-什么是盒子模型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/什么是盒子模型/" class="article-date">
+      <time datetime="2016-08-24T14:56:56.800Z" itemprop="datePublished">2016-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h1><p>盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。<br>对盒模型的形象化表述盒模型形象化表述：<br>将页面中的任何一个元素形容成邮局的每一个邮包 </p>
+<ul>
+<li>邮寄的物品—-页面中的元素内容 </li>
+<li>塞入的海绵—-内边距padding </li>
+<li>邮局的纸盒邮包—-边框border </li>
+<li>邮包堆积之间的间距—–外边距margin<br><code>注意：</code> 盒模型类似于邮局纸盒邮包情况，却又不等同于，<br>但IE在某种情况下，却又完全等同于纸盒邮包情形（邮局的纸盒中无论塞入多少海绵保护邮寄物品，邮局的纸盒邮包的大小是不会变的，而页面中元素不同，padding属性值越大，那么所占用的空间也就越大）<br>DOCTYPE类型声明影响IE浏览器对标准的理解：<br>IE浏览器存在两种渲染方式： </li>
+</ul>
+<ol>
+<li>Quirks(怪异模式)：以一种比较宽松的向后兼容的方式显示<br>触发怪异模式使IE浏览器计算盒模型的方式有所变化（至于怎么触发怪异模式：如：在DOCTYPE类型前加一个字符，或者将它直接删除了）<br>计算方式的改变就是：<br>将盒模型的border和padding的数值归入到<br>盒模型的宽度width及高度height<br>盒模型宽=margin-left+width+margin-right<br>盒模型高=margin-top+height+margin-bottom </li>
+<li>Standard(标准模式)：浏览器根据规范表现页面<br>cmd-markdown-logo<br>盒模型的细节：<br>盒模型差异<br>IE6/IE7/Firefox的最终宽度=左外边距+左边框宽+左内边距+宽度+右外边距+右边框宽+右内边距<br>IE5的最终宽度=左外边距+宽度+右外边距<br>（1）上下margin叠加问题<br>#a{<br>Width:100px;<br>Height:100px;<br>Background-color:#eeffee;<br>Border:1px solid #bbb;<br>Margin:10px;<br>}<br>#b{<br>Width:100px;<br>Height:100px;<br>Background-color:#ccc;<br>Border:1px solid #ddd;<br>Margin:10px;<br>}<br>空白边叠加时，结果以最大者为准<br>解决办法：把相应元素设为float属性，它们将不会发生空白叠加问题了<br>（2）左右margin叠加问题<br>当盒对象为浮动状态时，IE6中，盒模型的左右margin会加倍<br>解决办法：display:inline;</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JSON（JavaScript Object Notation）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/JSON（JavaScript Object Notation）/" class="article-date">
+      <time datetime="2016-08-24T14:56:55.880Z" itemprop="datePublished">2016-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><hr>
+<p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
+<ol>
+<li>它是一种数据格式，不是一种编程语言</li>
+<li>它并不属于JavaScript，很多编程语言都有应用到它，有针对Json的解析器和序列化器<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
+<li>简单值：使用与js相同的语法，在json中表示，字符串，数值，布尔值，null，但不支持undefined</li>
+<li>对象：复杂数据类型，表示的是一组无序的键值对，键值对中可以使简单值，也可以是复杂数据类型</li>
+<li><p>数组：复杂数据类型，表示一组有序值的列表，可以通过数组索引来访问其中的值，数组值，可以是简单值，对象，数组<br><code>注意：</code>json不支持变量，函数，对象实例，它就是一种表示结构化数据的格式</p>
+<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p><code>注意：</code>js字符串与json的最大区别：json字符串必须使用双引号（单引号将导致语法错误）</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p> js中对象字面量：<br> var person={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> }；<br> 或者<br> var Object={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> };<br> json中对象表示：<br> {</p>
+<pre><code> &quot;name&quot;:&quot;Lili&quot;,
+&quot;age&quot;:29
+</code></pre><p> }<br><code>两者的区别：</code></p>
+<ol>
+<li>json对象中没有声明变量的概念</li>
+<li>json对象中没有末尾的分号</li>
+<li>对象属性必须加上双引号</li>
+<li><p>同一个对象中绝对不应该出现两个同名属性</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>js中数组：<br>var values=[25,”h1”,true];<br>json中的数组：<br>[25,”h1”,true]</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><code>两者的而区别：</code>json数组没有变量和分号</p>
+<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><ol>
+<li>eval()函数可以解析，解释并返回js对象和数组</li>
+<li>json对象有两个方法：stringify()和parse()<br>stringify()用于把json对象序列化为json字符串<br>parse()用于把字符串解析为原生的js值<br><code>注意：</code></li>
+<li>默认情况下，JSON.stringify()输出的字符串不包括任何空格字符或缩进</li>
+<li>如过传给JSON.parse()不是有效的json，该方法会报错<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3>JSON.stringify(序列化对象，过滤器，选项)<br>过滤器：可以使数组，可以是函数<br>选项：表示是否在json中保留缩进</li>
+<li><p>过滤结果<br> 过滤器为数组：</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 };
+var jsonText=JSON.stringify(book,[&quot;title&quot;,&quot;edition&quot;]);
+</code></pre><p>过滤器为函数：</p>
+</li>
+</ol>
+<pre><code>var book={
+    &quot;title&quot;:&quot;javaScript&quot;;
+    &quot;authors&quot;:
+    [
+    &quot;Hellen&quot;
+    ],
+    edition:3,
+    year:2011 };
+    var jsonText=JSON.stringify(book,function(key,value){
+    switch(key){
+    case &quot;authors&quot;:
+    return value.join(&quot;,&quot;);
+    case &quot;year&quot;:
+    return 5000;
+    case &quot;edition&quot;:
+    return undefined;
+    default:
+    return value;
+    }
+    });
+</code></pre><ol>
+<li>字符串缩进<br>JSON.stringify()方法的而第三个参数用于结果中的缩进和空白符，如果这个参数是一个数值，那它表示每个级别缩进的空格数<br>var jsonText=JSON.stringify(book,null,4);<br><code>注意：</code> </li>
+</ol>
+<ul>
+<li>只要传入有效的缩进参数，结果字符串就会包含换行符，</li>
+<li>最大缩进的而空格数为10，所有大于10的数值都会自动转换为10<br>缩进参数</li>
+<li>缩进参数可以为非数值（制表符，两个短横线等任意字符）</li>
+</ul>
+<ol>
+<li>toJSON()方法<br>可以给任何对象添加 toJSON()方法,返回自身的JSON数据格式</li>
+</ol>
+<pre><code> var book={
+&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+toJSON:function(){
+return this.title;
+}
+};
+var jsonText=JSON.stringify(book);
+</code></pre><ol>
+<li><p>序列化的内部顺序：<br>假设把一个对象传入JSON.stringify()，序列化该对象的顺序如下：<br>（1）如果存在toJSON()而且能通过它取得有效值，则调用该方法，否则返回对象本身<br>（2）如果提供第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步返回的值<br>（3）对第（2）步返回的每一个值进行相应的序列化<br>（4）如果提供第三个参数，执行相应的格式化</p>
+<h2 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h2><p>JSON.stringify()方法接收的函数（称替换或过滤函数）<br>JSON.parse()方法可以接收另一个参数（称还原函数）</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+releaseDate:new Date(2011,11,1)
+};
+var jsonText=JSON.stringify(book);
+var bookCopy=JSON.parse(jsonText,function(key,value){
+if(key==&quot;releaseDate&quot;){
+return new Date(value);
+}else{
+return vlaue;
+}
+});
+console.log(bookCopy.releaseDate.getFullYear());
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-DOM(文档对象模型)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/DOM(文档对象模型)/" class="article-date">
+      <time datetime="2016-08-24T14:56:55.630Z" itemprop="datePublished">2016-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h1><hr>
+<h2 id="文档节点的知识点"><a href="#文档节点的知识点" class="headerlink" title="文档节点的知识点"></a>文档节点的知识点</h2><ul>
+<li>文档节点是每个文档的根节点，称文档元素，为文档的最外层元素</li>
+<li>每个文档只能有一个文档元素</li>
+<li>在html页面中，文档元素始终都是<code>&lt;html&gt;</code>元素</li>
+<li>在xml中任何元素都能成为文档元素<h2 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h2></li>
+</ul>
+<ol>
+<li>除了IE外，其他所有浏览器都能访问到这个类型</li>
+<li>js中所有类型都继承自Node类型</li>
+<li>每个节点都有一个nodeType属性，用于表明节点类型<h3 id="nodeName和nodeValue属性"><a href="#nodeName和nodeValue属性" class="headerlink" title="nodeName和nodeValue属性"></a>nodeName和nodeValue属性</h3></li>
+</ol>
+<ul>
+<li>在使用前先检测节点类型<h3 id="节点关系："><a href="#节点关系：" class="headerlink" title="节点关系："></a>节点关系：</h3></li>
+<li>每个节点有一个childNodes属性，其中保存有一个NodesList对象（一种类数组对象），<br><code>注意：</code>它不是Array的实例，具有length属性，保存在NodesList中的节点可以通过方括号，也可以使用item()方法访问</li>
+</ul>
+<p>  `<br>        function covertToArray(){<br>        var array=null;<br>            try{<br>                array=Array.prototype.slice.call(nodes,0);<br>                //针对非IE浏览器        </p>
+<pre><code>    }catch(ex){
+            array=new Array();
+            for(i=0;len=nodes.length;i&lt;len;i++){
+                array.push(nodes[i]);
+    }
+    return array;
+}
+</code></pre><p>`</p>
+<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><p> 1.appendChild()，用于向childNodes列表的末尾加入一个节点<br><code>注意：</code>如果传入到appendChild()中的节点已经是文档的一部分，那结果就是将该节点从文档的原位置转移到新位置</p>
+<ol>
+<li>insertBefore(要插入的节点，作为参照的节点)</li>
+<li>relaceChild(要插入的节点，要替换的节点)<br><code>注意：</code>尽管从技术的角度，被替换的节点仍然还在文档当中，但它已失去在文档中的位置</li>
+<li>removeChild(要移除的节点)移除节点而不是替换节点<br><code>注意：</code>与replaceChild()一样尽管从技术的角度，被替换的节点仍然还在文档当中，但它已失去在文档中的位置<ol>
+<li>其他方法:cloneNode()与normalLize()是所有类型的节点都有的</li>
+</ol>
+<ul>
+<li>cloneNode()用于创建调用这个方法的节点的一个完全相同的副本<br>cloneNode(true)执行深复制，也就是复制节点及其整个子节点树<br>cloneNode(false)执行浅复制，即只复制节点本身，复制后返回的节点副本属于文档所有，但没有为它指定父节点<br><code>注意：</code>cloneNode()方法不会复制添加到DOM节点中的js属性，如事件处理程序等，这个方法只复制特性，（在明确指定的情况下也复制）子节点，其他一切都不会复制，IE也存在bug，它会复制事件的处理程序，建议在复制之前将处理程序移除<br>normalLize()方法唯一的作用就是处理文档中的文本节点，<br><code>注意:</code>可能会出现的两种情况：由于解析器的实现和DOM的操作等原因，可能出现（文本节点不包含文本，接连出现两个文本节点的情况）<br>当某节点调用此方法时候：就会查找上述两种情况，找到空文本节点则删除它，若找到相邻的两个文本节点，则将它们合并为一个文本节点<h2 id="Document-类型"><a href="#Document-类型" class="headerlink" title="Document 类型"></a>Document 类型</h2>js通过Document 类型表示文档，在浏览器中document对象是继承自Document的一个实例</li>
+</ul>
+<ol>
+<li>文档的子节点：DocumentType,Element,ProcessingInstruction 或Commet</li>
+<li>文档信息：URL,domain,referrer</li>
+<li>查找和元素：<br>document.getElementById(“要取得元素的id”);<br><code>注意：</code>如果不存在带有相应元素的id则返回null<br>document.getElementsByTagName(“元素标签名”);<br><code>注意：</code>返回的是带有包含零个或多个元素NodeList<br>要想取得文档中所有元素，可向geTElementsByTagName(‘＊’)<br>document.getElementByName()此方法返回带有name特性的所有元素<br>也会返回一个HTMLCollection<h3 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h3></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-关于ps的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -477,14 +778,14 @@
                 2016 陈玉
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -493,7 +794,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -526,9 +827,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
