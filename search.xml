@@ -4,10 +4,9 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[JavaScript的基础知识]]></title>
       <url>http://yoursite.com/2016/09/18/JavaScript%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/</url>
-      <content type="html"><![CDATA[<p>title: JavaScript的基础知识<br>date: 2016-9-18 15:10:06<br>categories: JavaScript<br>tags: [前端,前端基础知识,js]<br>description: “许多OO语言都支持接口继承和实现继承，接口继承只继承方法的签名，实现继承则继承实际的方法。由于JavaScript函数没有签名，ECMAScript只支持实现继承，而且实现继承主要依靠原型链来实现”</p>
-<h1 id="JavaScript实现继承"><a href="#JavaScript实现继承" class="headerlink" title="JavaScript实现继承"></a>JavaScript实现继承</h1><ol>
+      <content type="html"><![CDATA[<h1 id="JavaScript实现继承"><a href="#JavaScript实现继承" class="headerlink" title="JavaScript实现继承"></a>JavaScript实现继承</h1><ol>
 <li>原型链</li>
 </ol>
 <ul>
