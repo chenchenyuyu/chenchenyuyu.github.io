@@ -216,7 +216,7 @@ content:&quot;&quot;;*将伪类层中的内容清空*
     </entry>
     
     <entry>
-      <title><![CDATA[js的基础知识]]></title>
+      <title><![CDATA[作用域，作用域链，域解析]]></title>
       <url>http://yoursite.com/2016/08/18/%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%8C%E5%9F%9F%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<h1 id="作用域，作用域链，域解析"><a href="#作用域，作用域链，域解析" class="headerlink" title="作用域，作用域链，域解析"></a>作用域，作用域链，域解析</h1><h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context）<br><code>执行环境：</code>JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，<code>它定义了变量或函数是否有权访问其他数据，决定各自行为。</code></p>
 <blockquote>

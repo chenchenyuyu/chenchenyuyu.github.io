@@ -17,7 +17,7 @@
 
 <meta name="description" content="JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context） `执行环境：`JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，`它定义了变量或函数是否有权访问其他数据，决定各自行为。`">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js的基础知识">
+<meta property="og:title" content="作用域，作用域链，域解析">
 <meta property="og:url" content="http://yoursite.com/2016/08/18/作用域，作用域链，域解析/index.html">
 <meta property="og:site_name" content="陈玉的博客">
 <meta property="og:description" content="JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context） `执行环境：`JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，`它定义了变量或函数是否有权访问其他数据，决定各自行为。`">
@@ -28,9 +28,9 @@
 <meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/scope_chain.jpg">
 <meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/%E6%A0%87%E7%A4%BA%E7%AC%A6.jpg">
 <meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/2012061812093041.gif">
-<meta property="og:updated_time" content="2016-09-18T08:00:00.392Z">
+<meta property="og:updated_time" content="2016-09-18T08:02:02.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js的基础知识">
+<meta name="twitter:title" content="作用域，作用域链，域解析">
 <meta name="twitter:description" content="JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context） `执行环境：`JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，`它定义了变量或函数是否有权访问其他数据，决定各自行为。`">
 <meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/ec-stack.png">
 
@@ -64,7 +64,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>js的基础知识 | 陈玉的博客</title>
+<title>作用域，作用域链，域解析 | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -294,7 +294,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js的基础知识
+      作用域，作用域链，域解析
     </h1>
   
 
@@ -421,12 +421,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/18/作用域，作用域链，域解析/">js的基础知识</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
         <p><span>发布时间:</span>2016-08-18, 10:30:11</p>
-        <p><span>最后更新:</span>2016-09-18, 16:00:00</p>
+        <p><span>最后更新:</span>2016-09-18, 16:02:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/18/作用域，作用域链，域解析/" title="js的基础知识">http://yoursite.com/2016/08/18/作用域，作用域链，域解析/</a>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/18/作用域，作用域链，域解析/" title="作用域，作用域链，域解析">http://yoursite.com/2016/08/18/作用域，作用域链，域解析/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/08/18/作用域，作用域链，域解析/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -496,7 +496,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"js的基础知识　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"作用域，作用域链，域解析　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -530,7 +530,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">js的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
 
 
 
