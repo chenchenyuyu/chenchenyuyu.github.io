@@ -4,6 +4,107 @@
   
     
     <entry>
+      <title></title>
+      <url>http://yoursite.com/2016/09/18/%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%8C%E5%9F%9F%E8%A7%A3%E6%9E%90/</url>
+      <content type="html"><![CDATA[<p>title: js的基础知识<br>date: 2016-8-18 10:30:11<br>categories: JavaScript<br>tags: [前端,前端基础知识,js]<br>description: “JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context）<br><code>执行环境：</code>JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，<code>它定义了变量或函数是否有权访问其他数据，决定各自行为。</code>“</p>
+<h1 id="作用域，作用域链，域解析"><a href="#作用域，作用域链，域解析" class="headerlink" title="作用域，作用域链，域解析"></a>作用域，作用域链，域解析</h1><h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context）<br><code>执行环境：</code>JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，<code>它定义了变量或函数是否有权访问其他数据，决定各自行为。</code></p>
+<blockquote>
+<p>而且每个执行环境都会有一个就是变量对象VO（variable object），环境中<code>变量和函数声明保存在VO中。</code><br><code>注意</code>，函数表达式（与函数声明相对）不包含在变量对象之中。，在代码执行开始，会进入不同的执行环境，这些执行环境共同构成了一个执行环境栈。<br>如果这个环境是函数，则将其活动对象AO(activation object)作为变量对象,活动对象最开始的两个属性是arguments和this<br><img src="http://obfnbicau.bkt.clouddn.com/ec-stack.png" alt="Alt text"></p>
+</blockquote>
+<p>在下个图中，拥有一些函数上下文EC1和全局上下文Global EC，当EC1进入和退出全局上下文的时候下面的栈将会发生变化：<br><img src="http://obfnbicau.bkt.clouddn.com/ec-stack-changes.png" alt="Alt text"></p>
+<p>JS中一共有三种执行环境：</p>
+<ol>
+<li><p>全局执行环境（Global code）   JS代码开始运行时默认的<br>即全局的、不在任何函数里面的代码，例如：一个js文件、嵌入在HTML页面中的js代码等<br><code>注意：</code></p>
+<ul>
+<li>保存在全局执行环境中的所有变量和函数，当其应用程序退出，如：关闭网页或浏览器时被销毁</li>
+</ul>
+<ul>
+<li>全局执行环境是window的对象（所有全局函数和变量都是作为window的属性和方法创建的）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">         var a=2;</div><div class="line">function setB()&#123;</div><div class="line">	return 123;</div><div class="line">&#125;</div><div class="line">console.log(a);</div><div class="line">console.log(setB());</div><div class="line">console.log(window.a);</div><div class="line">console.log(window.setB());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>函数执行环境（Function code） 代码进入了一个函数<br>每个函数有自己的执行环境，有相应的执行栈</p>
+</li>
+</ol>
+<ul>
+<li><p>函数里的局部作用域里的变量替换全局变量，但作用域仅限在函数体内的这个环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">            var a=&apos;哈哈哈~&apos;;</div><div class="line">function setB()&#123;</div><div class="line">	a=&apos;啧啧&apos;;</div><div class="line">&#125;</div><div class="line">setB();</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过传参，可以替换函数体内的局部变量，但作用域仅限在函数体内的这个环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">           var a=&apos;哈哈哈~&apos;;</div><div class="line">function setB(a)&#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">setB(&apos;嗯嗯&apos;);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数体内还包含有函数，只有通过外层函数，才能访问内层函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">      var a=1;</div><div class="line">function setA()&#123;</div><div class="line">	function setB()&#123;</div><div class="line">		var b=2;</div><div class="line">		console.log(a);</div><div class="line">		console.log(b);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	setB()</div><div class="line">&#125;</div><div class="line">setA();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>eval()方法执行代码<br>eval()就像是一个完整的ECMAScript解析器，只接受一个参数，即要执行的ECMAScript（或JavaScript）字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eval(&quot;console.log(&apos;哈哈&apos;)&quot;);</div><div class="line">等价于</div><div class="line">console.log(&apos;哈哈&apos;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过eval()执行的代码被认为是包含该次调用的执行环境的一部分，因此被执行的代码具有与该执行环境相同的作用域链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&quot;function sayHi()&#123;console.log(&apos;hi&apos;);&#125;&quot;);</div><div class="line">sayHi();</div></pre></td></tr></table></figure></p>
+<p>严格模式下，访问不到eval()中创建的任何变量和函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;;</div><div class="line">eval(&quot;function sayHi()&#123;console.log(&apos;hi&apos;);&#125;&quot;);</div><div class="line">sayHi();</div></pre></td></tr></table></figure></p>
+<p>应用：JSON解析器<br>危险：代码注入！！！（用户输入数据）</p>
+<p>[TOC]</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><code>域：</code>空间，范围，区域…<br><code>作用：</code>读，写<br>作用域（scope）。在很多语言中（C++，C#，Java），作用域都是通过代码块（由{}包起来的代码）来决定的，但是，在JavaScript作用域是跟函数相关的，也可以说成是function-based。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">      function test(o)&#123;</div><div class="line">	var i=0;</div><div class="line">	if(typeof o==&quot;object&quot;)&#123;</div><div class="line"></div><div class="line">		var j=0;</div><div class="line">		for(var k=0;k&lt;10;k++)&#123;</div><div class="line">			console.log(k);</div><div class="line">		&#125;</div><div class="line">		console.log(k);		</div><div class="line">	&#125;</div><div class="line">	console.log(j);</div><div class="line">&#125;</div><div class="line">var obj=new Object();</div><div class="line">	test(obj);</div></pre></td></tr></table></figure></p>
+<ol>
+<li>全局作用域中的对象可以在代码的任何地方访问，一般来说，下面情况的对象会在全局作用域中： <ul>
+<li>最外层函数和在最外层函数外面定义的变量  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 最外层函数和在最外层函数外面定义的变量  </div><div class="line">  		var a = &quot;out&quot;; //最外层变量</div><div class="line">		function outFn() &#123; //最外层函数</div><div class="line">      	var b = &quot;in&quot;;</div><div class="line">    	function inFn() &#123; //内层函数</div><div class="line">        console.log(b);</div><div class="line">    	&#125;</div><div class="line">   		 inFn();</div><div class="line">		&#125;</div><div class="line">		console.log(a); //我是最外层变量</div><div class="line">		outFn(); </div><div class="line">		console.log(b); //in is not defined</div><div class="line">		inFn(); //inFn is not defined</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>没有通过关键字”var”声明的变量 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function outFn2() &#123;</div><div class="line">   		a = &quot;未定义&quot;;</div><div class="line">    	var  a1 = &quot;内层变量2&quot;;</div><div class="line">		&#125;</div><div class="line">		outFn2();</div><div class="line">		//要先执行这个函数，否则根本不知道里面是啥</div><div class="line">		console.log(a); //未定义直接赋值的变量</div><div class="line">		console.log(a1); //inVariable2 is not defined</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>浏览器中，window对象的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window对象的内置属性都拥有全局作用域，</div><div class="line">如: window.name、window.location、window.top 等</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>局部作用域(函数作用域)所有的变量和函数只能在作用域内部使用。函数在声明它们的函数体以及这个函数体嵌套的任意函数内都是有定义的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var foo = 1; </div><div class="line">window.bar = 2;</div><div class="line">function baz()&#123; a = 3; var b = 4; &#125; </div><div class="line">// Global scope: foo, bar, baz, a</div><div class="line">// Local scope: b</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>函数声明提前：<br>js的函数作用域是指在函数内声明的所有变量在函数内始终都是可以见，意味着变量在声明之前就可以使用了，这个特性被非正式命名为<code>声明提前</code>即：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">         var a=1;</div><div class="line">function fn1()&#123;</div><div class="line">	console.log(a);//???</div><div class="line">	var a=2;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">fn1();</div><div class="line">console.log(a);</div><div class="line">-------------------------------------------------</div><div class="line">         var a=1</div><div class="line">function fn1()&#123;</div><div class="line">var a;//在函数顶部声明了局部变量</div><div class="line">console.log(a);//变量存在，但其值是&quot;undefined&quot;</div><div class="line">a=2;</div><div class="line">console.log(a);</div><div class="line">&#125;</div><div class="line">fn1();</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="作用域链-scope-chain"><a href="#作用域链-scope-chain" class="headerlink" title="作用域链(scope chain)"></a>作用域链(scope chain)</h2><p>当代码在一个环境中执行时，会创建变量对象的一个作用域链（是保证对执行环境有权访问的的所有变量和函数的<code>有序访问</code>），<code>这个作用域链是一个对象列表或者链表，这组对象定义了代码“作用域”中的变量</code><br><code>创建规则：</code><br>作用域链的前端，始终都是当前执行的代码<br>作用域链中的下一个变量对象，来自包含（外部环境）<br>而再下一个对象来自下一个包含环境<br>一直延续到全局执行环境（全局执行坏境的对象始终都是作用域链中的最后一个对象）</p>
+<p> 一个函数创建时，javascript后台(引擎)会默认创建一个仅供后台使用的内部属性[[Scope]]，此属性存储函数的作用域链，如果是全局函数，此时则包含一个变量对象(全局变量)，如果是嵌套函数(闭包)，作用域链还加上了父函数的变量对象。例如下面的这个全局函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function add(num1,num2)&#123;</div><div class="line">   var sum = num1 + num2;</div><div class="line">   return sum;</div><div class="line">&#125;</div><div class="line">var total=add(5,10);</div><div class="line">console.log(total);</div></pre></td></tr></table></figure></p>
+<p><img src="http://obfnbicau.bkt.clouddn.com/r_%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%97%B6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.jpg" alt="Alt text"></p>
+<p>b) 函数被调用时–add(5,10)，javascript后台会创建一个内部对象(execution context)–“执行环境”或“运行期上下文”，活动对象作为函数执行期的一个变量对象，包含所有局部变量(在函数内定义的)、命名参数、arguments、this，它会被推入到执行环境作用域链的前端(如下图)。每执行一次函数都会创建一个新的执行环境，当函数执行完毕执行环境就会被销毁。</p>
+<p><img src="http://obfnbicau.bkt.clouddn.com/2012061700395832.jpg" alt="Alt text"></p>
+<p>图中矩形表示特定的环境。其中内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部变量环境中的任何变量和函数。这些环境之间的联系是线性的，有次序的。每个环境变量都可以向上搜索作用域链，以查询变量和函数名；反之则是不行。<code>注意:</code>函数参数也被当作变量来对待，因此其访问规则与执行环境中的其他变量相同。</p>
+<p><img src="http://obfnbicau.bkt.clouddn.com/scope_chain.jpg" alt="Alt text"></p>
+<blockquote>
+<p>查询标识符(标识符指的是：变量名称，函数声明，形参，等等。)：标示符的解析是沿着作用域链一级一级的搜索标示符的过程，搜索过程都是从作用域链的前端开始，然后逐级向后回溯，直到找到标识符为止<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var color=&quot;blue&quot;;</div><div class="line">function getColor()&#123;</div><div class="line">return color;</div><div class="line">&#125;</div><div class="line">console.log(getColor());//&quot;blue&quot;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="http://obfnbicau.bkt.clouddn.com/%E6%A0%87%E7%A4%BA%E7%AC%A6.jpg" alt="Alt text"></p>
+<p>[TOC]</p>
+<h2 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h2><p>try-catch语句的catch块<br>with语句<br>  这两个语句都会在原本的作用域链的前端添加一个变量对象。对于with语句来说，新添加的变量对象包含着with括号中指定对象的所有属性和方法所作的变量声明。对于catch来说，当try块发生错误时，代码执行流程自动转入到catch块，并将异常对象推入到作用域链的前端。catch块执行完毕后，作用域链就会返回原来的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function initUI()&#123;</div><div class="line">   with(document)&#123;</div><div class="line">        var bd = body,</div><div class="line">        links =  getElementsByTagName(&quot;a&quot;),</div><div class="line">        i = 0,</div><div class="line">        len = links.length;</div><div class="line">        while(i&lt;len)&#123;</div><div class="line">              update(links[i++]);</div><div class="line">        &#125;</div><div class="line">        getElementById(&quot;go-btn&quot;).onclick = function()&#123;</div><div class="line">              start();</div><div class="line">        &#125;;</div><div class="line">        bd.className = &quot;active&quot;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当代码流执行到一个with表达式时，执行环境的作用域链会被临时改变，此时with的变量对象会被创建添加到作用域链的前端，这就意味着此时函数的所有局部变量都被推入到第二个作用域链中的变量对象，如下图：<br><img src="http://obfnbicau.bkt.clouddn.com/2012061812093041.gif" alt="Alt text"></p>
+<p><code>注意：</code>在执行with语句时，访问局部变量的代价更高了。所以尽可能避免使用with语句，可以使用局部变量代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var doc = document; // 代替with(document)&#123;...&#125;</div></pre></td></tr></table></figure></p>
+<p>[TOC]</p>
+<p>##域解析<br>浏览器：</p>
+<ol>
+<li><p>预解析：<br>“js解析器”<br>“找一些东西”：var， function<br>，参数<br>a=未定义<br>所有的变量，在正式运行代码之前，都提前赋了一个值（未定义）<br>fn1=function fn1(){console.log(1);}<br>所有的函数，在正式运行代码之前，都是<code>整个函数块</code><br><code>注意：</code>遇到重名，变量和函数重名，就留下函数，与上下文没有关系，注只先找var ，function声明的，函数重名，则采用覆盖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">var a=2;</div><div class="line">function fn1()&#123;</div><div class="line">console.log(1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>逐行解读代码<br>表达式：= + -* / ++ –！ 参数</p>
+</li>
+</ol>
+<ul>
+<li>表达式可以修改预解析的值！</li>
+<li>函数调用：<br>同理函数作用域也发生：<br>1.预解析和2.逐行解读代码<br>函数：由里到外（作用域链）<br>如：var a=1;改预解析里面的<br>a=function fn1(){console.log(a);}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(a);//不会从下面取值，直接从预解析的仓库里取出undefined</div><div class="line">var a=2;</div><div class="line">console.log(a);</div><div class="line">function fn1()&#123;</div><div class="line">console.log(1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考链接：<br><a href="http://www.cnblogs.com/leolai/archive/2012/06/17/2552326.html" target="_blank" rel="external">https://gaohaoyang.github.io/2015/05/20/scope/</a></p>
+<p><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context" target="_blank" rel="external">http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context</a></p>
+<p>参考资料：<br>javaScript高级程序设计<br>javaScript权威指南</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript的基础知识]]></title>
       <url>http://yoursite.com/2016/09/18/JavaScript%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/</url>
       <content type="html"><![CDATA[<h1 id="JavaScript实现继承"><a href="#JavaScript实现继承" class="headerlink" title="JavaScript实现继承"></a>JavaScript实现继承</h1><ol>
