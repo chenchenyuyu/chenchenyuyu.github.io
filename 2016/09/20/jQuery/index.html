@@ -1,12 +1,320 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="陈玉" />
+
+
+
+<meta name="description" content="jQuery 是一个 JavaScript 库。jQuery 极大地简化了 JavaScript 编程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/jQuery/index.html">
+<meta property="og:site_name" content="陈玉的博客">
+<meta property="og:description" content="jQuery 是一个 JavaScript 库。jQuery 极大地简化了 JavaScript 编程。">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/jQuery%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.PNG">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/jQuery%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8.PNG">
+<meta property="og:updated_time" content="2016-11-05T16:35:56.464Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery">
+<meta name="twitter:description" content="jQuery 是一个 JavaScript 库。jQuery 极大地简化了 JavaScript 编程。">
+<meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/jQuery%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.PNG">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="陈玉的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>jQuery | 陈玉的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈玉</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps/">ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/协议/">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈玉</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈玉</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/09/20/jQuery/" class="article-date">
+      <time datetime="2016-09-20T01:30:12.000Z" itemprop="datePublished">2016-09-20</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
     
-    <entry>
-      <title><![CDATA[jQuery]]></title>
-      <url>http://yoursite.com/2016/09/20/jQuery/</url>
-      <content type="html"><![CDATA[<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.1.0.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			alert(&quot;hello world!&quot;);</div><div class="line">		&#125;);</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			alert(&quot;哇!&quot;);</div><div class="line">		&#125;);</div><div class="line">		$(function()&#123;</div><div class="line">			alert(&quot;哇哦!&quot;);</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.1.0.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			alert(&quot;hello world!&quot;);</div><div class="line">		&#125;);</div><div class="line">		$(document).ready(function()&#123;</div><div class="line">			alert(&quot;哇!&quot;);</div><div class="line">		&#125;);</div><div class="line">		$(function()&#123;</div><div class="line">			alert(&quot;哇哦!&quot;);</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>##jQuery代码风格</p>
 <ol>
 <li>链式操作风格</li>
@@ -271,378 +579,209 @@ $(&apos;tbody&gt;tr:has(:checked)&apos;).addClass(&quot;selected&quot;);
 <p>//无参数传递，则是get方式<br>$(“$resText”).load(“test.php”,function(){<br>});<br>//有参数传递，则是；post方式<br>$(“#resText”).load(“test.php”,{name:”rain”,age:”22” },function(){<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">（4）回调参数</div><div class="line">对于 必须在加载完成后才能继续的操作，load()方法提供了回调函数（callback），该函数有3个参数分别代表请求返回的内容，请求状态，和XMLHttpRequeat对象。</div></pre></td></tr></table></figure></p>
 <p>$(“#resText”).load(“test.php”,function(responseText,textStatus,XMLHttpRequest){<br>//responseText请求返回的内容<br>//textStatus请求返回的状态<br>//XMLHttpRequest：XMLHttpRequest对象<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">6.  $.get()方法和 $ . post()方法</div><div class="line">（1）$.get()方法</div><div class="line">使用get方式来进行异步请求</div><div class="line">$.get(url [,data] [,callback][,type])</div><div class="line">![Alt text](http://obfnbicau.bkt.clouddn.com/$get%28%29%E6%96%B9%E6%B3%95.PNG)</div><div class="line">（2）$.post()方法</div><div class="line">&gt;GET与POST方式的区别</div><div class="line">* get请求会将参数跟在URL后进行传递，而post请求则是作为http消息的实体内容发送Web服务器，当然在ajax请求中，这种区别是对用户不可见的</div><div class="line">* get方式对传输的数据有大小限制（一般不大于2kb）而使用post方式传递的数据量比get大（一般不受限制）</div><div class="line">* get方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据（账号，密码等），而post方式不会</div><div class="line">* get方式和post方式传递的数据在服务器端的获取也不相同。在PHP中get的数据可以用 $_ GET[]获取，而post方式可以用$_post[]获取,两种可以用$_REQUEST[]来获取</div><div class="line">7. $.getScript()方法和$.getJson()方法</div><div class="line">&gt;JSONP(JavaScript with Padding )是一个</div><div class="line">8. $.ajax(options)该方法只有一个参数</div><div class="line">###序列化元素</div><div class="line">1. serialize()方法</div><div class="line">2. serializeArray()方法</div><div class="line">该方法不是返回字符串，而是将，DOM元素序列化之后，返回json格式的数据</div><div class="line">3. $.param()方法</div><div class="line">它是serialize()方法的hexin，用来对一个数组或者一个对象按照key/value进行序列化。</div><div class="line">```var obj=&#123;a:1,b:2,c:3&#125;;</div><div class="line">	var k=$.param(obj);</div><div class="line">   console.log(k);</div><div class="line">   //a=1&amp;b=2&amp;c=3</div></pre></td></tr></table></figure></p>
 <p>###禁用缓存<br>问题：数据已经更新了，但传递的还是以前的数据<br>解决：应该禁用缓存<br>如果是$.post方法获取的数据，那么默认就是禁用缓存的，如果是$.get()方法，可以设置时间戳来避免缓存，可以在URL的后面加上+(+new Date)<br>(+new Date)的等价于new Date().getTime()<br>不用随机数的原因：因为随机数对于一台电脑来说，在大量使用之后出现重复的概率会很大，而时间戳不会。<br>如果是使用了$.ajax()方法来获取数据，只需要设置cache:false即可，<code>注意：</code>false是布尔值，而不是字符串。</p>
-]]></content>
-    </entry>
+
+      
+    </div>
     
-    <entry>
-      <title><![CDATA[JavaScript的基础知识]]></title>
-      <url>http://yoursite.com/2016/09/18/JavaScript%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/</url>
-      <content type="html"><![CDATA[<h1 id="JavaScript实现继承"><a href="#JavaScript实现继承" class="headerlink" title="JavaScript实现继承"></a>JavaScript实现继承</h1><ol>
-<li>原型链</li>
-</ol>
-<ul>
-<li>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法</li>
-<li>构造函数，原型和实例三者之间的关系：每一个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针（constructor属性，这个属性包含一个指向prototype属性所在的函数指针，而实例都包含一个指向原型对象的内部指针）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//原型链</div><div class="line">	function SuperType()&#123;</div><div class="line">		this.property=true;</div><div class="line">	&#125;</div><div class="line">	SuperType.prototype.getSuperValue=function()&#123;</div><div class="line">		return this.property;</div><div class="line">	&#125;;</div><div class="line">	function SubType()&#123;</div><div class="line">		this.subproperty=false;</div><div class="line">	&#125;</div><div class="line">	SubType.prototype=new SuperType();</div><div class="line">	SubType.prototype.getSubValue=function()&#123;</div><div class="line">		return this.subproperty;</div><div class="line">	&#125;</div><div class="line">	var instance=new SubType();</div><div class="line">	console.log(instance.getSuperValue());</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>借用构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">借用构造函数</div><div class="line">	function SuperType()&#123;</div><div class="line">		this.colors=[&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">	&#125;</div><div class="line">	function Subtype()&#123;</div><div class="line">		SuperType.call(this);</div><div class="line">		//实现继承</div><div class="line">	&#125;</div><div class="line">	var instance1=new Subtype();</div><div class="line">	instance1.colors.push(&quot;black&quot;);</div><div class="line">	console.log(instance1.colors);</div><div class="line">	//[&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]</div><div class="line">	var instance2=new Subtype();</div><div class="line">	console.log(instance2.colors);</div><div class="line">	[&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]</div></pre></td></tr></table></figure>
-</li>
-<li><p>借用构造函数传递参数的情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">传递参数</div><div class="line">function SuperType(name)&#123;</div><div class="line"> this.name=name;	</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	SuperType.call(this,&quot;chenyu&quot;);</div><div class="line">	this.age=29;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance=new SubType();</div><div class="line">console.log(instance.name);</div><div class="line">//chenyu</div><div class="line">console.log(instance.age);</div><div class="line">29</div></pre></td></tr></table></figure>
-</li>
-<li><p>组合继承</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">组合继承</div><div class="line">function SuperType(name)&#123;</div><div class="line">	this.name=name;</div><div class="line">	this.colors=[&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName=function()&#123;</div><div class="line">	console.log(this.name);</div><div class="line">&#125;;</div><div class="line">function SubType(name,age)&#123;</div><div class="line">	SuperType.call(this,name);</div><div class="line">	this.age=age;</div><div class="line">&#125;</div><div class="line">//继承方法</div><div class="line">SubType.prototype=new SuperType();</div><div class="line">SubType.prototype.constructor=SubType;</div><div class="line">SubType.prototype.sayAge=function()&#123;</div><div class="line">	console.log(this.age);</div><div class="line">&#125;</div><div class="line">var instance1=new SubType(&quot;chenyu&quot;,20);</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">console.log(instance1.colors);</div><div class="line">//&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]</div><div class="line">instance1.sayName();</div><div class="line">//chenyu</div><div class="line">instance1.sayAge();</div><div class="line">//20</div></pre></td></tr></table></figure>
-</li>
-<li><p>寄生式继承</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">寄生式继承</div><div class="line">function object(o)&#123;</div><div class="line">	function F()&#123;&#125;//临时性的构造函数</div><div class="line">	F.prototype=o;//吧传入的参数给构造函数的原型</div><div class="line">	return new F();//返回函数创造的新实例</div><div class="line"></div><div class="line">&#125;</div><div class="line">var person=&#123;</div><div class="line">	name:&quot;chenyu&quot;,</div><div class="line">	friends:[&quot;haha&quot;,&quot;enen&quot;,&quot;yeye&quot;]</div><div class="line">&#125;</div><div class="line">//创建两个person的副本对其对象进行修改</div><div class="line">var anotherPerson=object(person);</div><div class="line">anotherPerson.name=&quot;chenyu&quot;;</div><div class="line">anotherPerson.friends.push(&quot;bob&quot;);</div><div class="line">var anotherPerson1=object(person);</div><div class="line">anotherPerson1.name=&quot;chenqian&quot;;</div><div class="line">anotherPerson1.friends.push(&quot;fighting&quot;);</div><div class="line">console.log(person.friends);</div><div class="line">//[&quot;haha&quot;, &quot;enen&quot;, &quot;yeye&quot;, &quot;bob&quot;, &quot;fighting&quot;]</div><div class="line"></div><div class="line">&gt; //es5的Object.creat()方法实现寄生式继承。原理与object()方法的效果一样</div><div class="line">var person=&#123;</div><div class="line">	name:&quot;chenyu&quot;,</div><div class="line">	friends:[&quot;yulin&quot;,&quot;langxiaoju&quot;,&quot;wnagju&quot;,&quot;chenzihan&quot;]</div><div class="line">&#125;;</div><div class="line">var anotherPerson=Object.create(person);</div><div class="line">anotherPerson.name=&quot;a&quot;;</div><div class="line">anotherPerson.friends.push(&quot;zeze&quot;);</div><div class="line">console.log(person.friends);</div><div class="line"></div><div class="line">var anotherPerson1=Object.create(person);</div><div class="line">anotherPerson1.name=&quot;b&quot;;</div><div class="line">anotherPerson1.friends.push(&quot;enen&quot;);</div><div class="line">console.log(person.friends);</div><div class="line">console.log(person.name);</div><div class="line">console.log(anotherPerson1.name);</div></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[图解http知识总结]]></title>
-      <url>http://yoursite.com/2016/09/10/%E5%9B%BE%E8%A7%A3http%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<h1 id="图解http知识总结"><a href="#图解http知识总结" class="headerlink" title="图解http知识总结"></a>图解http知识总结</h1><p>[TOC]</p>
-<h2 id="HTTP-1-1虽然是无状态协议，"><a href="#HTTP-1-1虽然是无状态协议，" class="headerlink" title="HTTP/1.1虽然是无状态协议，"></a>HTTP/1.1虽然是无状态协议，</h2><p>但为了实现期望的保持状态功能，于是引入了Cookie技术。有cookie再用http协议通信，就可以管理状态了。</p>
-<h2 id="HTTP-1-1的使用方法："><a href="#HTTP-1-1的使用方法：" class="headerlink" title="HTTP/1.1的使用方法："></a>HTTP/1.1的使用方法：</h2><ul>
-<li>GET:获取资源<br>GET方法用来请求访问已被URI识别的资源。指定的资源经服务器端解析后返回响应内容。也就是如果是请求的资源的是文本，那就保持原样返回。如果是CGI（通用网关接口）那样的程序，那返回经过执行后的输出结果。</li>
-<li>POST：传输实体主体<br>post方法用来传输实体的主体<br>虽然用get方法也可以传输实体的主体。但一般不用get方法进行传输。而是用post方法，虽说post的功能与get很相似，但post的主要目的并不是获取响应的主体内容。</li>
-</ul>
-<blockquote>
-<p>GET与POST方式的区别：<br>ＧＥＴ与ＰＯＳＴ请求提交方式<br>从性能上来讲post请求比get请求消耗更多一些，用相同数据比较，get最多比post快两倍</p>
-<ol>
-<li>在web程序上，get一般是URL提交请求如：demo.php?name=lee&amp;age=100<br>post 一般是web表单提交 如：<form method="post"><input type="text" name="name" value="bob"><input type="password" name="passqord"></form><br>两种头信息：查看方式：firebug-》网络</li>
-<li>响应头信息：服务器返回的信息，客户端可以获取，但不可以设置</li>
-<li>请求头信息：客户端发送的信息，客户端可以设置，但不可以获取<br>1-1解决中文乱码问题，ajax返回的数据其实是utf-8的，最简单解决措施，全部设置为utf-8<br>1-2特殊字符，需要通过encodeURLComponent来编码解决</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//get方式</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt; </div><div class="line"> addEvent(document,&apos;click&apos;,function()&#123;</div><div class="line">      var xhr=creatXHR();</div><div class="line">      var url=&apos;demo.php?rand=&apos;+Math.random();</div><div class="line">      url=params(url,&apos;name&apos;,&apos;lee&apos;);</div><div class="line">        url=params(url,&apos;age&apos;,100);</div><div class="line">        alert(url);</div><div class="line">      xhr.onreadystatechange=function()&#123;</div><div class="line">         if(xhr.readyState==4)&#123;</div><div class="line">       if(xhr.status==200)&#123;</div><div class="line">       //alert(xhr.getAllResponseHeaders()) ;//获取全部响应头信息</div><div class="line">       //alert(xhr.getResponseHeader(&apos;Content-Type&apos;));//获取单个响应头信息       </div><div class="line">               alert(xhr.responseText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;else&#123;</div><div class="line">   alert(&apos;获取数据错误！错误代号：&apos;+xhr.status+&apos;,错误信息：&apos;+xhr.statusText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line"></div><div class="line">      &#125;;</div><div class="line">    xhr.open(&apos;get&apos;,url+Math.random(),true);</div><div class="line">    xhr.send(null);</div><div class="line">    xhr.about();//取消异步请求，放在send（）之前会报错，放在responseText（）之前会得到一个空值</div><div class="line">&#125;);</div><div class="line"></div><div class="line">   function params(url,name,value)&#123;</div><div class="line">     url+=url.indexOf==-1?&apos;?&apos;:&apos;&amp;&apos;;</div><div class="line">     url+=encodeURLComponent(name)+&apos;=&apos;+encodeURLComponent(value);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line"></div><div class="line">//post方式</div><div class="line"></div><div class="line">addEvent(document,&apos;click&apos;,function()&#123;</div><div class="line">      var xhr=creatXHR();</div><div class="line">      var url=&apos;demo.php?rand=&apos;+Math.random();</div><div class="line">      url=params(url,&apos;name&apos;,&apos;lee&apos;);</div><div class="line">        url=params(url,&apos;age&apos;,100);</div><div class="line">        alert(url);</div><div class="line">      xhr.onreadystatechange=function()&#123;</div><div class="line">         if(xhr.readyState==4)&#123;</div><div class="line">       if(xhr.status==200)&#123;</div><div class="line">       //alert(xhr.getAllResponseHeaders()) ;//获取全部响应头信息</div><div class="line">       //alert(xhr.getResponseHeader(&apos;Content-Type&apos;));//获取单个响应头信息       </div><div class="line">               alert(xhr.responseText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;else&#123;</div><div class="line">   alert(&apos;获取数据错误！错误代号：&apos;+xhr.status+&apos;,错误信息：&apos;+xhr.statusText);</div><div class="line"></div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line"></div><div class="line">      &#125;;</div><div class="line">    xhr.open(&apos;post&apos;,url,true);//第一步改为post</div><div class="line">    xhr.setRequestHeader(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencoded&apos;);//第三步模仿表单提交</div><div class="line">    xhr.send(&apos;name=Lee&amp;age=100&apos;);//第二步将名值放入send（）方法里</div><div class="line">    xhr.about();//取消异步请求，放在send（）之前会报错，放在responseText（）之前会得到一个空值</div><div class="line">&#125;);</div><div class="line"></div><div class="line">   function params(url,name,value)&#123;</div><div class="line">     url+=url.indexOf==-1?&apos;?&apos;:&apos;&amp;&apos;;</div><div class="line">     url+=encodeURLComponent(name)+&apos;=&apos;+encodeURLComponent(value);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>PUT:传输文件</li>
-<li>PUT方法用来传输文件。就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存在URI指定的位置。（存在安全性）</li>
-<li>HEAD:获取报文首部<br>HEAD方法和GET方法一样，只是不返回报文主体部分。用于确认URI的有效性以及资源的更新的日期时间等。</li>
-<li>DELETE：删除文件<br>DELETE方法用来删除文件，是与PUT相反的方法。DELETE方法按请求URI删除指定的资源。</li>
-<li>OPTIONS:询问支持的方法<br>OPTIONS方法用来查询针对请求URI指定的资源支持的方法。</li>
-<li>TRACE:追踪路径<br>TRACE方法是让WEB服务器端将之前的请求通信环回给客户端的方法</li>
-<li>CONNECT:要求用隧道协议链接代理<br>CONNECT方法要求与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL（安全套接层）和TLS（传输层安全）协议把通信内容加密后经过网络隧道进行传输。<h2 id="使用Cookie的状态管理"><a href="#使用Cookie的状态管理" class="headerlink" title="使用Cookie的状态管理"></a>使用Cookie的状态管理</h2>HTTP是无状态的协议，它不对之前发生过得请求和响应的状态进行管理，也就是说，无法根据之前的状态进行本次的请求处理。<br>（假设要求登录认证的Web页面本身无法进行状态的管理即不记录已登录的状态，那么每次跳转新页面不是要再次登录，就是要在每次请求报文中附加参数来管理登录状态）<br>Cookie会根据从服务器端发送的响应报文中写入Cookie信息来控制客户端的状态。</li>
-</ul>
-<h2 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h2><p>缓存是指代理服务器或客服端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</p>
-<ol>
-<li>缓存的有效时期</li>
-<li>客户端的缓存<br>##为Cookie服务的首部字段<br>Cookie的工作机制用户识别以及状态管理。</li>
-<li>为Cookie服务的首部字段 </li>
-</ol>
-<ul>
-<li>Set-Cookie（响应首部字段 ）:开始状态管理所使用的Cookie信息</li>
-<li>Cookie（请求首部字段）:服务器接受到的Cookie信息</li>
-</ul>
-<ol>
-<li>Set-Cookie字段的属性</li>
-</ol>
-<ul>
-<li>expires属性（=DATE）Cookie的有效日期（若不明确指定则默认为浏览器关闭前为止）<br><code>注意：</code>一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显示删除Cookie的方法。但可以通过覆盖已过期的Cookie，实现对客户端的Cookie的实质性的删除操作。<br>＊path属性（=PATH）将服务器上的文件目录作为Cookie的适用对象（若不能指定则默认为文档所在的而文件目录）</li>
-<li>domain（=域名）作为Cookie适用对象的域名，（若不指定则默认为常见Cookie的服务器的域名）<br>（不指定域名显得更加安全）</li>
-<li><p>secure属性（只写上secure即可）仅在HTTPS安全通信时才会发送Cookie</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:name=value;secure</div></pre></td></tr></table></figure>
-</li>
-<li><p>HttpOnly属性，其主要目的是为防止跨站脚本攻击（XSS）对Cookie的信息窃取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:name=value;HttpOnly</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="HTTP的缺点"><a href="#HTTP的缺点" class="headerlink" title="HTTP的缺点"></a>HTTP的缺点</h2><ul>
-<li>通信使用明文（不加密），内容可能会被窃听</li>
-<li>不验证通信方的身份，因此有可能遭遇伪装</li>
-<li>无法证明报文的完整性，所以有可能已遭到篡改</li>
-<li>窃听：对于收集互联网上的流动数据包（帧）解析工作，可交给抓包（Packet Capture）或者嗅探器（Sniffer）工具，如常见的：Wireshark</li>
-</ul>
-<ol>
-<li>通信加密：HTTP协议没有加密机制，但可以通过SSL（安全套接层）或者TLS（安全层传输协议）的组合使用，加密HTTP的通信内容。（HTTP与SSL的组合使用被称为HTTPS（HTTP Secure），超文本传输安全协议）</li>
-<li>HTTP+加密+认证+完整性保护=HTTPS<h2 id="为什么不一直使用HTTPS"><a href="#为什么不一直使用HTTPS" class="headerlink" title="为什么不一直使用HTTPS"></a>为什么不一直使用HTTPS</h2>原因：与纯文本通信相比，加密通信会消耗更多的资源（购买证书等）<h2 id="基于HTTP的功能的追加协议"><a href="#基于HTTP的功能的追加协议" class="headerlink" title="基于HTTP的功能的追加协议"></a>基于HTTP的功能的追加协议</h2></li>
-<li>Ajax的解决办法<br>是一种有效利用js和DOM的操作，以达到Web页面替换加载的异步通信手段。只更新页面的部分内容。</li>
-<li>Comet的解决办法<br>一旦服务器端有内容更新，Comet不会让请求等待，而是直接给客户端返回响应。这是一种通过延迟应答，模拟实现服务器端向客服端推送的功能。</li>
-<li>使用浏览器进行全双工通信的WebSocket<h2 id="与Web服务器及程序协作的CGI"><a href="#与Web服务器及程序协作的CGI" class="headerlink" title="与Web服务器及程序协作的CGI"></a>与Web服务器及程序协作的CGI</h2>CGI（通用网关接口）是指Web服务器在接受到客户端发送过来的请求后转发给程序的一组机制。在CGI的作用下，程序会对请求内容做出相应的动作，使用CGI的程序叫做CGI程序，通常用Perl,php,ruby和c等编程语言编写而成。<h2 id="因Java而普及的Servlet"><a href="#因Java而普及的Servlet" class="headerlink" title="因Java而普及的Servlet"></a>因Java而普及的Servlet</h2>（Servlet=Server+Applet）表示轻量服务程序<br>Servlet是一种能子服务器上创建动态内容的程序。Servlet是用Java语言实现的一个接口，属于企业级Java（JavaEE，JavaEnterprise Edition）的一部分<br>（Servlet常驻内存，因此每次请求的时，可启动相对进程级别更为轻量的Servlet，程序的执行效率从而变的更高）<h2 id="Web的攻击技术"><a href="#Web的攻击技术" class="headerlink" title="Web的攻击技术"></a>Web的攻击技术</h2>对Web应用的攻击模式有两种：主动攻击，被动攻击</li>
-<li>以服务器为目标的主动攻击<br>主动攻击：是指攻击者通过直接访问Web应用，把攻击代码传入的攻击模式。由于该模式是直接针对服务器上的资源进行攻击，因此攻击者需要能够访问到那些资源。</li>
-<li>以服务器为目标的被动攻击<br>被动攻击：指利用圈套策略执行攻击代码的攻击模式。在被动攻击的过程中，攻击者不直接对目标Web应用访问发起攻击。</li>
-<li>因输出值转义不完全引发的安全漏洞<br>实施Web应用的安全对策课分为两个部分。</li>
-</ol>
-<ul>
-<li>客户端的验证</li>
-<li>Web应用端（服务器端）的验证</li>
-<li>输入值验证</li>
-<li>输出值转义</li>
-</ul>
-<ol>
-<li>跨站脚本攻击（XSS）指通过存在安全漏洞的Web网站注册用户的浏览器内运行非法的HTML标签或js进行的一种攻击。<br>影响：</li>
-</ol>
-<ul>
-<li>利用虚假输入表单骗取用户的个人信息</li>
-<li>利用脚本窃取用户Cookie值，被害者在不知情的情况下，帮助攻击者发送恶意请求。</li>
-<li>显示伪造的文章或图片</li>
-</ul>
-<ol>
-<li>对用户Cookie的窃取攻击</li>
-<li>SOL注入攻击<br>（1）会执行非法SQL的SQL注入攻击<br>影响:</li>
-</ol>
-<ul>
-<li>非法查看或篡改数据库内的数据</li>
-<li>规避认证</li>
-<li>执行和数据库服务器业务关联的程序等</li>
-<li>SQL注入攻击破坏SQL语句结构的案例</li>
-</ul>
-<ol>
-<li>OS命令注入攻击<br>指通过Web应用，执行非法的操作系统命令达到攻击目的。只要在能调用Shell函数的地方就有存在被攻击的风险。</li>
-<li>HTTP首部注入攻击<br>是指攻击者通过在响应首部字段内插入换行，添加任意响应首部或者主体的一种攻击。属于被动攻击模式。 向首部主题内添加内容的攻击称为HTTP响应截断攻击。<br>影响：</li>
-</ol>
-<ul>
-<li>设置任何Cookie信息</li>
-<li>重定向至任意URL</li>
-<li>显示任意的主体（HTTP响应截断攻击）</li>
-</ul>
-<ol>
-<li>HTTP响应截断攻击</li>
-<li>邮件首部注入攻击</li>
-<li>目录遍历攻击</li>
-<li>远程文件包含漏洞</li>
-<li>因设置或设计上的缺陷引发的安全漏洞</li>
-<li>不正确的错误消息处理</li>
-<li>开放重定向</li>
-<li>因会话管理疏忽引发的安全漏洞</li>
-<li>会话固定攻击</li>
-<li>跨站点请求伪造（CSRF）</li>
-<li>其他安全漏洞</li>
-</ol>
-<ul>
-<li>密码破解（穷举法/暴力破解法，字典攻击）</li>
-<li>点击劫持</li>
-</ul>
-<ol>
-<li>DoS攻击<br>DoS攻击是一种让运行中的服务呈停止状态的攻击，有时也叫做服务停止攻击或者拒绝服务攻击。<br>DoS攻击方式：</li>
-</ol>
-<ul>
-<li>集中利用访问请求造成资源过载，资源用尽的同时，实际上服务也呈停止状态。</li>
-<li>通过攻击安全漏洞使服务停止</li>
-</ul>
-<ol>
-<li>后台程序</li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[清除浮动]]></title>
-      <url>http://yoursite.com/2016/09/02/%E8%B0%88%E8%B0%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-      <content type="html"><![CDATA[<p>##浮动的原理<br>css样式中的浮动（float）属性主要有none，left<br>   和right 这三个属性值：</p>
-<ul>
-<li><blockquote>
-<p>float：none；设置页面中的元素对象不浮动，主要是将已经设置为浮动的元素改变为非浮动的元素</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>float:left将页面中的元素对象设置为左浮动。如果多个元素同时设置了该属性，那么将会形成一个从右到左的页面布局形式</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>float:right将页面中元素设置为右浮动，如果多个元素同时设置了该属性，那么将会形成一个从右到左的页面布局形式</p>
-<h2 id="清除浮动的方式："><a href="#清除浮动的方式：" class="headerlink" title="清除浮动的方式："></a>清除浮动的方式：</h2><ol>
-<li>利用br标签中的clear属性清除浮动<br><code>&lt;div class=&quot;float_box&quot;&gt;
-&lt;div class=&quot;float_left&quot;&gt;左浮动元素&lt;/div&gt;
-&lt;div class=&quot;float_right&quot;&gt;右浮动元素&lt;/div&gt;
-&lt;/div&gt;
-&lt;br clear=&quot;all&quot;/&gt;
-&lt;div class=&quot;no_float&quot;&gt;测试因为浮动导致该容器所处的位置&lt;/div&gt;</code><br>（出现问题：在FF浏览器中我们看到类名为float_box的div标签已经有背景色了，在IE浏览器中并非如此）<br>解决办法：<br><code>.float_box{
-background-color:#AAA;
-**zoom:1;**</code> <em>解决IE浏览器中haslayout的问题</em><br>}</li>
-<li>利用cs样式中的clear属性清除浮动<br>即把前面代码:<br class="clear_float"><br>改为<br class="clear_float"><br>对应css代码为：.clear_float{<br><strong>clear:both;</strong><br>}<br>可能出现问题与前面一样，解决办法相同设置：<strong>zoom：1</strong></li>
-<li>利用css样式中的overflow属性清除浮动<br><code>.float_box{
-overflow:hidden;
-background:#AAA;
-zoom:1;
-}</code></li>
-</ol>
-<ul>
-<li>overflow：visible；时，清除浮动只对IE有效</li>
-<li>overflow：hidden;虽然能解决清除浮动问题，<br>但可能会因为hidden的属性值将溢出的部分隐藏</li>
-<li>overflow：auto</li>
-</ul>
-<ol>
-<li>利用css样式中的display：table清除浮动<br><code>.float_box{
-display:table;
-background-color:#666;
-}</code><br>(不推荐使用)</li>
-<li>采用伪类：after后续控制的高度为0的为伪类层清除浮动<br><code>.float_box:after{
-clear:both;*清除伪类层以上的浮动*
-display:block;
-visibility:hidden;*设置伪类层内容为块元素且可见*
-height:0；
-line-height:0;*设置伪类层中的高度和行高为0*
-content:&quot;&quot;;*将伪类层中的内容清空*
-}</code></li>
-</ol>
-</blockquote>
-</li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[作用域，作用域链，域解析]]></title>
-      <url>http://yoursite.com/2016/08/18/%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%8C%E5%9F%9F%E8%A7%A3%E6%9E%90/</url>
-      <content type="html"><![CDATA[<h1 id="作用域，作用域链，域解析"><a href="#作用域，作用域链，域解析" class="headerlink" title="作用域，作用域链，域解析"></a>作用域，作用域链，域解析</h1><h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>JavaScript执行环境，也叫作JavaScript执行上下文（我百度翻译的(＾－＾)，英文名叫做execution context）<br><code>执行环境：</code>JavaScript代码都是在执行环境中被执行的。执行环境是一个概念，一种机制，用来完成JavaScript运行时在作用域、生命周期等方面的处理，<code>它定义了变量或函数是否有权访问其他数据，决定各自行为。</code></p>
-<blockquote>
-<p>而且每个执行环境都会有一个就是变量对象VO（variable object），环境中<code>变量和函数声明保存在VO中。</code><br><code>注意</code>，函数表达式（与函数声明相对）不包含在变量对象之中。，在代码执行开始，会进入不同的执行环境，这些执行环境共同构成了一个执行环境栈。<br>如果这个环境是函数，则将其活动对象AO(activation object)作为变量对象,活动对象最开始的两个属性是arguments和this<br><img src="http://obfnbicau.bkt.clouddn.com/ec-stack.png" alt="Alt text"></p>
-</blockquote>
-<p>在下个图中，拥有一些函数上下文EC1和全局上下文Global EC，当EC1进入和退出全局上下文的时候下面的栈将会发生变化：<br><img src="http://obfnbicau.bkt.clouddn.com/ec-stack-changes.png" alt="Alt text"></p>
-<p>JS中一共有三种执行环境：</p>
-<ol>
-<li><p>全局执行环境（Global code）   JS代码开始运行时默认的<br>即全局的、不在任何函数里面的代码，例如：一个js文件、嵌入在HTML页面中的js代码等<br><code>注意：</code></p>
-<ul>
-<li>保存在全局执行环境中的所有变量和函数，当其应用程序退出，如：关闭网页或浏览器时被销毁</li>
-</ul>
-<ul>
-<li>全局执行环境是window的对象（所有全局函数和变量都是作为window的属性和方法创建的）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">         var a=2;</div><div class="line">function setB()&#123;</div><div class="line">	return 123;</div><div class="line">&#125;</div><div class="line">console.log(a);</div><div class="line">console.log(setB());</div><div class="line">console.log(window.a);</div><div class="line">console.log(window.setB());</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>函数执行环境（Function code） 代码进入了一个函数<br>每个函数有自己的执行环境，有相应的执行栈</p>
-</li>
-</ol>
-<ul>
-<li><p>函数里的局部作用域里的变量替换全局变量，但作用域仅限在函数体内的这个环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">            var a=&apos;哈哈哈~&apos;;</div><div class="line">function setB()&#123;</div><div class="line">	a=&apos;啧啧&apos;;</div><div class="line">&#125;</div><div class="line">setB();</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
-</li>
-<li><p>通过传参，可以替换函数体内的局部变量，但作用域仅限在函数体内的这个环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">           var a=&apos;哈哈哈~&apos;;</div><div class="line">function setB(a)&#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">setB(&apos;嗯嗯&apos;);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
-</li>
-<li><p>函数体内还包含有函数，只有通过外层函数，才能访问内层函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">      var a=1;</div><div class="line">function setA()&#123;</div><div class="line">	function setB()&#123;</div><div class="line">		var b=2;</div><div class="line">		console.log(a);</div><div class="line">		console.log(b);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	setB()</div><div class="line">&#125;</div><div class="line">setA();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li>eval()方法执行代码<br>eval()就像是一个完整的ECMAScript解析器，只接受一个参数，即要执行的ECMAScript（或JavaScript）字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eval(&quot;console.log(&apos;哈哈&apos;)&quot;);</div><div class="line">等价于</div><div class="line">console.log(&apos;哈哈&apos;);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>通过eval()执行的代码被认为是包含该次调用的执行环境的一部分，因此被执行的代码具有与该执行环境相同的作用域链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&quot;function sayHi()&#123;console.log(&apos;hi&apos;);&#125;&quot;);</div><div class="line">sayHi();</div></pre></td></tr></table></figure></p>
-<p>严格模式下，访问不到eval()中创建的任何变量和函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;;</div><div class="line">eval(&quot;function sayHi()&#123;console.log(&apos;hi&apos;);&#125;&quot;);</div><div class="line">sayHi();</div></pre></td></tr></table></figure></p>
-<p>应用：JSON解析器<br>危险：代码注入！！！（用户输入数据）</p>
-<p>[TOC]</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><code>域：</code>空间，范围，区域…<br><code>作用：</code>读，写<br>作用域（scope）。在很多语言中（C++，C#，Java），作用域都是通过代码块（由{}包起来的代码）来决定的，但是，在JavaScript作用域是跟函数相关的，也可以说成是function-based。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">      function test(o)&#123;</div><div class="line">	var i=0;</div><div class="line">	if(typeof o==&quot;object&quot;)&#123;</div><div class="line"></div><div class="line">		var j=0;</div><div class="line">		for(var k=0;k&lt;10;k++)&#123;</div><div class="line">			console.log(k);</div><div class="line">		&#125;</div><div class="line">		console.log(k);		</div><div class="line">	&#125;</div><div class="line">	console.log(j);</div><div class="line">&#125;</div><div class="line">var obj=new Object();</div><div class="line">	test(obj);</div></pre></td></tr></table></figure></p>
-<ol>
-<li>全局作用域中的对象可以在代码的任何地方访问，一般来说，下面情况的对象会在全局作用域中： <ul>
-<li>最外层函数和在最外层函数外面定义的变量  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 最外层函数和在最外层函数外面定义的变量  </div><div class="line">  		var a = &quot;out&quot;; //最外层变量</div><div class="line">		function outFn() &#123; //最外层函数</div><div class="line">      	var b = &quot;in&quot;;</div><div class="line">    	function inFn() &#123; //内层函数</div><div class="line">        console.log(b);</div><div class="line">    	&#125;</div><div class="line">   		 inFn();</div><div class="line">		&#125;</div><div class="line">		console.log(a); //我是最外层变量</div><div class="line">		outFn(); </div><div class="line">		console.log(b); //in is not defined</div><div class="line">		inFn(); //inFn is not defined</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>没有通过关键字”var”声明的变量 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function outFn2() &#123;</div><div class="line">   		a = &quot;未定义&quot;;</div><div class="line">    	var  a1 = &quot;内层变量2&quot;;</div><div class="line">		&#125;</div><div class="line">		outFn2();</div><div class="line">		//要先执行这个函数，否则根本不知道里面是啥</div><div class="line">		console.log(a); //未定义直接赋值的变量</div><div class="line">		console.log(a1); //inVariable2 is not defined</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>浏览器中，window对象的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window对象的内置属性都拥有全局作用域，</div><div class="line">如: window.name、window.location、window.top 等</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li>局部作用域(函数作用域)所有的变量和函数只能在作用域内部使用。函数在声明它们的函数体以及这个函数体嵌套的任意函数内都是有定义的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var foo = 1; </div><div class="line">window.bar = 2;</div><div class="line">function baz()&#123; a = 3; var b = 4; &#125; </div><div class="line">// Global scope: foo, bar, baz, a</div><div class="line">// Local scope: b</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>函数声明提前：<br>js的函数作用域是指在函数内声明的所有变量在函数内始终都是可以见，意味着变量在声明之前就可以使用了，这个特性被非正式命名为<code>声明提前</code>即：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">         var a=1;</div><div class="line">function fn1()&#123;</div><div class="line">	console.log(a);//???</div><div class="line">	var a=2;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">fn1();</div><div class="line">console.log(a);</div><div class="line">-------------------------------------------------</div><div class="line">         var a=1</div><div class="line">function fn1()&#123;</div><div class="line">var a;//在函数顶部声明了局部变量</div><div class="line">console.log(a);//变量存在，但其值是&quot;undefined&quot;</div><div class="line">a=2;</div><div class="line">console.log(a);</div><div class="line">&#125;</div><div class="line">fn1();</div><div class="line">console.log(a);</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>[TOC]</p>
-<h2 id="作用域链-scope-chain"><a href="#作用域链-scope-chain" class="headerlink" title="作用域链(scope chain)"></a>作用域链(scope chain)</h2><p>当代码在一个环境中执行时，会创建变量对象的一个作用域链（是保证对执行环境有权访问的的所有变量和函数的<code>有序访问</code>），<code>这个作用域链是一个对象列表或者链表，这组对象定义了代码“作用域”中的变量</code><br><code>创建规则：</code><br>作用域链的前端，始终都是当前执行的代码<br>作用域链中的下一个变量对象，来自包含（外部环境）<br>而再下一个对象来自下一个包含环境<br>一直延续到全局执行环境（全局执行坏境的对象始终都是作用域链中的最后一个对象）</p>
-<p> 一个函数创建时，javascript后台(引擎)会默认创建一个仅供后台使用的内部属性[[Scope]]，此属性存储函数的作用域链，如果是全局函数，此时则包含一个变量对象(全局变量)，如果是嵌套函数(闭包)，作用域链还加上了父函数的变量对象。例如下面的这个全局函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function add(num1,num2)&#123;</div><div class="line">   var sum = num1 + num2;</div><div class="line">   return sum;</div><div class="line">&#125;</div><div class="line">var total=add(5,10);</div><div class="line">console.log(total);</div></pre></td></tr></table></figure></p>
-<p><img src="http://obfnbicau.bkt.clouddn.com/r_%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%97%B6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.jpg" alt="Alt text"></p>
-<p>b) 函数被调用时–add(5,10)，javascript后台会创建一个内部对象(execution context)–“执行环境”或“运行期上下文”，活动对象作为函数执行期的一个变量对象，包含所有局部变量(在函数内定义的)、命名参数、arguments、this，它会被推入到执行环境作用域链的前端(如下图)。每执行一次函数都会创建一个新的执行环境，当函数执行完毕执行环境就会被销毁。</p>
-<p><img src="http://obfnbicau.bkt.clouddn.com/2012061700395832.jpg" alt="Alt text"></p>
-<p>图中矩形表示特定的环境。其中内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部变量环境中的任何变量和函数。这些环境之间的联系是线性的，有次序的。每个环境变量都可以向上搜索作用域链，以查询变量和函数名；反之则是不行。<code>注意:</code>函数参数也被当作变量来对待，因此其访问规则与执行环境中的其他变量相同。</p>
-<p><img src="http://obfnbicau.bkt.clouddn.com/scope_chain.jpg" alt="Alt text"></p>
-<blockquote>
-<p>查询标识符(标识符指的是：变量名称，函数声明，形参，等等。)：标示符的解析是沿着作用域链一级一级的搜索标示符的过程，搜索过程都是从作用域链的前端开始，然后逐级向后回溯，直到找到标识符为止<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var color=&quot;blue&quot;;</div><div class="line">function getColor()&#123;</div><div class="line">return color;</div><div class="line">&#125;</div><div class="line">console.log(getColor());//&quot;blue&quot;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p><img src="http://obfnbicau.bkt.clouddn.com/%E6%A0%87%E7%A4%BA%E7%AC%A6.jpg" alt="Alt text"></p>
-<p>[TOC]</p>
-<h2 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h2><p>try-catch语句的catch块<br>with语句<br>  这两个语句都会在原本的作用域链的前端添加一个变量对象。对于with语句来说，新添加的变量对象包含着with括号中指定对象的所有属性和方法所作的变量声明。对于catch来说，当try块发生错误时，代码执行流程自动转入到catch块，并将异常对象推入到作用域链的前端。catch块执行完毕后，作用域链就会返回原来的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function initUI()&#123;</div><div class="line">   with(document)&#123;</div><div class="line">        var bd = body,</div><div class="line">        links =  getElementsByTagName(&quot;a&quot;),</div><div class="line">        i = 0,</div><div class="line">        len = links.length;</div><div class="line">        while(i&lt;len)&#123;</div><div class="line">              update(links[i++]);</div><div class="line">        &#125;</div><div class="line">        getElementById(&quot;go-btn&quot;).onclick = function()&#123;</div><div class="line">              start();</div><div class="line">        &#125;;</div><div class="line">        bd.className = &quot;active&quot;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当代码流执行到一个with表达式时，执行环境的作用域链会被临时改变，此时with的变量对象会被创建添加到作用域链的前端，这就意味着此时函数的所有局部变量都被推入到第二个作用域链中的变量对象，如下图：<br><img src="http://obfnbicau.bkt.clouddn.com/2012061812093041.gif" alt="Alt text"></p>
-<p><code>注意：</code>在执行with语句时，访问局部变量的代价更高了。所以尽可能避免使用with语句，可以使用局部变量代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var doc = document; // 代替with(document)&#123;...&#125;</div></pre></td></tr></table></figure></p>
-<p>[TOC]</p>
-<p>##域解析<br>浏览器：</p>
-<ol>
-<li><p>预解析：<br>“js解析器”<br>“找一些东西”：var， function<br>，参数<br>a=未定义<br>所有的变量，在正式运行代码之前，都提前赋了一个值（未定义）<br>fn1=function fn1(){console.log(1);}<br>所有的函数，在正式运行代码之前，都是<code>整个函数块</code><br><code>注意：</code>遇到重名，变量和函数重名，就留下函数，与上下文没有关系，注只先找var ，function声明的，函数重名，则采用覆盖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">var a=2;</div><div class="line">function fn1()&#123;</div><div class="line">console.log(1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>逐行解读代码<br>表达式：= + -* / ++ –！ 参数</p>
-</li>
-</ol>
-<ul>
-<li>表达式可以修改预解析的值！</li>
-<li>函数调用：<br>同理函数作用域也发生：<br>1.预解析和2.逐行解读代码<br>函数：由里到外（作用域链）<br>如：var a=1;改预解析里面的<br>a=function fn1(){console.log(a);}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(a);//不会从下面取值，直接从预解析的仓库里取出undefined</div><div class="line">var a=2;</div><div class="line">console.log(a);</div><div class="line">function fn1()&#123;</div><div class="line">console.log(1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>参考链接：<br><a href="http://www.cnblogs.com/leolai/archive/2012/06/17/2552326.html" target="_blank" rel="external">https://gaohaoyang.github.io/2015/05/20/scope/</a></p>
-<p><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context" target="_blank" rel="external">http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context</a></p>
-<p>参考资料：<br>javaScript高级程序设计<br>javaScript权威指南</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[什么是盒子模型]]></title>
-      <url>http://yoursite.com/2015/09/03/%E4%BB%80%E4%B9%88%E6%98%AF%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
-      <content type="html"><![CDATA[<h1 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h1><p>盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。<br>对盒模型的形象化表述盒模型形象化表述：<br>将页面中的任何一个元素形容成邮局的每一个邮包 </p>
-<ul>
-<li>邮寄的物品—-页面中的元素内容 </li>
-<li>塞入的海绵—-内边距padding </li>
-<li>邮局的纸盒邮包—-边框border </li>
-<li>邮包堆积之间的间距—–外边距margin<br><code>注意：</code> 盒模型类似于邮局纸盒邮包情况，却又不等同于，<br>但IE在某种情况下，却又完全等同于纸盒邮包情形（邮局的纸盒中无论塞入多少海绵保护邮寄物品，邮局的纸盒邮包的大小是不会变的，而页面中元素不同，padding属性值越大，那么所占用的空间也就越大）<br>DOCTYPE类型声明影响IE浏览器对标准的理解：<br>IE浏览器存在两种渲染方式： </li>
-</ul>
-<ol>
-<li>Quirks(怪异模式)：以一种比较宽松的向后兼容的方式显示<br>触发怪异模式使IE浏览器计算盒模型的方式有所变化（至于怎么触发怪异模式：如：在DOCTYPE类型前加一个字符，或者将它直接删除了）<br>计算方式的改变就是：<br>将盒模型的border和padding的数值归入到<br>盒模型的宽度width及高度height<br>盒模型宽=margin-left+width+margin-right<br>盒模型高=margin-top+height+margin-bottom </li>
-<li>Standard(标准模式)：浏览器根据规范表现页面<br>cmd-markdown-logo<br>盒模型的细节：<br>盒模型差异<br>IE6/IE7/Firefox的最终宽度=左外边距+左边框宽+左内边距+宽度+右外边距+右边框宽+右内边距<br>IE5的最终宽度=左外边距+宽度+右外边距<br>（1）上下margin叠加问题<br>.a{<br>Width:100px;<br>Height:100px;<br>Background-color:#eeffee;<br>Border:1px solid #bbb;<br>Margin:10px;<br>}<br>.b{<br>Width:100px;<br>Height:100px;<br>Background-color:#ccc;<br>Border:1px solid #ddd;<br>Margin:10px;<br>}<br>空白边叠加时，结果以最大者为准<br>解决办法：把相应元素设为float属性，它们将不会发生空白叠加问题了<br>（2）左右margin叠加问题<br>当盒对象为浮动状态时，IE6中，盒模型的左右margin会加倍<br>解决办法：display:inline;</li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[ps的基础知识]]></title>
-      <url>http://yoursite.com/2015/09/02/%E5%85%B3%E4%BA%8Eps%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-      <content type="html"><![CDATA[<p>##前端ps基础技能需求：<strong>切图</strong>，<strong>修图</strong>，<strong>测量</strong></p>
-<p> <strong>前端常用 ps工具：</strong><br> 移动工具，矩形选框工具，裁切工具，吸管工具，横排文字工具，手抓，缩放，标尺，自由变换<br> <strong>ps快捷键：</strong><br>窗口（历史记录，信息（F8），图层（F7））<br>视图（参考线设置）<br>图像（图像大小（alt+ctrl+i），画布大小（alt+ctrl+c），剪裁，剪切）<br>文件（存储为web和设备所用格式（alt+shift+ctrl+c））<br>左侧工具栏的使用（移动工具，矩形选框工具，吸管工具，横排文字工具，抓手工具，放大/缩小工具）<br>Ctrl+/ctrl-放大、缩小  Ctrl+R标尺 shift+tab调板  Ctrl+h 参考线</p>
-<blockquote>
-<p>图片的导出格式：<br>保存文件格式:</p>
-<ol>
-<li>psd（源文件：没办法直接使用）</li>
-<li>JPG：不支持透明半透明，所有空白区域填充白色（应用：网页中的大图，高清图（体积大））</li>
-<li>GIF（png8：小图标）：支持透明，不支持半透明（小图标（动画图片）</li>
-<li>png24：支持透明，也支持半透明（图像中存在半透明效果的图片）</li>
-</ol>
-</blockquote>
-<p>  <em>psd测量注意事项：</em><br>文字右方和下方会有1像素的默认间隙 </p>
-<p>ps一些基本操作：</p>
-<ul>
-<li>删除图片上的文字：</li>
-</ul>
-<ol>
-<li>矩形选框选中删除区域，按delete删除键</li>
-<li>矩形选中相应模块（盖住文字的部分），再按Ctrl+t（自由变换）推动模块，即可盖住文字</li>
-</ol>
-<ul>
-<li>如何把选中图像变成白色：</li>
-</ul>
-<ol>
-<li>选中要变白的图像并且选中相应图层—将右下角背景调为白色–点击油漆桶工具（位于渐变工具一栏）即可</li>
-</ol>
-<ul>
-<li>图像放大了之后，目的就是要仔细观察细节，图像太大以至于画布装不下了，要拖动滚动条吧太麻烦，这里不用拖动滚动条。按住“空格键”不松手，赶紧观察，发现情况了没有，鼠标变成抓手工具形状了</li>
-<li>如果要将图像调整到什么程度，要求图像都能清晰显示窗口–&gt;图层–&gt;智能对象–&gt;图像–&gt;画布大小</li>
-<li>将图像改变方向：图像–&gt;图像旋转（180度，90度，90度逆时针等）</li>
-</ul>
-<blockquote>
-<p>切图：实现精确选图：拉出参考线后，选择矩形区域，按住Ctrl键（图像颜色表现有变浅的表现）<br>图层：图层后优先级与后面出现的数字无关，与排列在前面的顺序有关</p>
-</blockquote>
-]]></content>
-    </entry>
-    
+  </div>
   
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/20/jQuery/">jQuery</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
+        <p><span>发布时间:</span>2016-09-20, 09:30:12</p>
+        <p><span>最后更新:</span>2016-11-06, 00:35:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/20/jQuery/" title="jQuery">http://yoursite.com/2016/09/20/jQuery/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/20/jQuery/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/18/JavaScript实现继承/">
+                    JavaScript的基础知识
+                </a>
+            </div>
+        
+    </nav>
+
   
-</search>
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery"><span class="toc-number">1.</span> <span class="toc-text">jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器中含有特殊的符号的注意事项"><span class="toc-number">1.1.</span> <span class="toc-text">选择器中含有特殊的符号的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery中的DOM操作"><span class="toc-number">1.1.1.</span> <span class="toc-text">jQuery中的DOM操作</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"jQuery　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/18/JavaScript实现继承/" title="下一篇: JavaScript的基础知识">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 陈玉
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
