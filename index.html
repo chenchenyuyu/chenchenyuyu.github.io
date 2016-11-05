@@ -273,8 +273,8 @@
     <article id="post-this的指向问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/06/this的指向问题/" class="article-date">
-      <time datetime="2016-11-05T16:46:02.115Z" itemprop="datePublished">2016-11-06</time>
+      <a href="/2016/09/22/this的指向问题/" class="article-date">
+      <time datetime="2016-09-22T07:10:11.000Z" itemprop="datePublished">2016-09-22</time>
 </a>
 
 
@@ -285,38 +285,42 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/this的指向问题/">this的指向问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: this的指向问题<br>date: 2016-9-22 15:10:11<br>categories: 前端基础知识<br>tags: [前端,前端基础知识,js]<br>description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)</p>
-<ol>
-<li>若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象</li>
-<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。”</li>
-</ol>
-<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
-<li>若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window<br>(在js不是严格型的情况下)</li>
-<li>若一个函数中有this，这个函数有被上一 级对象所调用，那么this的指向就是上一级<br>对象</li>
-<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。<blockquote>
-<p>知识点补充：</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><p>在严格版中的默认的this不再是window，而是undefined。</p>
-</li>
-<li><p>new操作符会改变函数this的指向问题，虽然我们上面讲解过了，但是并没有深入的讨论这个问题，网上也很少说，所以在这里有必要说一下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">//this最终指向的是调用它的对象</div><div class="line">function a()&#123;</div><div class="line">	var user=&quot;陈&quot;;</div><div class="line">	console.log(this.user);//undefinded</div><div class="line">	console.log(this);//window</div><div class="line">&#125;</div><div class="line">a();//window对象在调用他</div><div class="line"></div><div class="line">//证明上述观点</div><div class="line">function a()&#123;</div><div class="line">	var user=&quot;陈&quot;;</div><div class="line">	console.log(this.user);//undefined</div><div class="line">	console.log(this);//window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//this的指向在函数创建的时候是决定不了的，在调用的时候才能决定</div><div class="line">var o=&#123;</div><div class="line">	user:&quot;陈&quot;,</div><div class="line">	fn:function()&#123;</div><div class="line">		console.log(this.user);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">o.fn();//陈</div><div class="line"></div><div class="line">//与上面例子作比较</div><div class="line">var o=&#123;</div><div class="line">	user:&quot;陈&quot;,</div><div class="line">	fn:function()&#123;</div><div class="line">		console.log(this.user);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">window.o.fn();//陈</div><div class="line">//this对象的指向问题</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//12</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">o.b.fn();</div><div class="line">//直接调用它的内层对象</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		//a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">o.b.fn();//undefined</div><div class="line">//特殊情况</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//undefined</div><div class="line">			console.log(this);//window</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var j=o.b.fn;</div><div class="line">j();//注意this的指向是最后调用它的 对象，也就是看它执行的时候是谁调用的</div><div class="line">//证明上述观点</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//undefined</div><div class="line">			console.log(this);//window</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var j=o.b.fn;</div><div class="line">window.j();</div><div class="line"></div><div class="line">//构造函数版的this</div><div class="line">function Fn()&#123;</div><div class="line">	this.user=&quot;陈&quot;;</div><div class="line">&#125;</div><div class="line">var a=new Fn();</div><div class="line">//a是new出来的一个对象实例</div><div class="line">console.log(a.user);//陈</div><div class="line"></div><div class="line">//当this碰到return的时候</div><div class="line">function fn()&#123;</div><div class="line">	this.user=&quot;陈&quot;;</div><div class="line">	return &#123;&#125;;</div><div class="line">&#125;</div><div class="line">var a=new fn;</div><div class="line">console.log(a.user);//undefined</div><div class="line">//再看一个</div><div class="line">function fn()&#123;</div><div class="line">	this.user=&apos;陈&apos;;</div><div class="line">	return function()&#123;&#125;;</div><div class="line">&#125;</div><div class="line">var a=new fn;</div><div class="line">console.log(a.user);//undefined</div><div class="line">//返回数字</div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return 1;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div><div class="line">//返回undefined</div><div class="line"></div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return undefined;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div><div class="line">// 如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。</div><div class="line">//还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，</div><div class="line">//因为null比较特殊</div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return null;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
+               1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下);若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象;若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。
+          
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/09/22/this的指向问题/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -4,14 +4,9 @@
   
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/2016/11/06/this%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<p>title: this的指向问题<br>date: 2016-9-22 15:10:11<br>categories: 前端基础知识<br>tags: [前端,前端基础知识,js]<br>description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)</p>
-<ol>
-<li>若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象</li>
-<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。”</li>
-</ol>
-<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
+      <title><![CDATA[this的指向问题]]></title>
+      <url>http://yoursite.com/2016/09/22/this%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
 <li>若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window<br>(在js不是严格型的情况下)</li>
 <li>若一个函数中有this，这个函数有被上一 级对象所调用，那么this的指向就是上一级<br>对象</li>
 <li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。<blockquote>

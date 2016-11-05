@@ -15,25 +15,16 @@
 
 
 
-<meta name="description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
-
-若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
-若一">
+<meta name="description" content="1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下);若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象;若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="陈玉的博客">
-<meta property="og:url" content="http://yoursite.com/2016/11/06/this的指向问题/index.html">
+<meta property="og:title" content="this的指向问题">
+<meta property="og:url" content="http://yoursite.com/2016/09/22/this的指向问题/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
-
-若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
-若一">
-<meta property="og:updated_time" content="2016-11-05T16:46:26.164Z">
+<meta property="og:description" content="1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下);若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象;若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。">
+<meta property="og:updated_time" content="2016-11-05T16:48:24.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈玉的博客">
-<meta name="twitter:description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
-
-若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
-若一">
+<meta name="twitter:title" content="this的指向问题">
+<meta name="twitter:description" content="1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下);若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象;若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -65,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>陈玉的博客</title>
+<title>this的指向问题 | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,8 +270,8 @@
       <div class="body-wrap"><article id="post-this的指向问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/06/this的指向问题/" class="article-date">
-      <time datetime="2016-11-05T16:46:02.115Z" itemprop="datePublished">2016-11-06</time>
+      <a href="/2016/09/22/this的指向问题/" class="article-date">
+      <time datetime="2016-09-22T07:10:11.000Z" itemprop="datePublished">2016-09-22</time>
 </a>
 
 
@@ -291,15 +282,36 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      this的指向问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: this的指向问题<br>date: 2016-9-22 15:10:11<br>categories: 前端基础知识<br>tags: [前端,前端基础知识,js]<br>description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)</p>
-<ol>
-<li>若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象</li>
-<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。”</li>
-</ol>
-<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
+        <h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
 <li>若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window<br>(在js不是严格型的情况下)</li>
 <li>若一个函数中有this，这个函数有被上一 级对象所调用，那么this的指向就是上一级<br>对象</li>
 <li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。<blockquote>
@@ -322,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/06/this的指向问题/"></a></p>
+        <p><span>本文标题:</span><a href="/2016/09/22/this的指向问题/">this的指向问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
-        <p><span>发布时间:</span>2016-11-06, 00:46:02</p>
-        <p><span>最后更新:</span>2016-11-06, 00:46:26</p>
+        <p><span>发布时间:</span>2016-09-22, 15:10:11</p>
+        <p><span>最后更新:</span>2016-11-06, 00:48:24</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/06/this的指向问题/" title="">http://yoursite.com/2016/11/06/this的指向问题/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/11/06/this的指向问题/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/22/this的指向问题/" title="this的指向问题">http://yoursite.com/2016/09/22/this的指向问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/22/this的指向问题/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -391,7 +403,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"this的指向问题　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -423,7 +435,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/06/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
 
 
 
