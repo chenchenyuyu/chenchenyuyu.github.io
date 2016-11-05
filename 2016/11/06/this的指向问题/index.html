@@ -15,16 +15,25 @@
 
 
 
-<meta name="description" content="盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。">
+<meta name="description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
+
+若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
+若一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是盒子模型">
-<meta property="og:url" content="http://yoursite.com/2015/09/03/什么是盒子模型/index.html">
+<meta property="og:title" content="陈玉的博客">
+<meta property="og:url" content="http://yoursite.com/2016/11/06/this的指向问题/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。">
-<meta property="og:updated_time" content="2016-09-14T11:25:47.342Z">
+<meta property="og:description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
+
+若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
+若一">
+<meta property="og:updated_time" content="2016-11-05T16:46:26.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="什么是盒子模型">
-<meta name="twitter:description" content="盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。">
+<meta name="twitter:title" content="陈玉的博客">
+<meta name="twitter:description" content="title: this的指向问题date: 2016-9-22 15:10:11categories: 前端基础知识tags: [前端,前端基础知识,js]description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)
+
+若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象
+若一">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>什么是盒子模型 | 陈玉的博客</title>
+<title>陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +276,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-什么是盒子模型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-this的指向问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/03/什么是盒子模型/" class="article-date">
-      <time datetime="2015-09-03T02:30:16.000Z" itemprop="datePublished">2015-09-03</time>
+      <a href="/2016/11/06/this的指向问题/" class="article-date">
+      <time datetime="2016-11-05T16:46:02.115Z" itemprop="datePublished">2016-11-06</time>
 </a>
 
 
@@ -282,46 +291,29 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      什么是盒子模型
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="什么是盒子模型"><a href="#什么是盒子模型" class="headerlink" title="什么是盒子模型"></a>什么是盒子模型</h1><p>盒模型就是指css布局中的每个元素，在浏览器的解释中，都会被当做一个盒模型，浏览器通过这些盒状物的大小和浮动方式来判断下一个盒状物的贴近显示，还是下一行显示，还是其他方式显示，任何一个css布局的网页，都是由许多不同大小盒子构成。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。<br>对盒模型的形象化表述盒模型形象化表述：<br>将页面中的任何一个元素形容成邮局的每一个邮包 </p>
-<ul>
-<li>邮寄的物品—-页面中的元素内容 </li>
-<li>塞入的海绵—-内边距padding </li>
-<li>邮局的纸盒邮包—-边框border </li>
-<li>邮包堆积之间的间距—–外边距margin<br><code>注意：</code> 盒模型类似于邮局纸盒邮包情况，却又不等同于，<br>但IE在某种情况下，却又完全等同于纸盒邮包情形（邮局的纸盒中无论塞入多少海绵保护邮寄物品，邮局的纸盒邮包的大小是不会变的，而页面中元素不同，padding属性值越大，那么所占用的空间也就越大）<br>DOCTYPE类型声明影响IE浏览器对标准的理解：<br>IE浏览器存在两种渲染方式： </li>
-</ul>
+        <p>title: this的指向问题<br>date: 2016-9-22 15:10:11<br>categories: 前端基础知识<br>tags: [前端,前端基础知识,js]<br>description: “ 1.若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window(在js不是严格型的情况下)</p>
 <ol>
-<li>Quirks(怪异模式)：以一种比较宽松的向后兼容的方式显示<br>触发怪异模式使IE浏览器计算盒模型的方式有所变化（至于怎么触发怪异模式：如：在DOCTYPE类型前加一个字符，或者将它直接删除了）<br>计算方式的改变就是：<br>将盒模型的border和padding的数值归入到<br>盒模型的宽度width及高度height<br>盒模型宽=margin-left+width+margin-right<br>盒模型高=margin-top+height+margin-bottom </li>
-<li>Standard(标准模式)：浏览器根据规范表现页面<br>cmd-markdown-logo<br>盒模型的细节：<br>盒模型差异<br>IE6/IE7/Firefox的最终宽度=左外边距+左边框宽+左内边距+宽度+右外边距+右边框宽+右内边距<br>IE5的最终宽度=左外边距+宽度+右外边距<br>（1）上下margin叠加问题<br>.a{<br>Width:100px;<br>Height:100px;<br>Background-color:#eeffee;<br>Border:1px solid #bbb;<br>Margin:10px;<br>}<br>.b{<br>Width:100px;<br>Height:100px;<br>Background-color:#ccc;<br>Border:1px solid #ddd;<br>Margin:10px;<br>}<br>空白边叠加时，结果以最大者为准<br>解决办法：把相应元素设为float属性，它们将不会发生空白叠加问题了<br>（2）左右margin叠加问题<br>当盒对象为浮动状态时，IE6中，盒模型的左右margin会加倍<br>解决办法：display:inline;</li>
+<li>若一个函数中有this，这个函数有被上一级对象所调用，那么this的指向就是上一级对象</li>
+<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。”</li>
 </ol>
+<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
+<li>若果一个函数中有this，但是它没有被上级对象所调用，那么this的指向是window<br>(在js不是严格型的情况下)</li>
+<li>若一个函数中有this，这个函数有被上一 级对象所调用，那么this的指向就是上一级<br>对象</li>
+<li>若一个函数中有this，这个函数中包含多个对象，尽管这个函数是被外层的对象所调用，this的指向也只是它上一级的对象。<blockquote>
+<p>知识点补充：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>在严格版中的默认的this不再是window，而是undefined。</p>
+</li>
+<li><p>new操作符会改变函数this的指向问题，虽然我们上面讲解过了，但是并没有深入的讨论这个问题，网上也很少说，所以在这里有必要说一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">//this最终指向的是调用它的对象</div><div class="line">function a()&#123;</div><div class="line">	var user=&quot;陈&quot;;</div><div class="line">	console.log(this.user);//undefinded</div><div class="line">	console.log(this);//window</div><div class="line">&#125;</div><div class="line">a();//window对象在调用他</div><div class="line"></div><div class="line">//证明上述观点</div><div class="line">function a()&#123;</div><div class="line">	var user=&quot;陈&quot;;</div><div class="line">	console.log(this.user);//undefined</div><div class="line">	console.log(this);//window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//this的指向在函数创建的时候是决定不了的，在调用的时候才能决定</div><div class="line">var o=&#123;</div><div class="line">	user:&quot;陈&quot;,</div><div class="line">	fn:function()&#123;</div><div class="line">		console.log(this.user);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">o.fn();//陈</div><div class="line"></div><div class="line">//与上面例子作比较</div><div class="line">var o=&#123;</div><div class="line">	user:&quot;陈&quot;,</div><div class="line">	fn:function()&#123;</div><div class="line">		console.log(this.user);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">window.o.fn();//陈</div><div class="line">//this对象的指向问题</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//12</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">o.b.fn();</div><div class="line">//直接调用它的内层对象</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		//a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">o.b.fn();//undefined</div><div class="line">//特殊情况</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//undefined</div><div class="line">			console.log(this);//window</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var j=o.b.fn;</div><div class="line">j();//注意this的指向是最后调用它的 对象，也就是看它执行的时候是谁调用的</div><div class="line">//证明上述观点</div><div class="line">var o=&#123;</div><div class="line">	a:10,</div><div class="line">	b:&#123;</div><div class="line">		a:12,</div><div class="line">		fn:function()&#123;</div><div class="line">			console.log(this.a);//undefined</div><div class="line">			console.log(this);//window</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var j=o.b.fn;</div><div class="line">window.j();</div><div class="line"></div><div class="line">//构造函数版的this</div><div class="line">function Fn()&#123;</div><div class="line">	this.user=&quot;陈&quot;;</div><div class="line">&#125;</div><div class="line">var a=new Fn();</div><div class="line">//a是new出来的一个对象实例</div><div class="line">console.log(a.user);//陈</div><div class="line"></div><div class="line">//当this碰到return的时候</div><div class="line">function fn()&#123;</div><div class="line">	this.user=&quot;陈&quot;;</div><div class="line">	return &#123;&#125;;</div><div class="line">&#125;</div><div class="line">var a=new fn;</div><div class="line">console.log(a.user);//undefined</div><div class="line">//再看一个</div><div class="line">function fn()&#123;</div><div class="line">	this.user=&apos;陈&apos;;</div><div class="line">	return function()&#123;&#125;;</div><div class="line">&#125;</div><div class="line">var a=new fn;</div><div class="line">console.log(a.user);//undefined</div><div class="line">//返回数字</div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return 1;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div><div class="line">//返回undefined</div><div class="line"></div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return undefined;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div><div class="line">// 如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。</div><div class="line">//还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，</div><div class="line">//因为null比较特殊</div><div class="line">function fn()  </div><div class="line">&#123;  </div><div class="line">    this.user = &apos;追&apos;;  </div><div class="line">    return null;</div><div class="line">&#125;</div><div class="line">var a = new fn;  </div><div class="line">console.log(a.user); //追</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -330,13 +322,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/06/this的指向问题/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
-        <p><span>发布时间:</span>2015-09-03, 10:30:16</p>
-        <p><span>最后更新:</span>2016-09-14, 19:25:47</p>
+        <p><span>发布时间:</span>2016-11-06, 00:46:02</p>
+        <p><span>最后更新:</span>2016-11-06, 00:46:26</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/09/03/什么是盒子模型/" title="什么是盒子模型">http://yoursite.com/2015/09/03/什么是盒子模型/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/03/什么是盒子模型/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/06/this的指向问题/" title="">http://yoursite.com/2016/11/06/this的指向问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/11/06/this的指向问题/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,16 +340,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/18/作用域，作用域链，域解析/">
-                    作用域，作用域链，域解析
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/09/02/关于ps的基础知识/">
-                    ps的基础知识
+                <a href="/2016/09/20/jQuery/">
+                    jQuery
                 </a>
             </div>
         
@@ -369,7 +355,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是盒子模型"><span class="toc-number">1.</span> <span class="toc-text">什么是盒子模型</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#this的指向问题"><span class="toc-number">1.</span> <span class="toc-text">this的指向问题</span></a></li></ol>
         
     </div>
     <style>
@@ -405,7 +391,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"什么是盒子模型　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -425,15 +411,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/18/作用域，作用域链，域解析/" title="上一篇: 作用域，作用域链，域解析">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/09/02/关于ps的基础知识/" title="下一篇: ps的基础知识">
+            <a href="/2016/09/20/jQuery/" title="下一篇: jQuery">
                 <i class="fa fa-angle-right"></i>
             </a>
         
