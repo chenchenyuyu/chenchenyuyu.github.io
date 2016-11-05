@@ -15,13 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类&标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:updated_time" content="2016-09-14T07:23:24.564Z">
+<meta property="og:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta property="og:updated_time" content="2016-11-05T16:53:40.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类&标签">
+<meta name="twitter:title" content="JSON">
+<meta name="twitter:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>分类&amp;标签 | 陈玉的博客</title>
+<title>JSON | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,7 +66,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -264,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JSON（JavaScript Object Notation）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2016-09-14T07:15:08.000Z" itemprop="datePublished">2016-09-14</time>
+      <a href="/2016/09/23/JSON（JavaScript Object Notation）/" class="article-date">
+      <time datetime="2016-09-23T02:12:08.000Z" itemprop="datePublished">2016-09-23</time>
 </a>
 
 
@@ -283,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      分类&amp;标签
+      JSON
     </h1>
   
 
@@ -291,8 +294,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -300,96 +311,181 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
+        <h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
+<ol>
+<li>它是一种数据格式，不是一种编程语言</li>
+<li>它并不属于JavaScript，很多编程语言都有应用到它，有针对Json的解析器和序列化器<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
+<li>简单值：使用与js相同的语法，在json中表示，字符串，数值，布尔值，null，但不支持undefined</li>
+<li>对象：复杂数据类型，表示的是一组无序的键值对，键值对中可以使简单值，也可以是复杂数据类型</li>
+<li><p>数组：复杂数据类型，表示一组有序值的列表，可以通过数组索引来访问其中的值，数组值，可以是简单值，对象，数组<br><code>注意：</code>json不支持变量，函数，对象实例，它就是一种表示结构化数据的格式</p>
+<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p><code>注意：</code>js字符串与json的最大区别：json字符串必须使用双引号（单引号将导致语法错误）</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p> js中对象字面量：<br> var person={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> }；<br> 或者<br> var Object={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> };<br> json中对象表示：<br> {</p>
+<pre><code> &quot;name&quot;:&quot;Lili&quot;,
+&quot;age&quot;:29
+</code></pre><p> }<br><code>两者的区别：</code></p>
+<ol>
+<li>json对象中没有声明变量的概念</li>
+<li>json对象中没有末尾的分号</li>
+<li>对象属性必须加上双引号</li>
+<li><p>同一个对象中绝对不应该出现两个同名属性</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>js中数组：<br>var values=[25,”h1”,true];<br>json中的数组：<br>[25,”h1”,true]</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><code>两者的而区别：</code>json数组没有变量和分号</p>
+<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><ol>
+<li>eval()函数可以解析，解释并返回js对象和数组</li>
+<li>json对象有两个方法：stringify()和parse()<br>stringify()用于把json对象序列化为json字符串<br>parse()用于把字符串解析为原生的js值<br><code>注意：</code></li>
+<li>默认情况下，JSON.stringify()输出的字符串不包括任何空格字符或缩进</li>
+<li>如过传给JSON.parse()不是有效的json，该方法会报错<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3>JSON.stringify(序列化对象，过滤器，选项)<br>过滤器：可以使数组，可以是函数<br>选项：表示是否在json中保留缩进</li>
+<li><p>过滤结果<br> 过滤器为数组：</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 };
+var jsonText=JSON.stringify(book,[&quot;title&quot;,&quot;edition&quot;]);
+</code></pre><p>过滤器为函数：</p>
+</li>
+</ol>
+<pre><code>var book={
+    &quot;title&quot;:&quot;javaScript&quot;;
+    &quot;authors&quot;:
+    [
+    &quot;Hellen&quot;
+    ],
+    edition:3,
+    year:2011 };
+    var jsonText=JSON.stringify(book,function(key,value){
+    switch(key){
+    case &quot;authors&quot;:
+    return value.join(&quot;,&quot;);
+    case &quot;year&quot;:
+    return 5000;
+    case &quot;edition&quot;:
+    return undefined;
+    default:
+    return value;
     }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+    });
+</code></pre><ol>
+<li>字符串缩进<br>JSON.stringify()方法的而第三个参数用于结果中的缩进和空白符，如果这个参数是一个数值，那它表示每个级别缩进的空格数<br>var jsonText=JSON.stringify(book,null,4);<br><code>注意：</code> </li>
+</ol>
+<ul>
+<li>只要传入有效的缩进参数，结果字符串就会包含换行符，</li>
+<li>最大缩进的而空格数为10，所有大于10的数值都会自动转换为10<br>缩进参数</li>
+<li>缩进参数可以为非数值（制表符，两个短横线等任意字符）</li>
+</ul>
+<ol>
+<li>toJSON()方法<br>可以给任何对象添加 toJSON()方法,返回自身的JSON数据格式</li>
+</ol>
+<pre><code> var book={
+&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+toJSON:function(){
+return this.title;
+}
+};
+var jsonText=JSON.stringify(book);
+</code></pre><ol>
+<li><p>序列化的内部顺序：<br>假设把一个对象传入JSON.stringify()，序列化该对象的顺序如下：<br>（1）如果存在toJSON()而且能通过它取得有效值，则调用该方法，否则返回对象本身<br>（2）如果提供第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步返回的值<br>（3）对第（2）步返回的每一个值进行相应的序列化<br>（4）如果提供第三个参数，执行相应的格式化</p>
+<h2 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h2><p>JSON.stringify()方法接收的函数（称替换或过滤函数）<br>JSON.parse()方法可以接收另一个参数（称还原函数）</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+releaseDate:new Date(2011,11,1)
+};
+var jsonText=JSON.stringify(book);
+var bookCopy=JSON.parse(jsonText,function(key,value){
+if(key==&quot;releaseDate&quot;){
+return new Date(value);
+}else{
+return vlaue;
+}
+});
+console.log(bookCopy.releaseDate.getFullYear());
+</code></pre></li>
+</ol>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css基础知识/">css基础知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端基础知识/">前端基础知识</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础知识/">计算机基础知识</a><span class="category-list-count">1</span></li></ul>
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/css/" style="font-size: 20.75px; color: #606060">css</a> <a href="/tags/jQuery/" style="font-size: 16px; color: #808080">jQuery</a> <a href="/tags/js/" style="font-size: 25.5px; color: #404040">js</a> <a href="/tags/ps/" style="font-size: 16px; color: #808080">ps</a> <a href="/tags/前端/" style="font-size: 35px; color: #000">前端</a> <a href="/tags/前端基础知识/" style="font-size: 30.25px; color: #202020">前端基础知识</a> <a href="/tags/协议/" style="font-size: 16px; color: #808080">协议</a> <a href="/tags/计算机基础知识/" style="font-size: 16px; color: #808080">计算机基础知识</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
+        <p><span>发布时间:</span>2016-09-23, 10:12:08</p>
+        <p><span>最后更新:</span>2016-11-06, 00:53:40</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/23/JSON（JavaScript Object Notation）/" title="JSON">http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/22/this的指向问题/">
+                    this的指向问题
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON（JavaScript-Object-Notation）"><span class="toc-number">1.</span> <span class="toc-text">JSON（JavaScript Object Notation）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单值"><span class="toc-number">1.1.1.</span> <span class="toc-text">简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">1.1.3.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析与序列化"><span class="toc-number">1.2.</span> <span class="toc-text">解析与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化选项"><span class="toc-number">1.2.1.</span> <span class="toc-text">序列化选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析选项"><span class="toc-number">1.3.</span> <span class="toc-text">解析选项</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -407,7 +503,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"分类&标签　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JSON　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,6 +518,24 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/22/this的指向问题/" title="下一篇: this的指向问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
 
 
 

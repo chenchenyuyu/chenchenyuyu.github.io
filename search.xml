@@ -4,6 +4,127 @@
   
     
     <entry>
+      <title><![CDATA[JSON]]></title>
+      <url>http://yoursite.com/2016/09/23/JSON%EF%BC%88JavaScript%20Object%20Notation%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
+<ol>
+<li>它是一种数据格式，不是一种编程语言</li>
+<li>它并不属于JavaScript，很多编程语言都有应用到它，有针对Json的解析器和序列化器<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
+<li>简单值：使用与js相同的语法，在json中表示，字符串，数值，布尔值，null，但不支持undefined</li>
+<li>对象：复杂数据类型，表示的是一组无序的键值对，键值对中可以使简单值，也可以是复杂数据类型</li>
+<li><p>数组：复杂数据类型，表示一组有序值的列表，可以通过数组索引来访问其中的值，数组值，可以是简单值，对象，数组<br><code>注意：</code>json不支持变量，函数，对象实例，它就是一种表示结构化数据的格式</p>
+<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p><code>注意：</code>js字符串与json的最大区别：json字符串必须使用双引号（单引号将导致语法错误）</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p> js中对象字面量：<br> var person={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> }；<br> 或者<br> var Object={</p>
+<pre><code>name:&quot;Lili&quot;,
+age:29
+</code></pre><p> };<br> json中对象表示：<br> {</p>
+<pre><code> &quot;name&quot;:&quot;Lili&quot;,
+&quot;age&quot;:29
+</code></pre><p> }<br><code>两者的区别：</code></p>
+<ol>
+<li>json对象中没有声明变量的概念</li>
+<li>json对象中没有末尾的分号</li>
+<li>对象属性必须加上双引号</li>
+<li><p>同一个对象中绝对不应该出现两个同名属性</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>js中数组：<br>var values=[25,”h1”,true];<br>json中的数组：<br>[25,”h1”,true]</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><code>两者的而区别：</code>json数组没有变量和分号</p>
+<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><ol>
+<li>eval()函数可以解析，解释并返回js对象和数组</li>
+<li>json对象有两个方法：stringify()和parse()<br>stringify()用于把json对象序列化为json字符串<br>parse()用于把字符串解析为原生的js值<br><code>注意：</code></li>
+<li>默认情况下，JSON.stringify()输出的字符串不包括任何空格字符或缩进</li>
+<li>如过传给JSON.parse()不是有效的json，该方法会报错<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3>JSON.stringify(序列化对象，过滤器，选项)<br>过滤器：可以使数组，可以是函数<br>选项：表示是否在json中保留缩进</li>
+<li><p>过滤结果<br> 过滤器为数组：</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 };
+var jsonText=JSON.stringify(book,[&quot;title&quot;,&quot;edition&quot;]);
+</code></pre><p>过滤器为函数：</p>
+</li>
+</ol>
+<pre><code>var book={
+    &quot;title&quot;:&quot;javaScript&quot;;
+    &quot;authors&quot;:
+    [
+    &quot;Hellen&quot;
+    ],
+    edition:3,
+    year:2011 };
+    var jsonText=JSON.stringify(book,function(key,value){
+    switch(key){
+    case &quot;authors&quot;:
+    return value.join(&quot;,&quot;);
+    case &quot;year&quot;:
+    return 5000;
+    case &quot;edition&quot;:
+    return undefined;
+    default:
+    return value;
+    }
+    });
+</code></pre><ol>
+<li>字符串缩进<br>JSON.stringify()方法的而第三个参数用于结果中的缩进和空白符，如果这个参数是一个数值，那它表示每个级别缩进的空格数<br>var jsonText=JSON.stringify(book,null,4);<br><code>注意：</code> </li>
+</ol>
+<ul>
+<li>只要传入有效的缩进参数，结果字符串就会包含换行符，</li>
+<li>最大缩进的而空格数为10，所有大于10的数值都会自动转换为10<br>缩进参数</li>
+<li>缩进参数可以为非数值（制表符，两个短横线等任意字符）</li>
+</ul>
+<ol>
+<li>toJSON()方法<br>可以给任何对象添加 toJSON()方法,返回自身的JSON数据格式</li>
+</ol>
+<pre><code> var book={
+&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+toJSON:function(){
+return this.title;
+}
+};
+var jsonText=JSON.stringify(book);
+</code></pre><ol>
+<li><p>序列化的内部顺序：<br>假设把一个对象传入JSON.stringify()，序列化该对象的顺序如下：<br>（1）如果存在toJSON()而且能通过它取得有效值，则调用该方法，否则返回对象本身<br>（2）如果提供第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步返回的值<br>（3）对第（2）步返回的每一个值进行相应的序列化<br>（4）如果提供第三个参数，执行相应的格式化</p>
+<h2 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h2><p>JSON.stringify()方法接收的函数（称替换或过滤函数）<br>JSON.parse()方法可以接收另一个参数（称还原函数）</p>
+<p> var book={</p>
+<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
+&quot;authors&quot;:
+[
+&quot;Hellen&quot;
+],
+edition:3,
+year:2011 
+releaseDate:new Date(2011,11,1)
+};
+var jsonText=JSON.stringify(book);
+var bookCopy=JSON.parse(jsonText,function(key,value){
+if(key==&quot;releaseDate&quot;){
+return new Date(value);
+}else{
+return vlaue;
+}
+});
+console.log(bookCopy.releaseDate.getFullYear());
+</code></pre></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[this的指向问题]]></title>
       <url>http://yoursite.com/2016/09/22/this%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h1 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h1><ol>
