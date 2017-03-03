@@ -84,57 +84,149 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/2016/11/15/%E5%93%8D%E5%BA%94%E5%BC%8Fweb%E8%AE%BE%E8%AE%A1/</url>
-      <content type="html"><![CDATA[<h1 id="响应式web设计"><a href="#响应式web设计" class="headerlink" title="响应式web设计"></a>响应式web设计</h1><p>1.视口和屏幕尺寸：</p>
+      <title><![CDATA[响应式web设计]]></title>
+      <url>http://yoursite.com/2017/03/03/%E5%93%8D%E5%BA%94%E5%BC%8Fweb%E8%AE%BE%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<h3 id="什么是响应式web设计"><a href="#什么是响应式web设计" class="headerlink" title="什么是响应式web设计"></a>什么是响应式web设计</h3><p>响应式网页设计（RWD，Responsive Web Design）这个术语，由伊桑·马科特（Ethan<br>Marcotte）提出。将三种已有的开发技巧（弹性网格布局、弹性图片、媒体和媒体查询）整合起来，并命名为响应式网页设计。这个术语还有一堆表示相同意思的其他叫法，如流式设计、弹性布局、塑料布局、流体设计、自适应布局、跨设备设计以及弹性设计<br><img src="./web响应式设计理念.jpg" alt="Alt text"></p>
+<h3 id="向下兼容，移动优先"><a href="#向下兼容，移动优先" class="headerlink" title="向下兼容，移动优先"></a>向下兼容，移动优先</h3><p>响应式Web设计不仅仅是关于屏幕分辨率自适应以及自动缩放的图片等等，它更像是一种对于设计的全新思维模式；我们应当向下兼容、移动优先。<br>首先我们应该遵循移动优先原则，交互&amp;设计应以移动端为主，PC则作为移动端的一个扩展；一个页面需要兼容不同终端，那么有两个关键点是我们需要去做到响应式的：</p>
+<ol>
+<li>响应式布局</li>
+<li>响应式内容（图片、多媒体）</li>
+</ol>
+<h2 id="桌面浏览器部分"><a href="#桌面浏览器部分" class="headerlink" title="桌面浏览器部分"></a>桌面浏览器部分</h2><ol>
+<li>设备像素和CSS像素<br>设备像素其值可以（通常情况下）从screen.width/height属性中读出</li>
+</ol>
 <ul>
-<li>视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。</li>
-<li>屏幕尺寸指的<br>是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。</li>
+<li>如果你给一个元素设置了width: 128px的属性，并且你的显示器是1024px宽，当你最大化你的浏览器屏幕，这个元素将会在你的显示器上重复显示8次,形式上，元素仍然是128个CSS像素宽，即使它占据了256个设备像素的空间</li>
+<li>100%缩放 : 在缩放比例100%的情况下一个CSS像素完全等于一个设备像素。</li>
 </ul>
 <ol>
-<li>百分比尺寸<br>目标元素的尺寸/上下文元素尺寸=百分比尺寸<br>注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给body标签应用下列任何一条规则所产生的效果都一样：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">font-size:100%</div><div class="line">font-size:16px</div><div class="line">font-size:1em</div></pre></td></tr></table></figure>
-<ol>
-<li>em与px之间的换算单位为16</li>
-<li><p>弹性图片<br>在现代浏览器（包括IE7+）中要实现图片随着流动布局相应缩放非常简单。只需在 CSS中作如下声明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">img&#123;max-width:100%&#125;</div><div class="line">多媒体相同</div><div class="line">img,object,video,embed &#123;</div><div class="line">max-width: 100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>让图片随视口缩放</p>
-</li>
+<li>屏幕尺寸(screen.width/height)</li>
 </ol>
 <ul>
-<li>注：不应该固定设置图片width,和height，而是百分比</li>
+<li>意义：用户屏幕的整体大小。</li>
+<li>度量单位：设备像素。</li>
+<li>浏览器错误：IE8以CSS像素对其进行度量，IE7和IE8模式下都有这个问题。<br><img src="./screen.width.jpg" alt="Alt text"></li>
 </ul>
 <ol>
-<li>十分有用的max-width属性</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">width:90%;</div><div class="line">max-width:1000px</div></pre></td></tr></table></figure>
-<p>页面缩放到视口的96%，但绝对不会超过1000px；</p>
-<ol>
-<li>为不同的屏幕尺寸提供不同的图片</li>
+<li>窗口尺寸(window.innerWidth/Height)</li>
 </ol>
 <ul>
-<li>图片缩放存在的问题：图片尺寸比其显示尺寸更大以保证渲染效果，否则图片可能看起来很糟糕。基于上述原因：图片文件的体积就永远比实际所需的要大。</li>
+<li>意义：浏览器窗口的整体大小，包括滚动条。</li>
+<li>度量单位：CSS像素。</li>
+<li>浏览器错误：IE7不支持。Opera以设备像素进行度量<br><img src="./window.innerWidth.jpg" alt="Alt text"></li>
 </ul>
 <ol>
-<li>opacity和rgba及hsla的区别：<br>opacity会对整个元素产生影响（元素的内容都会出现透明）反之，使用hsla或rgba则可以仅让元素的某些部分有透明的效果。</li>
-<li>解决跨浏览器的问题<br>8.1 逐渐增强与优雅降级</li>
+<li>滚动距离(window.pageX/YOffset)</li>
 </ol>
 <ul>
-<li>优雅降级：指的是为现代浏览器制作网站，然后保证为某些老版本浏览器提供基本可用的<br>体验。新特性在老版本浏览器中会降级，且一般会有一个分界点，声明不支持那些老掉<br>牙的浏览器。有些时候用户也仅会被警告他们所使用的浏览器有问题，建议其更换</li>
-<li>逐渐增强：渐进增强以恪守 Web标准的标签为基础，意味着它在所<br>有浏览器中均可用。然后通过 CSS 样式和必要的 JavaScript 来为更先进的浏览器提供渐<br>进式的增强体验。<blockquote>
-<p>JavaScript中的shim与polyfill是？</p>
-</blockquote>
+<li>意义：页面滚动的距离。</li>
+<li>度量单位：CSS像素。</li>
+<li>浏览器错误：无。<br><img src="./window.pageYOffset.jpg" alt="Alt text"></li>
+</ul>
+<ol>
+<li>度量viewport<br>(document.documentElement.clientWidth/Height)</li>
+</ol>
+<ul>
+<li>意义：Viewport尺寸。</li>
+<li>度量单位：CSS像素。</li>
+<li>浏览器错误：无。</li>
+</ul>
+<p><img src="./viewport.jpg" alt="Alt text"><br>如果你了解DOM，你应该知道document.documentElement实际上指的是<html>元素：即任何HTML文档的根元素。可以说，viewport要比它更高一层；它是包含<html>元素的元素。<br><img src="./document.documentElement.clientWidth.jpg" alt="Alt text"></html></html></p>
+<ol>
+<li>度量<html>元素(document.documentElement.offsetWidth/Height)</html></li>
+</ol>
+<ul>
+<li>意义：元素（也就是页面）的尺寸。</li>
+<li>度量单位：CSS像素。</li>
+<li>浏览器错误：IE度量的是viewport，而不是元素。<br><img src="./document.documentElement.clientWidth.jpg" alt="Alt text"></li>
+</ul>
+<ol>
+<li>事件中的坐标<br>(pageX/Y, clientX/Y, screenX/Y)<br>浏览器错误：IE不支持pageX/Y。IE和Opera以CSS像素为单位计算screenX/Y。</li>
+</ol>
+<ul>
+<li>pageX/Y提供了相对于<html>元素的以CSS像素度量的坐标。<br><img src="./pageXY.jpg" alt="Alt text"></html></li>
+<li>clientX/Y提供了相对于viewport的以CSS像素度量的坐标<br><img src="./clientXY.jpg" alt="Alt text"></li>
+<li>screenX/Y提供了相对于屏幕的以设备像素进行度量的坐标。<br><img src="./screen.width.jpg" alt="Alt text"></li>
+</ul>
+<ol>
+<li>媒体查询<br>(浏览器错误：IE不支持它们。)</li>
+</ol>
+<ul>
+<li>如果 device-width/height是以CSS像素进行度量的，那么Firefox将会使用screen.width/height的值。</li>
+<li>如果width/height是以设备像素进行度量的，那么Safari和Chrome将会使</li>
+<li>8.1 documentElement.clientWidth/Height的值。width/height使用和documentElement .clientWidth/Height（换句话说就是viewport宽高）一样的值。它是工作在CSS像素下的。</li>
+<li>8.2 device-width/device-height使用和screen.width/height（换句话说就是屏幕的宽高）一样的值。它工作在设备像素下面。</li>
+</ul>
+<p><img src="./media query width.jpg" alt="Alt text"></p>
+<h2 id="移动浏览器部分"><a href="#移动浏览器部分" class="headerlink" title="移动浏览器部分"></a>移动浏览器部分</h2><p>##两个viewport</p>
+<h3 id="layout-viewport"><a href="#layout-viewport" class="headerlink" title="layout viewport"></a>layout viewport</h3><p><img src="./layoutviewport.jpg" alt="Alt text"></p>
+<ol>
+<li>度量layout viewport<br>我们现在有两个需要度量的viewport。很幸运的是浏览器战争给我们提供了两个属性对。<br>document.documentElement.clientWidth和-Height包含了layout viewport的尺寸。</li>
+</ol>
+<p>document.documentElement.clientWidth/Height</p>
+<ul>
+<li>意义：Layout viewport的尺寸</li>
+<li>度量单位：CSS像素</li>
+<li>完全支持Opera, iPhone, Android, Symbian, Bolt, MicroB, Skyfire, Obigo。</li>
+<li>在Iris中Visual viewport有问题</li>
+<li>浏览器兼容性问题</li>
+</ul>
+<p>###visual viewport<br>visual viewport是页面当前显示在屏幕上的部分。用户可以通过滚动来改变他所看到的页面的部分，或者通过缩放来改变visual viewport的大小。<br><img src="./visual viewport.jpg" alt="Alt text"><br><code>注：</code> 无论怎样，CSS布局，尤其是百分比宽度，是以layout viewport做为参照系来计算的，它被认为要比visual viewport宽。</p>
+<ol>
+<li>度量visual viewport<br>对于visual viewport，它是通过window.innerWidth/Height来进行度量的。很明显当用户缩小或者放大的时候，度量的尺寸会发生变化，因为屏幕上的CSS像素会增加或者减少。</li>
+</ol>
+<h3 id="viewport-meta标签（Meta-viewport）"><a href="#viewport-meta标签（Meta-viewport）" class="headerlink" title="viewport meta标签（Meta viewport）"></a>viewport meta标签（Meta viewport）</h3><p><img src="./Meta viewport.jpg" alt="Alt text"></p>
+<ul>
+<li>意义：设置layout viewport的宽度。</li>
+<li>度量单位：CSS像素。</li>
+<li>完全支持Opera Mobile，iPhone，Android，Iris，IE，BlackBerry，Obigo。<br>不支持Opera Mini，Symbian，Bolt，Firefox，MicroB，NetFront。</li>
+<li>问题：Skyfire不能处理我的测试页面。<h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3>弹性的栅格布局，不同尺寸下弹性适应，如以下页面中各模块在不同尺寸下的位置：<br><img src="./栅格布局.jpg" alt="Alt text"></li>
+</ul>
+<p>栅格框架推荐:</p>
+<ul>
+<li>Responsive Grid System</li>
+<li>Fluid 960 Grid</li>
+<li>Simple Grid<h3 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h3></li>
+</ul>
+<ol>
+<li>什么是响应式图片？<br>根据显示器分辨率，提供多个图片源，在页面上图片的尺寸，或者其它参数的一种方法<br>目前最常用的解决方案：</li>
+<li><p>css样式<br>此代码使用 max-width:100% 的设置，以确保图像永远不会超越其父容器的宽度。如果父容器的宽度收缩小于图像的宽度，图像将随之缩小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> img &#123;</div><div class="line">    max-width: 100%;</div><div class="line">    height: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
+<li><p>picture是HTML5一个新的元素</p>
+</li>
+</ol>
+<ul>
+<li>创建 picture 标签。</li>
+<li>在这些标签内创建一个你想用来执行任何一个特性的 source元素。</li>
+<li>添加一个 media 属性，用来包含你想要的特性，如视口的当前高度(viewport height)，宽度( width )，方向(orientation)等。</li>
+<li>添加一个 srcset 属性与相应的图像文件名相匹配，进行加载。如果你想提供不同的像素密度，例如Retina显示屏，你可以添加额外的文件名到你的 srcset 属性中，</li>
+<li>添加一个回退的 img 元素。</li>
+</ul>
+<p><img src="./picture.jpg" alt="Alt text"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">		(function() &#123;</div><div class="line">  var currentSrc, oldSrc, imgEl;</div><div class="line">  var showPicSrc = function() &#123;</div><div class="line">    oldSrc     = currentSrc;</div><div class="line">    imgEl      = document.getElementById(&apos;picimg&apos;);</div><div class="line">    currentSrc = imgEl.currentSrc || imgEl.src;</div><div class="line">    </div><div class="line">    if (typeof oldSrc === &apos;undefined&apos; || oldSrc !== currentSrc) &#123;</div><div class="line">      document.getElementById(&apos;logger&apos;).innerHTML = currentSrc;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  // You may wish to debounce resize if you have performance concerns</div><div class="line">  window.addEventListener(&apos;resize&apos;, showPicSrc);</div><div class="line">  window.addEventListener(&apos;load&apos;, showPicSrc);</div><div class="line">&#125;)(window);</div><div class="line">	</div><div class="line"></div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">	&lt;picture&gt;</div><div class="line">  &lt;source media=&quot;(min-width: 650px)&quot; srcset=&quot;images/kitten-large.jpg&quot;&gt;</div><div class="line">  &lt;source media=&quot;(min-width: 465px)&quot; srcset=&quot;images/kitten-medium.jpg&quot;&gt;</div><div class="line">  &lt;!-- img tag for browsers that do not support picture element --&gt;</div><div class="line">  &lt;img src=&quot;images/kitten-small.jpg&quot; id=&quot;picimg&quot;&gt;</div><div class="line"> &lt;/picture&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>Picturefill<br>其原理就是JS获取Source的源以及CSS Media Queries规则，输出适应图片， 逻辑细节这里不再解析，感兴趣的可查看其JS代码，逻辑不是很复杂，也可以自己封装一个类库，例如图片加载失败的替代方案。<br><a href="http://scottjehl.github.io/picturefill/" target="_blank" rel="external">http://scottjehl.github.io/picturefill/</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;picture&gt;</div><div class="line">  &lt;!--[if IE 9]&gt;&lt;video style=&quot;display: none;&quot;&gt;&lt;![endif]--&gt;</div><div class="line">  &lt;source srcset=&quot;images/3.jpg&quot; media=&quot;(min-width: 1000px)&quot;&gt;</div><div class="line">  &lt;source srcset=&quot;images/4.jpg&quot; media=&quot;(min-width: 800px)&quot;&gt;</div><div class="line">  &lt;!--[if IE 9]&gt;&lt;/video&gt;&lt;![endif]--&gt;</div><div class="line">  &lt;img srcset=&quot;images/6.jpg&quot; alt=&quot;…&quot;&gt;</div><div class="line">&lt;/picture&gt;</div><div class="line">显示密度描述:</div><div class="line">&lt;img src=&quot;cat.jpg&quot; alt=&quot;cat&quot; srcset=&quot;cat.jpg, cat-2X.jpg 2x&quot;&gt;</div><div class="line">宽度描述符:</div><div class="line">当图片开始下载时浏览器知道的只有视窗尺寸</div><div class="line">&lt;img src=&quot;cat.jpg&quot; alt=&quot;cat&quot;  srcset=&quot;cat-160.jpg 160w, cat-320.jpg 320w, cat-640.jpg 640w, cat-1280.jpg 1280w&quot;&gt;</div><div class="line">浏览器如何选择正确的sizes:</div><div class="line">&lt;img src=&quot;cat.jpg&quot; alt=&quot;cat&quot;</div><div class="line">  srcset=&quot;cat-160.jpg 160w, cat-320.jpg 320w, cat-640.jpg 640w, cat-1280.jpg 1280w&quot;</div><div class="line">  sizes=&quot;(max-width: 480px) 100vw, (max-width: 900px) 33vw, 254px&quot;&gt;</div><div class="line">Srcset和sizes ＝ 智能浏览器</div></pre></td></tr></table></figure>
+<ol>
+<li>在一些场景下单独用img可能就够了：</li>
+</ol>
+<ul>
+<li>固定宽度，单一分辨率网页:如果你没有用响应式设计并且不用担心”retina”屏幕，img元素就够了</li>
+<li>文件尺寸差别很小:对于有些图片，最大版本和最小版本的尺寸没有很大区别。常见的有logo，图标和其他不需要根据视窗变化的小图片。如果文件尺寸没什么区别，一张图片可能就够了</li>
+<li>使用基于矢量的图片例如SVG:如果使用基于矢量的图片格式例如SVG，图片可以自由缩放并不需要多张图片。在这种情况下，可以直接用SVG做为img的图片源。<h3 id="逐渐增强与优雅降级"><a href="#逐渐增强与优雅降级" class="headerlink" title="逐渐增强与优雅降级"></a>逐渐增强与优雅降级</h3></li>
+<li>优雅降级：指的是为现代浏览器制作网站，然后保证为某些老版本浏览器提供基本可用的体验。新特性在老版本浏览器中会降级，且一般会有一个分界点，声明不支持那些老掉牙的浏览器。有些时候用户也仅会被警告他们所使用的浏览器有问题，建议其更换</li>
+<li>逐渐增强：渐进增强以恪守 Web标准的标签为基础，意味着它在所有浏览器中均可用。然后通过 CSS 样式和必要的 JavaScript 来为更先进的浏览器提供渐进式的增强体验。<h3 id="JavaScript中的shim与polyfill是？"><a href="#JavaScript中的shim与polyfill是？" class="headerlink" title="JavaScript中的shim与polyfill是？"></a>JavaScript中的shim与polyfill是？</h3></li>
 <li>shim是指一个库，它将一个新的API引入到一个旧的环境当中，而且仅靠旧的环境中已有的手段实现</li>
 <li>一个polyfill就是一个用浏览器API上的shim</li>
 <li>我们通常的做法：先检查当前浏览器是否支持某个API，如果<br>不支持的话，就加载对应的polyfill，然后新旧的浏览器就可以使用这个API了</li>
 <li>区别：polyfill是shim的一种，<br>shim 是将不同 api 封装成一种，比如 jQuery 的 $.ajax 封装了 XMLHttpRequest 和 IE 用 ActiveXObject 方式创建 xhr 对象；polyfill 特指 shim 成的 api是遵循标准的，其典型做法是在IE浏览器中增加window.XMLHttpRequest，内部实现使用ActiveXObject。在实际中为了方便做对比，会特指shim的api不是遵循标准的，而是自己设计的。</li>
+<li>使用Modernizr检查HTML5和css3浏览器支持功能。<br>Modernizr是一个用于检测浏览器功能的开源JavaScript库。<br><code>注意：</code>Modernizr并不是试图添加老版本浏览器不支持的功能，而是令你通过创建可选风格配置来修改页面设计。它可以通过加载定制的脚本来模拟老版本浏览器不支持的功能。’<br>参考链接：<pre><code>http://www.quirksmode.org/mobile/viewports2.html
+http://isux.tencent.com/responsive-web-design.html
+http://www.berkeley.edu/
+</code></pre></li>
 </ul>
-<ol>
-<li>使用Modernizr检查HTML5和css3浏览器支持功能。<br>Modernizr是一个用于检测浏览器功能的开源JavaScript库。<br><code>注意：</code>Modernizr并不是试图添加老版本浏览器不支持的功能，而是令你通过创建可选风格配置来修改页面设计。它可以通过加载定制的脚本来模拟老版本浏览器不支持的功能。’</li>
-</ol>
 ]]></content>
     </entry>
     
