@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="陈玉" />
+
+
+
+<meta name="description" content="七层模型（OSI，Open System Interconnection参考模型），是参考是国际标准化组织制定的一个用于计算机或通信系统间互联的标准体系。它是一个七层抽象的模型，不仅包括一系列抽象的术语和概念，也包括具体的协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI七层网络架构">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/OSI七层网络架构/index.html">
+<meta property="og:site_name" content="陈玉的博客">
+<meta property="og:description" content="七层模型（OSI，Open System Interconnection参考模型），是参考是国际标准化组织制定的一个用于计算机或通信系统间互联的标准体系。它是一个七层抽象的模型，不仅包括一系列抽象的术语和概念，也包括具体的协议。">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/tcp%E6%95%B0%E6%8D%AE%E6%8A%A5.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/TCP%E5%92%8CUDP%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/tcp-ip%E5%88%86%E5%B1%82.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/tcp%E6%8A%A5%E6%96%87%E6%AE%B5.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/%E5%9B%9B%E6%AC%A1%E5%88%86%E6%89%8B.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.jpg">
+<meta property="og:updated_time" content="2017-03-03T11:38:22.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSI七层网络架构">
+<meta name="twitter:description" content="七层模型（OSI，Open System Interconnection参考模型），是参考是国际标准化组织制定的一个用于计算机或通信系统间互联的标准体系。它是一个七层抽象的模型，不仅包括一系列抽象的术语和概念，也包括具体的协议。">
+<meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="陈玉的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>OSI七层网络架构 | 陈玉的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈玉</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps/">ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/协议/">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈玉</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈玉</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1486019507@1486019507.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-OSI七层网络架构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/03/OSI七层网络架构/" class="article-date">
+      <time datetime="2017-03-03T07:10:06.000Z" itemprop="datePublished">2017-03-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OSI七层网络架构
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/计算机基础知识/">计算机基础知识</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="OSI七层网络架构"><a href="#OSI七层网络架构" class="headerlink" title="OSI七层网络架构"></a>OSI七层网络架构</h2><p>七层模型（OSI，Open System Interconnection参考模型），是参考是国际标准化组织制定的一个用于计算机或通信系统间互联的标准体系。它是一个七层抽象的模型，不仅包括一系列抽象的术语和概念，也包括具体的协议。 经典的描述如下：<br>简述每一层的含义：<br><img src="http://obfnbicau.bkt.clouddn.com/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B.jpg" alt="Alt text"></p>
+<ol>
+<li>物理层（Physical Layer）：建立、维护、断开物理连接。</li>
+<li>数据链路层 (Link)：逻辑连接、进行硬件地址寻址、差错校验等。</li>
+<li>网络层 (Network)：进行逻辑寻址，实现不同网络之间的路径选择。</li>
+<li>传输层 (Transport)：定义传输数据的协议端口号，及流控和差错校验。</li>
+<li>会话层（Session Layer）：建立、管理、终止会话。</li>
+<li>表示层（Presentation Layer）：数据的表示、安全、压缩。</li>
+<li>应用层 (Application)：网络服务与最终用户的一个接口<br>每一层利用下一层提供的服务与对等层通信，每一层使用自己的协议。了解了这些，然并卵。但是，这一模型确实是绝大多数网络编程的基础，作为抽象类存在的，而TCP／IP协议栈只是这一模型的一个具体实现。<h2 id="TCP-IP五层网络架构"><a href="#TCP-IP五层网络架构" class="headerlink" title="TCP/IP五层网络架构"></a>TCP/IP五层网络架构</h2>TCP/IP是Internet的基础，是一组协议的代名词，包括许多协议，组成了TCP/IP协议栈。(<strong>里面包括IP协议、ICMP协议、TCP协议。</strong>)TCP／IP 有四层模型和五层模型之说，区别在于数据链路层是否作为独立的一层存在。<br><img src="http://obfnbicau.bkt.clouddn.com/TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88.jpg" alt="Alt text"><br>数据是如何传递呢？这就要了解网络层和传输层的协议，我们熟知的IP包结构是这样的：<br><img src="http://obfnbicau.bkt.clouddn.com/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.jpg" alt="Alt text"><br>IP协议和IP地址是两个不同的概念，这里没有涉及IPV6的。不关注网络安全的话，对这些结构不必耳熟能详的。传输层使用这样的数据包进行传输，传输层又分为面向连接的可靠传输TCP和数据报UDP。TCP的包结构：<br><img src="http://obfnbicau.bkt.clouddn.com/tcp%E6%95%B0%E6%8D%AE%E6%8A%A5.jpg" alt="Alt text"><br>TCP 连接建立的三次握手肯定是必知必会，在系统调优的时候，内核中关于网络的相关参数与这个图息息相关。UDP是一种无连接的传输层协议，提供的是简单不可靠的信息传输。协议结构相对简单，包括源和目标的端口号，长度以及校验和。基于TCP和UDP的数据封装及解析示例如下：<br><img src="http://obfnbicau.bkt.clouddn.com/TCP%E5%92%8CUDP%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85.jpg" alt="Alt text"></li>
+</ol>
+<h2 id="TCP协议连接、释放过程"><a href="#TCP协议连接、释放过程" class="headerlink" title="TCP协议连接、释放过程"></a>TCP协议连接、释放过程</h2><p>TCP/IP分层：<br><img src="http://obfnbicau.bkt.clouddn.com/tcp-ip%E5%88%86%E5%B1%82.jpg" alt="Alt text"></p>
+<ol>
+<li>有几个需要注意的知识点：</li>
+</ol>
+<ul>
+<li>互联网地址：也就是IP地址，一般为网络号+子网号+主机号</li>
+<li>域名系统：通俗的来说，就是一个数据库，可以将主机名转换成IP地址</li>
+<li>RFC：TCP/IP协议的标准文档</li>
+<li>端口号：一个逻辑号码，IP包所带有的标记</li>
+<li>Socket：应用编程接口</li>
+</ul>
+<ol>
+<li>数据链路层的工作特性：</li>
+</ol>
+<ul>
+<li>为IP模块发送和接收IP数据报</li>
+<li>为ARP模块发送ARP请求和接收ARP应答（ARP：地址解析协议，将IP地址转换成MAC地址）</li>
+<li>为RARP发送RARP请求和接收RARP应答</li>
+</ul>
+<ol>
+<li>首先我们先来了解TCP报文段<br><img src="http://obfnbicau.bkt.clouddn.com/tcp%E6%8A%A5%E6%96%87%E6%AE%B5.jpg" alt="Alt text"><br>重要的标志我在图中也有标记，重点了解标志位：</li>
+</ol>
+<ul>
+<li>ACK：确认序号有效</li>
+<li>RST：重置连接</li>
+<li>SYN：发起了一个新连接</li>
+<li>FIN：释放一个连接<br><code>三次握手的过程（客户端我们用A表示，服务器端用B表示）</code><br>前提：A主动打开，B被动打开<br><img src="http://obfnbicau.bkt.clouddn.com/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="Alt text"></li>
+</ul>
+<ol>
+<li>在建立连接之前，B先创建TCB（传输控制块），准备接受客户进程的连接请求，处于LISTEN（监听）状态</li>
+<li>A首先创建TCB，然后向B发出连接请求，SYN置1，同时选择初始序号seq=x，进入SYN-SEND（同步已发送）状态</li>
+<li>B收到连接请求后向A发送确认，SYN置1，ACK置1，同时产生一个确认序号ack=x+1。同时随机选择初始序号seq=y，进入SYN-RCVD（同步收到）状态</li>
+<li><p>A收到确认连接请求后，ACK置1，确认号ack=y+1，seq=x+1，进入到ESTABLISHED（已建立连接）状态。向B发出确认连接，最后B也进入到ESTABLISHED（已建立连接）状态。<br><code>简单来说，</code> 就是:建立连接时，客户端发送SYN包（SYN=i）到服务器，并进入到SYN-SEND状态，等待服务器确认,服务器收到SYN包，必须确认客户的SYN（ack=i+1）,同时自己也发送一个SYN包（SYN=k）,即SYN+ACK包，此时服务器进入SYN-RECV状态,客户端收到服务器的SYN+ACK包，向服务器发送确认报ACK（ack=k+1）,此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br><code>四次分手的过程（客户端我们用A表示，服务器端用B表示）</code><br>由于TCP连接时是全双工的，因此每个方向都必须单独进行关闭。这一原则是当一方完成数据发送任务后，发送一个FIN来终止这一方向的链接。收到一个FIN只是意味着这一方向上没有数据流动，既不会在收到数据，但是在这个TCP连接上仍然能够发送数据，知道这一方向也发送了FIN，首先进行关闭的一方将执行主动关闭，而另一方则执行被动关闭。<br>前提：A主动关闭，B被动关闭<br><img src="http://obfnbicau.bkt.clouddn.com/%E5%9B%9B%E6%AC%A1%E5%88%86%E6%89%8B.jpg" alt="Alt text"><br>有人可能会问，为什么连接的时候是三次握手，而断开连接的时候需要四次挥手？<br>这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN 报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再 发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</p>
+</li>
+<li><p>A发送一个FIN，用来关闭A到B的数据传送，A进入FIN_WAIT_1状态。</p>
+</li>
+<li>B收到FIN后，发送一个ACK给A，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），B进入CLOSE_WAIT状态。</li>
+<li>B发送一个FIN，用来关闭B到A的数据传送，B进入LAST_ACK状态。</li>
+<li>A收到FIN后，A进入TIME_WAIT状态，接着发送一个ACK给B，确认序号为收到序+1，B进入CLOSED状态，完成四次挥手。<br>简单来说就是<br>客户端A发送一个FIN，用来关闭客户A到服务器B的数据传送（报文段4）。</li>
+<li>服务器B收到这个FIN，它发回一个ACK，确认序号为收到的序号加1（报文段5）。和SYN一样，一个FIN将占用一个序号。</li>
+<li>服务器B关闭与客户端A的连接，发送一个FIN给客户端A（报文段6）。</li>
+<li>客户端A发回ACK报文确认，并将确认序号设置为收到序号加1（报文段7）。<br>A在进入到TIME-WAIT状态后，并不会马上释放TCP，必须经过时间等待计时器设置的时间2MSL（最长报文段寿命），A才进入到CLOSED状态。为什么？</li>
+<li>为了保证A发送的最后一个ACK报文段能够到达B</li>
+<li>防止“已失效的连接请求报文段”出现在本连接中<br>OK~是不是很难懂的感觉？那我们来说的“人性化点的”吧<br><code>三次握手流程</code></li>
+<li>客户端发个请求“开门呐，我要进来”给服务器</li>
+<li>服务器发个“进来吧，我去给你开门”给客户端</li>
+<li>客户端有很客气的发个“谢谢，我要进来了”给服务器<br><code>四次挥手流程</code></li>
+<li>客户端发个“时间不早了，我要走了”给服务器，等服务器起身送他</li>
+<li>服务器听到了，发个“我知道了，那我送你出门吧”给客户端，等客户端走</li>
+<li>服务器把门关上后，发个“我关门了”给客户端，然后等客户端走（尼玛~矫情啊）</li>
+<li>客户端发个“我知道了，我走了”，之后自己就走了<h2 id="l"><a href="#l" class="headerlink" title="l"></a>l</h2><img src="http://obfnbicau.bkt.clouddn.com/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.jpg" alt="Alt text"></li>
+<li>CLOSED: 表示初始状态。</li>
+<li>LISTEN: 表示服务器端的某个SOCKET处于监听状态，可以接受连接了。</li>
+<li>SYN_RCVD: 这个状态表示接受到了SYN报文，在正常情况下，这个状态是服务器端的SOCKET在建立TCP连接时的三次握手会话过程中的一个中间状态，很短暂，基本 上用netstat你是很难看到这种状态的，除非你特意写了一个客户端测试程序，故意将三次TCP握手过程中最后一个ACK报文不予发送。因此这种状态 时，当收到客户端的ACK报文后，它会进入到ESTABLISHED状态。</li>
+<li>SYN_SENT: 这个状态与SYN_RCVD遥想呼应，当客户端SOCKET执行CONNECT连接时，它首先发送SYN报文，因此也随即它会进入到了SYN_SENT状 态，并等待服务端的发送三次握手中的第2个报文。SYN_SENT状态表示客户端已发送SYN报文。</li>
+<li>ESTABLISHED:表示连接已经建立了。</li>
+<li>FIN_WAIT_1: 这个状态要好好解释一下，其实FIN_WAIT_1和FIN_WAIT_2状态的真正含义都是表示等待对方的FIN报文。而这两种状态的区别 是：FIN_WAIT_1状态实际上是当SOCKET在ESTABLISHED状态时，它想主动关闭连接，向对方发送了FIN报文，此时该SOCKET即 进入到FIN_WAIT_1状态。而当对方回应ACK报文后，则进入到FIN_WAIT_2状态，当然在实际的正常情况下，无论对方何种情况下，都应该马 上回应ACK报文，所以FIN_WAIT_1状态一般是比较难见到的，而FIN_WAIT_2状态还有时常常可以用netstat看到。</li>
+<li>FIN_WAIT_2：上面已经详细解释了这种状态，实际上FIN_WAIT_2状态下的SOCKET，表示半连接，也即有一方要求close连接，但另外还告诉对方，我暂时还有点数据需要传送给你，稍后再关闭连接。</li>
+<li>TIME_WAIT: 表示收到了对方的FIN报文，并发送出了ACK报文，就等2MSL后即可回到CLOSED可用状态了。如果FIN_WAIT_1状态下，收到了对方同时带 FIN标志和ACK标志的报文时，可以直接进入到TIME_WAIT状态，而无须经过FIN_WAIT_2状态。</li>
+<li>CLOSING: 这种状态比较特殊，实际情况中应该是很少见，属于一种比较罕见的例外状态。正常情况下，当你发送FIN报文后，按理来说是应该先收到（或同时收到）对方的 ACK报文，再收到对方的FIN报文。但是CLOSING状态表示你发送FIN报文后，并没有收到对方的ACK报文，反而却也收到了对方的FIN报文。什 么情况下会出现此种情况呢？其实细想一下，也不难得出结论：那就是如果双方几乎在同时close一个SOCKET的话，那么就出现了双方同时发送FIN报 文的情况，也即会出现CLOSING状态，表示双方都正在关闭SOCKET连接。</li>
+<li>CLOSE_WAIT: 这种状态的含义其实是表示在等待关闭。怎么理解呢？当对方close一个SOCKET后发送FIN报文给自己，你系统毫无疑问地会回应一个ACK报文给对 方，此时则进入到CLOSE_WAIT状态。接下来呢，实际上你真正需要考虑的事情是察看你是否还有数据发送给对方，如果没有的话，那么你也就可以 close这个SOCKET，发送FIN报文给对方，也即关闭连接。所以你在CLOSE_WAIT状态下，需要完成的事情是等待你去关闭连接。LAST_ACK: 这个状态还是比较容易好理解的，它是被动关闭一方在发送FIN报文后，最后等待对方的ACK报文。当收到ACK报文后，也即可以进入到CLOSED可用状态了。</li>
+</ol>
+<p>参考链接：<a href="http://blog.jobbole.com/91841/utm_source=blog.jobbole.com&amp;utm_medium=relatedPosts" target="_blank" rel="external">http://blog.jobbole.com/91841/utm_source=blog.jobbole.com&amp;utm_medium=relatedPosts</a></p>
+<p><a href="http://blog.jobbole.com/110041/" target="_blank" rel="external">http://blog.jobbole.com/110041/</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/03/OSI七层网络架构/">OSI七层网络架构</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
+        <p><span>发布时间:</span>2017-03-03, 15:10:06</p>
+        <p><span>最后更新:</span>2017-03-03, 19:38:22</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/03/OSI七层网络架构/" title="OSI七层网络架构">http://yoursite.com/2017/03/03/OSI七层网络架构/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/03/OSI七层网络架构/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/11/15/响应式web设计/">
+                    
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI七层网络架构"><span class="toc-number">1.</span> <span class="toc-text">OSI七层网络架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP五层网络架构"><span class="toc-number">2.</span> <span class="toc-text">TCP/IP五层网络架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP协议连接、释放过程"><span class="toc-number">3.</span> <span class="toc-text">TCP协议连接、释放过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#l"><span class="toc-number">4.</span> <span class="toc-text">l</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"OSI七层网络架构　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/11/15/响应式web设计/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/OSI七层网络架构/">OSI七层网络架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/响应式web设计/">响应式web设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 陈玉
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

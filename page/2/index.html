@@ -14,35 +14,16 @@
 <meta name="author" content="陈玉" />
 
 
-
-<meta name="description" content="响应式web设计1.视口和屏幕尺寸：
-
-视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。
-屏幕尺寸指的是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。
+    
+    
 
 
-百分比尺寸目标元素的尺寸/上下文元素尺寸=百分比尺寸注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给bo">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="陈玉的博客">
-<meta property="og:url" content="http://yoursite.com/2016/11/15/响应式web设计/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="响应式web设计1.视口和屏幕尺寸：
-
-视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。
-屏幕尺寸指的是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。
-
-
-百分比尺寸目标元素的尺寸/上下文元素尺寸=百分比尺寸注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给bo">
-<meta property="og:updated_time" content="2016-11-15T13:22:25.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="陈玉的博客">
-<meta name="twitter:description" content="响应式web设计1.视口和屏幕尺寸：
-
-视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。
-屏幕尺寸指的是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。
-
-
-百分比尺寸目标元素的尺寸/上下文元素尺寸=百分比尺寸注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给bo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -70,6 +51,8 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+    <style> .article { opacity: 0;} </style>
+
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -83,8 +66,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: false,
-        isPost: true,
+        isHome: true,
+        isPost: false,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -285,11 +268,13 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-响应式web设计" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-关于ps的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/15/响应式web设计/" class="article-date">
-      <time datetime="2016-11-15T13:22:20.655Z" itemprop="datePublished">2016-11-15</time>
+      <a href="/2015/09/02/关于ps的基础知识/" class="article-date">
+      <time datetime="2015-09-02T03:30:16.000Z" itemprop="datePublished">2015-09-02</time>
 </a>
 
 
@@ -300,147 +285,50 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="响应式web设计"><a href="#响应式web设计" class="headerlink" title="响应式web设计"></a>响应式web设计</h1><p>1.视口和屏幕尺寸：</p>
-<ul>
-<li>视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。</li>
-<li>屏幕尺寸指的<br>是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。</li>
-</ul>
-<ol>
-<li>百分比尺寸<br>目标元素的尺寸/上下文元素尺寸=百分比尺寸<br>注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给body标签应用下列任何一条规则所产生的效果都一样：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">font-size:100%</div><div class="line">font-size:16px</div><div class="line">font-size:1em</div></pre></td></tr></table></figure>
-<ol>
-<li>em与px之间的换算单位为16</li>
-<li><p>弹性图片<br>在现代浏览器（包括IE7+）中要实现图片随着流动布局相应缩放非常简单。只需在 CSS中作如下声明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">img&#123;max-width:100%&#125;</div><div class="line">多媒体相同</div><div class="line">img,object,video,embed &#123;</div><div class="line">max-width: 100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>让图片随视口缩放</p>
-</li>
-</ol>
-<ul>
-<li>注：不应该固定设置图片width,和height，而是百分比</li>
-</ul>
-<ol>
-<li>十分有用的max-width属性</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">width:90%;</div><div class="line">max-width:1000px</div></pre></td></tr></table></figure>
-<p>页面缩放到视口的96%，但绝对不会超过1000px；</p>
-<ol>
-<li>为不同的屏幕尺寸提供不同的图片</li>
-</ol>
-<ul>
-<li>图片缩放存在的问题：图片尺寸比其显示尺寸更大以保证渲染效果，否则图片可能看起来很糟糕。基于上述原因：图片文件的体积就永远比实际所需的要大。</li>
-</ul>
-<ol>
-<li>opacity和rgba及hsla的区别：<br>opacity会对整个元素产生影响（元素的内容都会出现透明）反之，使用hsla或rgba则可以仅让元素的某些部分有透明的效果。</li>
-<li>解决跨浏览器的问题<br>8.1 逐渐增强与优雅降级</li>
-</ol>
-<ul>
-<li>优雅降级：指的是为现代浏览器制作网站，然后保证为某些老版本浏览器提供基本可用的<br>体验。新特性在老版本浏览器中会降级，且一般会有一个分界点，声明不支持那些老掉<br>牙的浏览器。有些时候用户也仅会被警告他们所使用的浏览器有问题，建议其更换</li>
-<li>逐渐增强：渐进增强以恪守 Web标准的标签为基础，意味着它在所<br>有浏览器中均可用。然后通过 CSS 样式和必要的 JavaScript 来为更先进的浏览器提供渐<br>进式的增强体验。<blockquote>
-<p>JavaScript中的shim与polyfill是？</p>
-</blockquote>
-</li>
-<li>shim是指一个库，它将一个新的API引入到一个旧的环境当中，而且仅靠旧的环境中已有的手段实现</li>
-<li>一个polyfill就是一个用浏览器API上的shim</li>
-<li>我们通常的做法：先检查当前浏览器是否支持某个API，如果<br>不支持的话，就加载对应的polyfill，然后新旧的浏览器就可以使用这个API了</li>
-<li>区别：polyfill是shim的一种，<br>shim 是将不同 api 封装成一种，比如 jQuery 的 $.ajax 封装了 XMLHttpRequest 和 IE 用 ActiveXObject 方式创建 xhr 对象；polyfill 特指 shim 成的 api是遵循标准的，其典型做法是在IE浏览器中增加window.XMLHttpRequest，内部实现使用ActiveXObject。在实际中为了方便做对比，会特指shim的api不是遵循标准的，而是自己设计的。</li>
-</ul>
-<ol>
-<li>使用Modernizr检查HTML5和css3浏览器支持功能。<br>Modernizr是一个用于检测浏览器功能的开源JavaScript库。<br><code>注意：</code>Modernizr并不是试图添加老版本浏览器不支持的功能，而是令你通过创建可选风格配置来修改页面设计。它可以通过加载定制的脚本来模拟老版本浏览器不支持的功能。’</li>
-</ol>
+              关于ps的基础知识
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ps/">ps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2015/09/02/关于ps的基础知识/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/15/响应式web设计/"></a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
-        <p><span>发布时间:</span>2016-11-15, 21:22:20</p>
-        <p><span>最后更新:</span>2016-11-15, 21:22:25</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/15/响应式web设计/" title="">http://yoursite.com/2016/11/15/响应式web设计/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/11/15/响应式web设计/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/03/OSI七层网络架构/">
-                    OSI七层网络架构
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/23/JSON（JavaScript Object Notation）/">
-                    JSON
-                </a>
-            </div>
-        
-    </nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#响应式web设计"><span class="toc-number">1.</span> <span class="toc-text">响应式web设计</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
 
 
 
@@ -448,35 +336,13 @@
 
 
 
-    
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/03/OSI七层网络架构/" title="上一篇: OSI七层网络架构">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/09/23/JSON（JavaScript Object Notation）/" title="下一篇: JSON">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/OSI七层网络架构/">OSI七层网络架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/响应式web设计/">响应式web设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
