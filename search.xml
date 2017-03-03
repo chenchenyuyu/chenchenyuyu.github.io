@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title></title>
+      <url>http://yoursite.com/2016/11/15/%E5%93%8D%E5%BA%94%E5%BC%8Fweb%E8%AE%BE%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<h1 id="响应式web设计"><a href="#响应式web设计" class="headerlink" title="响应式web设计"></a>响应式web设计</h1><p>1.视口和屏幕尺寸：</p>
+<ul>
+<li>视口是指浏览器窗口内的内容区，不包含工具栏、标签栏等。也就是网页实际显示的区域。</li>
+<li>屏幕尺寸指的<br>是设备的物理显示区域。需要注意的是有些浏览器调整工具显示的尺寸包含浏览器的其他元素，诸如地址栏、标签栏和搜索栏，而有些工具则不是这样。</li>
+</ul>
+<ol>
+<li>百分比尺寸<br>目标元素的尺寸/上下文元素尺寸=百分比尺寸<br>注：现代浏览器的默认文字大小都是16像素（显示声明的除外）因此一开始给body标签应用下列任何一条规则所产生的效果都一样：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">font-size:100%</div><div class="line">font-size:16px</div><div class="line">font-size:1em</div></pre></td></tr></table></figure>
+<ol>
+<li>em与px之间的换算单位为16</li>
+<li><p>弹性图片<br>在现代浏览器（包括IE7+）中要实现图片随着流动布局相应缩放非常简单。只需在 CSS中作如下声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">img&#123;max-width:100%&#125;</div><div class="line">多媒体相同</div><div class="line">img,object,video,embed &#123;</div><div class="line">max-width: 100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>让图片随视口缩放</p>
+</li>
+</ol>
+<ul>
+<li>注：不应该固定设置图片width,和height，而是百分比</li>
+</ul>
+<ol>
+<li>十分有用的max-width属性</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">width:90%;</div><div class="line">max-width:1000px</div></pre></td></tr></table></figure>
+<p>页面缩放到视口的96%，但绝对不会超过1000px；</p>
+<ol>
+<li>为不同的屏幕尺寸提供不同的图片</li>
+</ol>
+<ul>
+<li>图片缩放存在的问题：图片尺寸比其显示尺寸更大以保证渲染效果，否则图片可能看起来很糟糕。基于上述原因：图片文件的体积就永远比实际所需的要大。</li>
+</ul>
+<ol>
+<li>opacity和rgba及hsla的区别：<br>opacity会对整个元素产生影响（元素的内容都会出现透明）反之，使用hsla或rgba则可以仅让元素的某些部分有透明的效果。</li>
+<li>解决跨浏览器的问题<br>8.1 逐渐增强与优雅降级</li>
+</ol>
+<ul>
+<li>优雅降级：指的是为现代浏览器制作网站，然后保证为某些老版本浏览器提供基本可用的<br>体验。新特性在老版本浏览器中会降级，且一般会有一个分界点，声明不支持那些老掉<br>牙的浏览器。有些时候用户也仅会被警告他们所使用的浏览器有问题，建议其更换</li>
+<li>逐渐增强：渐进增强以恪守 Web标准的标签为基础，意味着它在所<br>有浏览器中均可用。然后通过 CSS 样式和必要的 JavaScript 来为更先进的浏览器提供渐<br>进式的增强体验。<blockquote>
+<p>JavaScript中的shim与polyfill是？</p>
+</blockquote>
+</li>
+<li>shim是指一个库，它将一个新的API引入到一个旧的环境当中，而且仅靠旧的环境中已有的手段实现</li>
+<li>一个polyfill就是一个用浏览器API上的shim</li>
+<li>我们通常的做法：先检查当前浏览器是否支持某个API，如果<br>不支持的话，就加载对应的polyfill，然后新旧的浏览器就可以使用这个API了</li>
+<li>区别：polyfill是shim的一种，<br>shim 是将不同 api 封装成一种，比如 jQuery 的 $.ajax 封装了 XMLHttpRequest 和 IE 用 ActiveXObject 方式创建 xhr 对象；polyfill 特指 shim 成的 api是遵循标准的，其典型做法是在IE浏览器中增加window.XMLHttpRequest，内部实现使用ActiveXObject。在实际中为了方便做对比，会特指shim的api不是遵循标准的，而是自己设计的。</li>
+</ul>
+<ol>
+<li>使用Modernizr检查HTML5和css3浏览器支持功能。<br>Modernizr是一个用于检测浏览器功能的开源JavaScript库。<br><code>注意：</code>Modernizr并不是试图添加老版本浏览器不支持的功能，而是令你通过创建可选风格配置来修改页面设计。它可以通过加载定制的脚本来模拟老版本浏览器不支持的功能。’</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JSON]]></title>
       <url>http://yoursite.com/2016/09/23/JSON%EF%BC%88JavaScript%20Object%20Notation%EF%BC%89/</url>
       <content type="html"><![CDATA[<h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
