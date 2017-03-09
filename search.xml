@@ -4,9 +4,9 @@
   
     
     <entry>
-      <title><![CDATA[html/css/javascript知识点]]></title>
-      <url>http://yoursite.com/2017/03/09/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-      <content type="html"><![CDATA[<h2 id="html篇"><a href="#html篇" class="headerlink" title="html篇"></a>html篇</h2><ol>
+      <title><![CDATA[你不知道css(二)]]></title>
+      <url>http://yoursite.com/2017/03/09/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84CSS(%E4%BA%8C)/</url>
+      <content type="html"><![CDATA[<ol>
 <li><p>浏览器的内核<br>浏览器的核心部分：“rendering engine”渲染引擎，习惯称为“浏览器内核”负责对网页的语法的解释（如标准通用标记语言下的一个应用HTML、JavaScript）并渲染（显示）网页。</p>
 <blockquote>
 <p>浏览器内核决定了浏览器如何显示网页内容以及页面的格式信息。<br>不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染（显示）效果也可能不同，这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。</p>
