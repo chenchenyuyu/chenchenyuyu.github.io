@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[你不知道css(二)]]></title>
+      <title><![CDATA[你不知道CSS(二)]]></title>
       <url>http://yoursite.com/2017/03/09/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84CSS(%E4%BA%8C)/</url>
       <content type="html"><![CDATA[<ol>
 <li><p>浏览器的内核<br>浏览器的核心部分：“rendering engine”渲染引擎，习惯称为“浏览器内核”负责对网页的语法的解释（如标准通用标记语言下的一个应用HTML、JavaScript）并渲染（显示）网页。</p>
