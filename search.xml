@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[__proto_和prototype]]></title>
+      <url>http://yoursite.com/2017/03/18/prototype%EF%BC%88%E6%98%BE%E5%BC%8F%E5%8E%9F%E5%9E%8B%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h2 id="prototype（显式原型）"><a href="#prototype（显式原型）" class="headerlink" title="prototype（显式原型）"></a>prototype（显式原型）</h2><p>先让我们看看官方解释：<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.5" target="_blank" rel="external">ECMA</a></p>
+<blockquote>
+<p>The value of the prototype property is used to initialise the [[Prototype]] internal property of a newly created object before the Function object is invoked as a constructor for that newly created object. This property has the attribute { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: false }.<br><code>NOTE</code>  Function objects created using Function.prototype.bind do not have a prototype property.<br>译：<br>在调用Function对象作为新创建的对象的构造函数之前，prototype属性的值用于初始化新创建的对象的[[Prototype]]内部属性。该属性的属性为{[Writable]]：true，[[Enumerable]]：false，[[Configurable]]：false}。 注意使用Function.prototype.bind创建的函数对象不具有prototype属性。</p>
+</blockquote>
+<ol>
+<li>每一个函数在创建之后都会拥有一个名为prototype的属性，这个属性指向函数的原型对象。 （这也是原型链实现的一部分）<h2 id="proto（隐式原型）"><a href="#proto（隐式原型）" class="headerlink" title="proto（隐式原型）"></a><strong>proto</strong>（隐式原型）</h2>JavaScript中任意对象都有一个内置属性[[prototype]]，在ES5之前没有标准的方法访问这个内置属性，但是大多数浏览器都支持通过<strong>proto</strong>来访问。ES5中有了对于这个内置属性标准的Get方法Object.getPrototypeOf().<br>Note: Object.prototype这个对象是个例外，它的<strong>proto</strong>值为null<h2 id="两者关系"><a href="#两者关系" class="headerlink" title="两者关系"></a>两者关系</h2>隐式原型指向创建这个对象的函数(constructor)的prototype<h2 id="有什么作用？"><a href="#有什么作用？" class="headerlink" title="有什么作用？"></a>有什么作用？</h2></li>
+<li>显式原型的作用：用来实现基于原型的继承与属性的共享。</li>
+<li>隐式原型的作用：构成原型链，同样用于实现基于原型的继承。举个例子，当我们访问obj这个对象中的x属性时，如果在obj中找不到，那么就会沿着<strong>proto</strong>依次查找。<h2 id="proto的指向"><a href="#proto的指向" class="headerlink" title="proto的指向"></a><strong>proto</strong>的指向</h2><strong>proto</strong>的指向到底如何判断呢？根据ECMA定义 ‘to the value of its constructor’s “prototype” ‘ —-指向创建这个对象的函数的显式原型。所以关键的点在于找到创建这个对象的构造函数，接下来就来看一下JS中对象被创建的方式，一眼看过去似乎有三种方式：（1）对象字面量的方式 （2）new 的方式 （3）ES5中的Object.create() 但是我认为本质上只有一种方式，也就是通过new来创建。为什么这么说呢，首先字面量的方式是一种为了开发人员更方便创建对象的一个语法糖，本质就是 var o = new Object(); o.xx = xx;o.yy=yy; 再来看看Object.create(),这是ES5中新增的方法，在这之前这被称为原型式继承，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">    function F()&#123;&#125;</div><div class="line">    F.prototype = o;</div><div class="line">    return new F()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>所以从实现代码 return new F() 中我们可以看到，这依然是通过new来创建的。不同之处在于由 Object.create() 创建出来的对象没有构造函数，看到这里你是不是要问，没有构造函数我怎么知道它的<strong>proto</strong>指向哪里呢，其实这里说它没有构造函数是指在 Object.create() 函数外部我们不能访问到它的构造函数，然而在函数内部实现中是有的，它短暂地存在了那么一会儿。假设我们现在就在函数内部，可以看到对象的构造函数是F, 现在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//以下是用于验证的伪代码</div><div class="line">var f = new F(); </div><div class="line">//于是有</div><div class="line">f.__proto__ === F.prototype //true</div><div class="line">//又因为</div><div class="line">F.prototype === o;//true</div><div class="line">//所以</div><div class="line">f.__proto__ === o;</div></pre></td></tr></table></figure></p>
+<p>因此由Object.create(o)创建出来的对象它的隐式原型指向o。好了，对象的创建方式分析完了，现在你应该能够判断一个对象的<strong>proto</strong>指向谁了。</p>
+<h2 id="疑惑栗子"><a href="#疑惑栗子" class="headerlink" title="疑惑栗子"></a>疑惑栗子</h2><ol>
+<li>构造函数的显示原型的隐式原型：<br>内建对象：比如Array()，Array.prototype.<strong>proto</strong>指向什么？Array.prototype也是一个对象，对象就是由 Object() 这个构造函数创建的，因此Array.prototype.<strong>proto</strong> === Object.prototype //true，或者也可以这么理解，所有的内建对象都是由Object()创建而来。</li>
+<li><p>自定义对象<br>（１） 默认情况下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> function Foo()&#123;&#125;</div><div class="line">var foo = new Foo()</div><div class="line">Foo.prototype.__proto__ === Object.prototype //true 理由同上</div></pre></td></tr></table></figure>
+<p>（２）　其他情况</p>
+<ul>
+<li><p>继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> function Bar()&#123;&#125;</div><div class="line">//这时我们想让Foo继承Bar</div><div class="line">Foo.prototype = new Bar()</div><div class="line"> Foo.prototype.__proto__ === Bar.prototype //true</div></pre></td></tr></table></figure>
+</li>
+<li><p>重写原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> //我们不想让Foo继承谁，但是我们要自己重新定义Foo.prototype</div><div class="line">Foo.prototype = &#123;</div><div class="line">  a:10,</div><div class="line">  b:-10</div><div class="line">&#125;</div><div class="line">//这种方式就是用了对象字面量的方式来创建一个对象，根据前文所述 </div><div class="line">Foo.prototype.__proto__ === Object.prototype</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>构造函数的隐式原型<br>既然是构造函数那么它就是Function（）的实例，因此也就指向Function.prototype,比如 Object.<strong>proto</strong> === Function.prototype<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2>instanceof 操作符的内部实现机制和隐式原型、显式原型有直接的关系。instanceof的左值一般是一个对象，右值一般是一个构造函数，用来判断左值是否是右值的实例。它的内部实现原理是这样的： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//设 L instanceof R </div><div class="line">//通过判断</div><div class="line"> L.__proto__.__proto__ ..... === R.prototype ？</div><div class="line">//最终返回true or false</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>也就是沿着L的<strong>proto</strong>一直寻找到原型链末端，直到等于R.prototype为止。知道了这个也就知道为什么以下这些奇怪的表达式为什么会得到相应的值了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Function instanceof Object // true </div><div class="line"> Object instanceof Function // true </div><div class="line"> Function instanceof Function //true</div><div class="line"> Object instanceof Object // true</div><div class="line"> Number instanceof Number //false</div></pre></td></tr></table></figure></p>
+<h2 id="最后一张图搞定"><a href="#最后一张图搞定" class="headerlink" title="最后一张图搞定"></a>最后一张图搞定</h2><p><img src="http://obfnbicau.bkt.clouddn.com/blog/20170404/193245058.png" alt="mark"><br>参考链接：<a href="https://www.zhihu.com/question/34183746" target="_blank" rel="external">https://www.zhihu.com/question/34183746</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[你的Promise]]></title>
       <url>http://yoursite.com/2017/03/07/%E4%BD%A0%E7%9A%84Promise/</url>
       <content type="html"><![CDATA[<h1 id="你的Promise"><a href="#你的Promise" class="headerlink" title="你的Promise"></a>你的Promise</h1><p>在JavaScript的世界里，所有代码都是单线程执行的。由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。<br><code>js中异步编程主要指的是setTimout/setInterval、DOM事件机制、ajax，通过传入回调函数实现控制反转。异步编程为js带来强大灵活性的同时，也带来了嵌套回调的问题。</code></p>

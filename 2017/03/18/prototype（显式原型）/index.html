@@ -15,16 +15,18 @@
 
 
 
-<meta name="description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta name="description" content="在调用Function对象作为新创建的对象的构造函数之前，prototype属性的值用于初始化新创建的对象的[[Prototype]]内部属性。该属性的属性为{[Writable]]：true，[[Enumerable]]：false，[[Configurable]]：false}。注意使用Function.prototype.bind创建的函数对象不具有prototype属性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON">
-<meta property="og:url" content="http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/index.html">
+<meta property="og:title" content="__proto_和prototype">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/prototype（显式原型）/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
-<meta property="og:updated_time" content="2016-11-05T16:53:40.644Z">
+<meta property="og:description" content="在调用Function对象作为新创建的对象的构造函数之前，prototype属性的值用于初始化新创建的对象的[[Prototype]]内部属性。该属性的属性为{[Writable]]：true，[[Enumerable]]：false，[[Configurable]]：false}。注意使用Function.prototype.bind创建的函数对象不具有prototype属性。">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170404/193245058.png">
+<meta property="og:updated_time" content="2017-04-04T11:40:47.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON">
-<meta name="twitter:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta name="twitter:title" content="__proto_和prototype">
+<meta name="twitter:description" content="在调用Function对象作为新创建的对象的构造函数之前，prototype属性的值用于初始化新创建的对象的[[Prototype]]内部属性。该属性的属性为{[Writable]]：true，[[Enumerable]]：false，[[Configurable]]：false}。注意使用Function.prototype.bind创建的函数对象不具有prototype属性。">
+<meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170404/193245058.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JSON | 陈玉的博客</title>
+<title>__proto_和prototype | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-JSON（JavaScript Object Notation）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-prototype（显式原型）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/23/JSON（JavaScript Object Notation）/" class="article-date">
-      <time datetime="2016-09-23T02:12:08.000Z" itemprop="datePublished">2016-09-23</time>
+      <a href="/2017/03/18/prototype（显式原型）/" class="article-date">
+      <time datetime="2017-03-18T04:10:06.000Z" itemprop="datePublished">2017-03-18</time>
 </a>
 
 
@@ -286,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JSON
+      __proto_和prototype
     </h1>
   
 
@@ -295,7 +297,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
     </div>
 
 
@@ -311,121 +313,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
+        <h2 id="prototype（显式原型）"><a href="#prototype（显式原型）" class="headerlink" title="prototype（显式原型）"></a>prototype（显式原型）</h2><p>先让我们看看官方解释：<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.5" target="_blank" rel="external">ECMA</a></p>
+<blockquote>
+<p>The value of the prototype property is used to initialise the [[Prototype]] internal property of a newly created object before the Function object is invoked as a constructor for that newly created object. This property has the attribute { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: false }.<br><code>NOTE</code>  Function objects created using Function.prototype.bind do not have a prototype property.<br>译：<br>在调用Function对象作为新创建的对象的构造函数之前，prototype属性的值用于初始化新创建的对象的[[Prototype]]内部属性。该属性的属性为{[Writable]]：true，[[Enumerable]]：false，[[Configurable]]：false}。 注意使用Function.prototype.bind创建的函数对象不具有prototype属性。</p>
+</blockquote>
 <ol>
-<li>它是一种数据格式，不是一种编程语言</li>
-<li>它并不属于JavaScript，很多编程语言都有应用到它，有针对Json的解析器和序列化器<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
-<li>简单值：使用与js相同的语法，在json中表示，字符串，数值，布尔值，null，但不支持undefined</li>
-<li>对象：复杂数据类型，表示的是一组无序的键值对，键值对中可以使简单值，也可以是复杂数据类型</li>
-<li><p>数组：复杂数据类型，表示一组有序值的列表，可以通过数组索引来访问其中的值，数组值，可以是简单值，对象，数组<br><code>注意：</code>json不支持变量，函数，对象实例，它就是一种表示结构化数据的格式</p>
-<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p><code>注意：</code>js字符串与json的最大区别：json字符串必须使用双引号（单引号将导致语法错误）</p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p> js中对象字面量：<br> var person={</p>
-<pre><code>name:&quot;Lili&quot;,
-age:29
-</code></pre><p> }；<br> 或者<br> var Object={</p>
-<pre><code>name:&quot;Lili&quot;,
-age:29
-</code></pre><p> };<br> json中对象表示：<br> {</p>
-<pre><code> &quot;name&quot;:&quot;Lili&quot;,
-&quot;age&quot;:29
-</code></pre><p> }<br><code>两者的区别：</code></p>
-<ol>
-<li>json对象中没有声明变量的概念</li>
-<li>json对象中没有末尾的分号</li>
-<li>对象属性必须加上双引号</li>
-<li><p>同一个对象中绝对不应该出现两个同名属性</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>js中数组：<br>var values=[25,”h1”,true];<br>json中的数组：<br>[25,”h1”,true]</p>
+<li>每一个函数在创建之后都会拥有一个名为prototype的属性，这个属性指向函数的原型对象。 （这也是原型链实现的一部分）<h2 id="proto（隐式原型）"><a href="#proto（隐式原型）" class="headerlink" title="proto（隐式原型）"></a><strong>proto</strong>（隐式原型）</h2>JavaScript中任意对象都有一个内置属性[[prototype]]，在ES5之前没有标准的方法访问这个内置属性，但是大多数浏览器都支持通过<strong>proto</strong>来访问。ES5中有了对于这个内置属性标准的Get方法Object.getPrototypeOf().<br>Note: Object.prototype这个对象是个例外，它的<strong>proto</strong>值为null<h2 id="两者关系"><a href="#两者关系" class="headerlink" title="两者关系"></a>两者关系</h2>隐式原型指向创建这个对象的函数(constructor)的prototype<h2 id="有什么作用？"><a href="#有什么作用？" class="headerlink" title="有什么作用？"></a>有什么作用？</h2></li>
+<li>显式原型的作用：用来实现基于原型的继承与属性的共享。</li>
+<li>隐式原型的作用：构成原型链，同样用于实现基于原型的继承。举个例子，当我们访问obj这个对象中的x属性时，如果在obj中找不到，那么就会沿着<strong>proto</strong>依次查找。<h2 id="proto的指向"><a href="#proto的指向" class="headerlink" title="proto的指向"></a><strong>proto</strong>的指向</h2><strong>proto</strong>的指向到底如何判断呢？根据ECMA定义 ‘to the value of its constructor’s “prototype” ‘ —-指向创建这个对象的函数的显式原型。所以关键的点在于找到创建这个对象的构造函数，接下来就来看一下JS中对象被创建的方式，一眼看过去似乎有三种方式：（1）对象字面量的方式 （2）new 的方式 （3）ES5中的Object.create() 但是我认为本质上只有一种方式，也就是通过new来创建。为什么这么说呢，首先字面量的方式是一种为了开发人员更方便创建对象的一个语法糖，本质就是 var o = new Object(); o.xx = xx;o.yy=yy; 再来看看Object.create(),这是ES5中新增的方法，在这之前这被称为原型式继承，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">    function F()&#123;&#125;</div><div class="line">    F.prototype = o;</div><div class="line">    return new F()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-</li>
-</ol>
-<p><code>两者的而区别：</code>json数组没有变量和分号</p>
-<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><ol>
-<li>eval()函数可以解析，解释并返回js对象和数组</li>
-<li>json对象有两个方法：stringify()和parse()<br>stringify()用于把json对象序列化为json字符串<br>parse()用于把字符串解析为原生的js值<br><code>注意：</code></li>
-<li>默认情况下，JSON.stringify()输出的字符串不包括任何空格字符或缩进</li>
-<li>如过传给JSON.parse()不是有效的json，该方法会报错<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3>JSON.stringify(序列化对象，过滤器，选项)<br>过滤器：可以使数组，可以是函数<br>选项：表示是否在json中保留缩进</li>
-<li><p>过滤结果<br> 过滤器为数组：</p>
-<p> var book={</p>
-<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 };
-var jsonText=JSON.stringify(book,[&quot;title&quot;,&quot;edition&quot;]);
-</code></pre><p>过滤器为函数：</p>
-</li>
-</ol>
-<pre><code>var book={
-    &quot;title&quot;:&quot;javaScript&quot;;
-    &quot;authors&quot;:
-    [
-    &quot;Hellen&quot;
-    ],
-    edition:3,
-    year:2011 };
-    var jsonText=JSON.stringify(book,function(key,value){
-    switch(key){
-    case &quot;authors&quot;:
-    return value.join(&quot;,&quot;);
-    case &quot;year&quot;:
-    return 5000;
-    case &quot;edition&quot;:
-    return undefined;
-    default:
-    return value;
-    }
-    });
-</code></pre><ol>
-<li>字符串缩进<br>JSON.stringify()方法的而第三个参数用于结果中的缩进和空白符，如果这个参数是一个数值，那它表示每个级别缩进的空格数<br>var jsonText=JSON.stringify(book,null,4);<br><code>注意：</code> </li>
-</ol>
+<p>所以从实现代码 return new F() 中我们可以看到，这依然是通过new来创建的。不同之处在于由 Object.create() 创建出来的对象没有构造函数，看到这里你是不是要问，没有构造函数我怎么知道它的<strong>proto</strong>指向哪里呢，其实这里说它没有构造函数是指在 Object.create() 函数外部我们不能访问到它的构造函数，然而在函数内部实现中是有的，它短暂地存在了那么一会儿。假设我们现在就在函数内部，可以看到对象的构造函数是F, 现在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//以下是用于验证的伪代码</div><div class="line">var f = new F(); </div><div class="line">//于是有</div><div class="line">f.__proto__ === F.prototype //true</div><div class="line">//又因为</div><div class="line">F.prototype === o;//true</div><div class="line">//所以</div><div class="line">f.__proto__ === o;</div></pre></td></tr></table></figure></p>
+<p>因此由Object.create(o)创建出来的对象它的隐式原型指向o。好了，对象的创建方式分析完了，现在你应该能够判断一个对象的<strong>proto</strong>指向谁了。</p>
+<h2 id="疑惑栗子"><a href="#疑惑栗子" class="headerlink" title="疑惑栗子"></a>疑惑栗子</h2><ol>
+<li>构造函数的显示原型的隐式原型：<br>内建对象：比如Array()，Array.prototype.<strong>proto</strong>指向什么？Array.prototype也是一个对象，对象就是由 Object() 这个构造函数创建的，因此Array.prototype.<strong>proto</strong> === Object.prototype //true，或者也可以这么理解，所有的内建对象都是由Object()创建而来。</li>
+<li><p>自定义对象<br>（１） 默认情况下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> function Foo()&#123;&#125;</div><div class="line">var foo = new Foo()</div><div class="line">Foo.prototype.__proto__ === Object.prototype //true 理由同上</div></pre></td></tr></table></figure>
+<p>（２）　其他情况</p>
 <ul>
-<li>只要传入有效的缩进参数，结果字符串就会包含换行符，</li>
-<li>最大缩进的而空格数为10，所有大于10的数值都会自动转换为10<br>缩进参数</li>
-<li>缩进参数可以为非数值（制表符，两个短横线等任意字符）</li>
+<li><p>继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> function Bar()&#123;&#125;</div><div class="line">//这时我们想让Foo继承Bar</div><div class="line">Foo.prototype = new Bar()</div><div class="line"> Foo.prototype.__proto__ === Bar.prototype //true</div></pre></td></tr></table></figure>
+</li>
+<li><p>重写原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> //我们不想让Foo继承谁，但是我们要自己重新定义Foo.prototype</div><div class="line">Foo.prototype = &#123;</div><div class="line">  a:10,</div><div class="line">  b:-10</div><div class="line">&#125;</div><div class="line">//这种方式就是用了对象字面量的方式来创建一个对象，根据前文所述 </div><div class="line">Foo.prototype.__proto__ === Object.prototype</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <ol>
-<li>toJSON()方法<br>可以给任何对象添加 toJSON()方法,返回自身的JSON数据格式</li>
+<li>构造函数的隐式原型<br>既然是构造函数那么它就是Function（）的实例，因此也就指向Function.prototype,比如 Object.<strong>proto</strong> === Function.prototype<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2>instanceof 操作符的内部实现机制和隐式原型、显式原型有直接的关系。instanceof的左值一般是一个对象，右值一般是一个构造函数，用来判断左值是否是右值的实例。它的内部实现原理是这样的： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//设 L instanceof R </div><div class="line">//通过判断</div><div class="line"> L.__proto__.__proto__ ..... === R.prototype ？</div><div class="line">//最终返回true or false</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<pre><code> var book={
-&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 
-toJSON:function(){
-return this.title;
-}
-};
-var jsonText=JSON.stringify(book);
-</code></pre><ol>
-<li><p>序列化的内部顺序：<br>假设把一个对象传入JSON.stringify()，序列化该对象的顺序如下：<br>（1）如果存在toJSON()而且能通过它取得有效值，则调用该方法，否则返回对象本身<br>（2）如果提供第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步返回的值<br>（3）对第（2）步返回的每一个值进行相应的序列化<br>（4）如果提供第三个参数，执行相应的格式化</p>
-<h2 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h2><p>JSON.stringify()方法接收的函数（称替换或过滤函数）<br>JSON.parse()方法可以接收另一个参数（称还原函数）</p>
-<p> var book={</p>
-<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 
-releaseDate:new Date(2011,11,1)
-};
-var jsonText=JSON.stringify(book);
-var bookCopy=JSON.parse(jsonText,function(key,value){
-if(key==&quot;releaseDate&quot;){
-return new Date(value);
-}else{
-return vlaue;
-}
-});
-console.log(bookCopy.releaseDate.getFullYear());
-</code></pre></li>
+</li>
 </ol>
+<p>也就是沿着L的<strong>proto</strong>一直寻找到原型链末端，直到等于R.prototype为止。知道了这个也就知道为什么以下这些奇怪的表达式为什么会得到相应的值了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Function instanceof Object // true </div><div class="line"> Object instanceof Function // true </div><div class="line"> Function instanceof Function //true</div><div class="line"> Object instanceof Object // true</div><div class="line"> Number instanceof Number //false</div></pre></td></tr></table></figure></p>
+<h2 id="最后一张图搞定"><a href="#最后一张图搞定" class="headerlink" title="最后一张图搞定"></a>最后一张图搞定</h2><p><img src="http://obfnbicau.bkt.clouddn.com/blog/20170404/193245058.png" alt="mark"><br>参考链接：<a href="https://www.zhihu.com/question/34183746" target="_blank" rel="external">https://www.zhihu.com/question/34183746</a></p>
 
       
     </div>
@@ -434,13 +354,13 @@ console.log(bookCopy.releaseDate.getFullYear());
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/18/prototype（显式原型）/">__proto_和prototype</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
-        <p><span>发布时间:</span>2016-09-23, 10:12:08</p>
-        <p><span>最后更新:</span>2016-11-06, 00:53:40</p>
+        <p><span>发布时间:</span>2017-03-18, 12:10:06</p>
+        <p><span>最后更新:</span>2017-04-04, 19:40:47</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/23/JSON（JavaScript Object Notation）/" title="JSON">http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/18/prototype（显式原型）/" title="__proto_和prototype">http://yoursite.com/2017/03/18/prototype（显式原型）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/18/prototype（显式原型）/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -452,16 +372,10 @@ console.log(bookCopy.releaseDate.getFullYear());
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/03/响应式web设计/">
-                    响应式web设计
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/22/this的指向问题/">
-                    this的指向问题
+                <a href="/2017/03/07/你的Promise/">
+                    你的Promise
                 </a>
             </div>
         
@@ -473,7 +387,7 @@ console.log(bookCopy.releaseDate.getFullYear());
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON（JavaScript-Object-Notation）"><span class="toc-number">1.</span> <span class="toc-text">JSON（JavaScript Object Notation）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单值"><span class="toc-number">1.1.1.</span> <span class="toc-text">简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">1.1.3.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析与序列化"><span class="toc-number">1.2.</span> <span class="toc-text">解析与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化选项"><span class="toc-number">1.2.1.</span> <span class="toc-text">序列化选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析选项"><span class="toc-number">1.3.</span> <span class="toc-text">解析选项</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#prototype（显式原型）"><span class="toc-number">1.</span> <span class="toc-text">prototype（显式原型）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proto（隐式原型）"><span class="toc-number">2.</span> <span class="toc-text">proto（隐式原型）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两者关系"><span class="toc-number">3.</span> <span class="toc-text">两者关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有什么作用？"><span class="toc-number">4.</span> <span class="toc-text">有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proto的指向"><span class="toc-number">5.</span> <span class="toc-text">proto的指向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疑惑栗子"><span class="toc-number">6.</span> <span class="toc-text">疑惑栗子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#instanceof"><span class="toc-number">7.</span> <span class="toc-text">instanceof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一张图搞定"><span class="toc-number">8.</span> <span class="toc-text">最后一张图搞定</span></a></li></ol>
         
     </div>
     <style>
@@ -509,7 +423,7 @@ console.log(bookCopy.releaseDate.getFullYear());
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JSON　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"__proto_和prototype　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -525,7 +439,7 @@ console.log(bookCopy.releaseDate.getFullYear());
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/23/JSON（JavaScript Object Notation）/" data-title="JSON" data-url="http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/18/prototype（显式原型）/" data-title="__proto_和prototype" data-url="http://yoursite.com/2017/03/18/prototype（显式原型）/"></div>
     <script>
         var duoshuoQuery = {short_name:"cychenyu"};
         var loadComment = function(){
@@ -548,15 +462,13 @@ console.log(bookCopy.releaseDate.getFullYear());
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/03/响应式web设计/" title="上一篇: 响应式web设计">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/22/this的指向问题/" title="下一篇: this的指向问题">
+            <a href="/2017/03/07/你的Promise/" title="下一篇: 你的Promise">
                 <i class="fa fa-angle-right"></i>
             </a>
         
