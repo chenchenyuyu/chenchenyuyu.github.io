@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title></title>
+      <url>http://yoursite.com/2017/04/04/JS%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%92%E6%9F%A5%E6%96%B9%E6%B3%95%E2%80%94%E2%80%94Chrome%20Profiles/</url>
+      <content type="html"><![CDATA[<h1 id="JS内存泄漏排查方法——Chrome-Profiles"><a href="#JS内存泄漏排查方法——Chrome-Profiles" class="headerlink" title="JS内存泄漏排查方法——Chrome Profiles"></a>JS内存泄漏排查方法——Chrome Profiles</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Google Chrome浏览器提供了非常强大的JS调试工具，Heap Profiling便是其中一个。Heap Profiling可以记录当前的堆内存（heap）快照，并生成对象的描述文件，该描述文件给出了当时JS运行所用到的所有对象，以及这些对象所占用的内存大小、引用的层级关系等等。这些描述文件为内存泄漏的排查提供了非常有用的信息。</p>
+<h2 id="Heap-Profiling"><a href="#Heap-Profiling" class="headerlink" title="Heap Profiling"></a>Heap Profiling</h2><ol>
+<li>什么是heap？<br>JS运行的时候，会有栈内存（stack）和堆内存（heap），当我们用new实例化一个类的时候，这个new出来的对象就保存在heap里面，而这个对象的引用则存储在stack里。程序通过stack里的引用找到这个对象。例如var a = [1,2,3];，a是存储在stack里的引用，heap里存储着内容为[1,2,3]的Array对象。</li>
+<li>使用<br>打开Chrome浏览器-&gt;按下F12调出调试工具-&gt;点击“Profiles”标签。可以看到下图：<br>[<img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/221623227.jpg" alt="mark">][1]<br>可以看到，该面板可以监控CPU、CSS和内存，选中“Take Heap Snapshot”，点击“Start”按钮，就可以拍下当前JS的heap快照，如下图所示：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/221828288.jpg" alt="mark"><br>右边视图列出了heap里的对象列表。由于游戏大厅使用了Quark游戏库，所以这里可以清楚地看到Quark.XXX之类的类名称（即Function对象的引用名称）。<br>注意：每次拍快照前，都会先自动执行一次GC，所以在视图里的对象都是可及的。<h3 id="视图解释"><a href="#视图解释" class="headerlink" title="视图解释"></a>视图解释</h3></li>
+</ol>
+<ul>
+<li>Constructor — 类名Distance — 估计是对象到根的引用层级距离</li>
+<li>Objects Count — 给出了当前有多少个该类的对象</li>
+<li>Shallow Size — 对象所占内存（不包含内部引用的其它对象所占的内存）(单位：字节)</li>
+<li>Retained Size —对象所占总内存（包含内部引用的其它对象所占的内存）(单位：字节)<br>下面解释一下部分类名称所代表的意思：</li>
+<li>(compiled code) — 未知，估计是程序代码区</li>
+<li>(closure) — 闭包(array) — 未知</li>
+<li>Object — JS对象类型(system) — 未知</li>
+<li>(string) — 字符串类型，有时对象里添加了新属性，属性的名称也会出现在这里</li>
+<li>Array — JS数组类型cls — 游戏大厅特有的继承类</li>
+<li>Window — JS的window对象</li>
+<li>Quark.DisplayObjectContainer — Quark引擎的显示容器类</li>
+<li>Quark.ImageContainer — Quark引擎的图片类</li>
+<li>Quark.Text — Quark引擎的文本类</li>
+<li>Quark.ToggleButton — Quark引擎的开关按钮类<br>对于cls这个类名，是由于游戏大厅的继承机制里会使用“cls”这个引用名称，指向新建的继承类，所以凡是使用了该继承机制的类实例化出来的对象，都放在这里。例如程序中有一个类ClassA，继承了Quark.Text，则new出来的对象是放在cls里，不是放在Quark.Text里。<h3 id="查看对象内容"><a href="#查看对象内容" class="headerlink" title="查看对象内容"></a>查看对象内容</h3>点击类名左边的三角形，可以看到所有该类的对象。对象后面的“@70035”表示的是该对象的ID（有人会错认为是内存地址，GC执行后，内存地址是会变的，但对象ID不会）。把鼠标停留在某一个对象上，会显示出该对象的内部属性和当时的值。<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222202248.jpg" alt="mark"><h3 id="查看对象的引用关系"><a href="#查看对象的引用关系" class="headerlink" title="查看对象的引用关系"></a>查看对象的引用关系</h3>点击其中一个对象，能看到对象的引用层级关系，如下图:<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222307136.jpg" alt="mark"><br>Object’s retaining tree视图显示出了该对象被哪些对象引用了，以及<br>这个引用的名称。图中的这个对象被5个对象引用了，分别是：</li>
+<li>一个cls对象的 _txtContent 变量；</li>
+<li>一个闭包函数的context变量；</li>
+<li>同一个闭包函数的self变量；</li>
+<li>一个数组对象的0位置；</li>
+<li>一个Quark.Tween对象的target变量。<br>看到context和self这两个引用，可以知道这个Quark.Text对象使用了JS常用的上下文绑定机制，被一个闭包里的变量引用着，相当于该Quark.Text对象多了两个引用，这种情况比较容易出现内存泄漏，如果闭包函数不释放，这个Quark.Text对象也释放不了。<br>展开_textContent，可以看到下一级的引用：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222505619.jpg" alt="mark"><br>把这个树状图反过来看，可以看到，该对象(ID @70035)其中的一条引用链是这样的：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">GameListV       _curV       _gameListV    省略...</div><div class="line">                  \         |        /</div><div class="line">                    \       |       /</div><div class="line">                  _noticeWidget</div><div class="line">                           |</div><div class="line">                     _noticeC</div><div class="line">                           |</div><div class="line">                     _noticeV</div><div class="line">                           |</div><div class="line">                  _txtContent</div><div class="line">                           ||</div><div class="line">             Quark.Text @70035</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>内存快照的对比通过快照对比的功能，可以知道程序在运行期间哪些对象变更了。<br>刚才已经拍下了一个快照，接下来再拍一次，如下图：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222617807.jpg" alt="mark"><br>点击图中的黑色实心圆圈按钮，即可得到第二个内存快照：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222654359.jpg" alt="mark"><br>然后点击图中的“Snapshot 2”，视图才会切换到第二次拍的快照<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222725528.jpg" alt="mark"><br>点击图中的“Summary”，可弹出一个列表，选择“Comparison”选项，结果如下图：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222840512.jpg" alt="mark"><br>这个视图列出了当前视图与上一个视图的对象差异。列名字段解释：# New — 新建了多少个对象# Deleted — 回收了多少个对象# Delta — 对象变化值，即新建的对象个数减去回收了的对象个数Size Delta — 变化的内存大小(字节)注意Delta字段，尤其是值大于0的对象。下面以Quark.Tween为例子，展开该对象，可看到如下图所示：<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170402/222918536.jpg" alt="mark"><br>在“# New”列里，如果有“.”，则表示是新建的对象。<br>在“# Deleted”列里，如果有“.”，则表示是回收了的对象。<br>平时排查问题的时候，应该多拍几次快照进行对比，这样有利于找出其中的规律。</p>
+<h2 id="内存泄漏的排查"><a href="#内存泄漏的排查" class="headerlink" title="内存泄漏的排查"></a>内存泄漏的排查</h2><p>JS程序的内存溢出后，会使某一段函数体永远失效（取决于当时的JS代码运行到哪一个函数），通常表现为程序突然卡死或程序出现异常。<br>这时我们就要对该JS程序进行内存泄漏的排查，找出哪些对象所占用的内存没有释放。这些对象通常都是开发者以为释放掉了，但事实上仍被某个闭包引用着，或者放在某个数组里面。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[伪类与伪元素]]></title>
       <url>http://yoursite.com/2017/03/13/%E4%BC%AA%E7%B1%BB/</url>
       <content type="html"><![CDATA[<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><blockquote>
