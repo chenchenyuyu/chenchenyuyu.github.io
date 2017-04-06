@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="陈玉" />
+
+
+
+<meta name="description" content="当时在看源码的时候，的确有点摸不着头脑，在大佬们的一一解说下，终于有了头绪。对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的源码解读(一)">
+<meta property="og:url" content="http://yoursite.com/2016/09/30/jQuery的整体架构/index.html">
+<meta property="og:site_name" content="陈玉的博客">
+<meta property="og:description" content="当时在看源码的时候，的确有点摸不着头脑，在大佬们的一一解说下，终于有了头绪。对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170406/141929687.png">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170406/144808352.jpg">
+<meta property="og:updated_time" content="2017-04-06T08:54:12.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery的源码解读(一)">
+<meta name="twitter:description" content="当时在看源码的时候，的确有点摸不着头脑，在大佬们的一一解说下，终于有了头绪。对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码">
+<meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170406/141929687.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="陈玉的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>jQuery的源码解读(一) | 陈玉的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈玉</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/1486019507@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="/zhihu" title="知乎"></a>
+                            
+                                <a class="fa QQ" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps/">ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/协议/">协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈玉</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈玉</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/1486019507@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/chenchenyuyu" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="/zhihu" title="知乎"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/1486019507" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery的整体架构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/30/jQuery的整体架构/" class="article-date">
+      <time datetime="2016-09-30T03:10:06.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery的源码解读(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="jQuery的整体架构"><a href="#jQuery的整体架构" class="headerlink" title="jQuery的整体架构"></a>jQuery的整体架构</h2><p>对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码。<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170406/141929687.png" alt="mark"></p>
+<h2 id="jQuery的无new构建"><a href="#jQuery的无new构建" class="headerlink" title="jQuery的无new构建"></a>jQuery的无new构建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$().find().css()</div><div class="line">$().hide().html(&apos;....&apos;).hide()</div></pre></td></tr></table></figure>
+<p>这里涉及到两个问题（无new构建和链式调用）</p>
+<ol>
+<li>\$(“XXX”)到底是怎样实现的，内部发生了什么使我们能够如此轻易获取到对象。<br>*　\$是什么鬼？<br>window 是对象，它有两个属性，分别为 jQuery 和 \$，其值是一函数，此函数的名字是 jQuery。在函数<br>的定义实体中，其实是通过 jQuery.fn.init 函数来构造对象的，init 函数才是真正的构造函数。也就是说，  我们通过 ${ … ) 得到的其实就是 jQuery.fn.init 的实例。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var jQuery = window.jQuery = window.$ = function( selector, context ) &#123;  </div><div class="line">    // The jQuery object is actually just the init constructor &apos;enhanced&apos;  </div><div class="line">    return new jQuery.fn.init( selector, context );  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>＊jQuery.fn？fn解释下，其实这个fn没有什么特殊意思，只是jQuery.prototype的引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">理解这几句很重要jQuery.fn.init.prototype = jQuery.fn;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>首先要明确，使用 $(‘xxx’) 这种实例化方式，其内部调用的是 return new jQuery.fn.init(selector, context, rootjQuery) 这一句话，也就是构造实例是交给了 jQuery.fn.init() 方法去完成。</li>
+<li>将 jQuery.fn.init 的 prototype 属性设置为 jQuery.fn，那么使用 new jQuery.fn.init() 生成的对象的原型对象就是 jQuery.fn ，所以挂载到 jQuery.fn 上面的函数就相当于挂载到 jQuery.fn.init() 生成的 jQuery 对象上，所有使用 new jQuery.fn.init() 生成的对象也能够访问到 jQuery.fn 上的所有原型方法。</li>
+<li>也就是实例化方法存在这么一个关系链<br>jQuery.fn.init.prototype = jQuery.fn = jQuery.prototype ;<br>new jQuery.fn.init() 相当于 new jQuery() ;<br>jQuery() 返回的是 new jQuery.fn.init()，而 var obj = new jQuery()，所以这 2 者是相当的，所以我们可以无 new 实例化 jQuery 对象。</li>
+</ul>
+<p><img src="http://obfnbicau.bkt.clouddn.com/blog/20170406/144808352.jpg" alt="mark"></p>
+<h2 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h2><p>为什么DOM链式调用的处理：</p>
+<ul>
+<li>节约JS代码.</li>
+<li>所返回的都是同一个对象，可以提高代码的效率</li>
+<li>实现链式的基本条件：就是实例this的存在，并且是同一个<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">aQuery.prototype = &#123;</div><div class="line">    init: function() &#123;</div><div class="line">        return this;</div><div class="line">    &#125;,</div><div class="line">    name: function() &#123;</div><div class="line">        return this</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">--------------</div><div class="line">aQuery().init().name()</div><div class="line"></div><div class="line">分解</div><div class="line">a = aQuery();</div><div class="line">a.init()</div><div class="line">a.name()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="插件接口"><a href="#插件接口" class="headerlink" title="插件接口"></a>插件接口</h2><ol>
+<li>jQuery的主体框架就是这样，但是根据一般设计者的习惯，如果要为jQuery或jQuery prototype添加属性方法，同样如要提供给开发者对方法的扩展，从封装的角度讲是不是应该提供一个接口才对，字面就能看懂是对函数扩展，而不是看上去直接修改prototype.友好的用户接口，<br>jQuery支持自己扩展属性，这个对外提供了一个接口，jQuery.fn.extend()来对对象增加方法<br>从jQuery的源码中可以看到，jQuery.extend和jQuery.fn.extend其实是同指向同一方法的不同引用</li>
+<li>jQuery.extend和jQuery.fn.extend区别：</li>
+</ol>
+<ul>
+<li>jQuery.extend(object) 为扩展 jQuery 类本身，为类添加新的静态方法；</li>
+<li>jQuery.fn.extend(object) 给 jQuery 对象添加实例方法，也就是通过这个 extend 添加的新方法，实例化的 jQuery 对象都能使用，因为它是挂载在 jQuery.fn 上的方法（上文有提到，jQuery.fn = jQuery.prototype ）。<br>它们的官方解释是：<br>1）jQuery.extend(): 把两个或者更多的对象合并到第一个当中，<br>2）jQuery.fn.extend()：把对象挂载到 jQuery 的 prototype 属性，来扩展一个新的 jQuery 实例方法。</li>
+<li>也就是说，使用 jQuery.extend() 拓展的静态方法，我们可以直接使用 $.xxx 进行调用（xxx是拓展的方法名），</li>
+<li>而使用 jQuery.fn.extend() 拓展的实例方法，需要使用 $().xxx 调用。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;&#125;</div><div class="line">jQuery.extend 对jQuery本身的属性和方法进行了扩展</div><div class="line">jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展</div></pre></td></tr></table></figure>
+<p>通过extend()函数可以方便快速的扩展功能，不会破坏jQuery的原型结构<br>jQuery.extend = jQuery.fn.extend = function(){…}; 这个是连等，也就是2个指向同一个函数，怎么会实现不同的功能呢？这就是this 力量了！<br>针对fn与jQuery其实是2个不同的对象，在之前有讲述：</p>
+<ul>
+<li>jQuery.extend 调用的时候，this是指向jQuery对象的(jQuery是函数，也是对象！)，所以这里扩展在jQuery上。</li>
+<li>而jQuery.fn.extend 调用的时候，this指向fn对象，jQuery.fn 和jQuery.prototype指向同一对象，扩展fn就是扩展jQuery.prototype原型对象。</li>
+<li>这里增加的是原型方法，也就是对象方法了。所以jQuery的api中提供了以上2中扩展函数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">// 扩展合并函数</div><div class="line">// 合并两个或更多对象的属性到第一个对象中，jQuery 后续的大部分功能都通过该函数扩展</div><div class="line">// 虽然实现方式一样，但是要注意区分用法的不一样，那么为什么两个方法指向同一个函数实现，但是却实现不同的功能呢,</div><div class="line">// 阅读源码就能发现这归功于 this 的强大力量</div><div class="line">// 如果传入两个或多个对象，所有对象的属性会被添加到第一个对象 target</div><div class="line">// 如果只传入一个对象，则将对象的属性添加到 jQuery 对象中，也就是添加静态方法</div><div class="line">// 用这种方式，我们可以为 jQuery 命名空间增加新的方法，可以用于编写 jQuery 插件</div><div class="line">// 如果不想改变传入的对象，可以传入一个空对象：$.extend(&#123;&#125;, object1, object2);</div><div class="line">// 默认合并操作是不迭代的，即便 target 的某个属性是对象或属性，也会被完全覆盖而不是合并</div><div class="line">// 如果第一个参数是 true，则是深拷贝</div><div class="line">// 从 object 原型继承的属性会被拷贝，值为 undefined 的属性不会被拷贝</div><div class="line">// 因为性能原因，JavaScript 自带类型的属性不会合并</div><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var src, copyIsArray, copy, name, options, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;,</div><div class="line">        i = 1,</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;</div><div class="line"> </div><div class="line">    // Handle a deep copy situation</div><div class="line">    // target 是传入的第一个参数</div><div class="line">    // 如果第一个参数是布尔类型，则表示是否要深递归，</div><div class="line">    if (typeof target === &quot;boolean&quot;) &#123;</div><div class="line">        deep = target;</div><div class="line">        target = arguments[1] || &#123;&#125;;</div><div class="line">        // skip the boolean and the target</div><div class="line">        // 如果传了类型为 boolean 的第一个参数，i 则从 2 开始</div><div class="line">        i = 2;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    // 如果传入的第一个参数是 字符串或者其他</div><div class="line">    if (typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target)) &#123;</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    // extend jQuery itself if only one argument is passed</div><div class="line">    // 如果参数的长度为 1 ，表示是 jQuery 静态方法</div><div class="line">    if (length === i) &#123;</div><div class="line">        target = this;</div><div class="line">        --i;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    // 可以传入多个复制源</div><div class="line">    // i 是从 1或2 开始的</div><div class="line">    for (; i &lt; length; i++) &#123;</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        // 将每个源的属性全部复制到 target 上</div><div class="line">        if ((options = arguments[i]) != null) &#123;</div><div class="line">            // Extend the base object</div><div class="line">            for (name in options) &#123;</div><div class="line">                // src 是源（即本身）的值</div><div class="line">                // copy 是即将要复制过去的值</div><div class="line">                src = target[name];</div><div class="line">                copy = options[name];</div><div class="line"> </div><div class="line">                // Prevent never-ending loop</div><div class="line">                // 防止有环，例如 extend(true, target, &#123;&apos;target&apos;:target&#125;);</div><div class="line">                if (target === copy) &#123;</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"> </div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                // 这里是递归调用，最终都会到下面的 else if 分支</div><div class="line">                // jQuery.isPlainObject 用于测试是否为纯粹的对象</div><div class="line">                // 纯粹的对象指的是 通过 &quot;&#123;&#125;&quot; 或者 &quot;new Object&quot; 创建的</div><div class="line">                // 如果是深复制</div><div class="line">                if (deep &amp;&amp; copy &amp;&amp; (jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)))) &#123;</div><div class="line">                    // 数组</div><div class="line">                    if (copyIsArray) &#123;</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"> </div><div class="line">                        // 对象</div><div class="line">                    &#125; else &#123;</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"> </div><div class="line">                    // Never move original objects, clone them</div><div class="line">                    // 递归</div><div class="line">                    target[name] = jQuery.extend(deep, clone, copy);</div><div class="line"> </div><div class="line">                    // Don&apos;t bring in undefined values</div><div class="line">                    // 最终都会到这条分支</div><div class="line">                    // 简单的值覆盖</div><div class="line">                &#125; else if (copy !== undefined) &#123;</div><div class="line">                    target[name] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    // Return the modified object</div><div class="line">    // 返回新的 target</div><div class="line">    // 如果 i &lt; length ，是直接返回没经过处理的 target，也就是 arguments[0]</div><div class="line">    // 也就是如果不传需要覆盖的源，调用 $.extend 其实是增加 jQuery 的静态方法</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>需要注意的是这一句 jQuery.extend = jQuery.fn.extend = function() {} ，也就是 jQuery.extend 的实现和 jQuery.fn.extend 的实现共用了同一个方法，但是为什么能够实现不同的功能了，这就要归功于 Javascript 强大（怪异？）的 this 了。<br>1）在 jQuery.extend() 中，this 的指向是 jQuery 对象(或者说是 jQuery 类)，所以这里扩展在 jQuery 上；<br>2）在 jQuery.fn.extend() 中，this 的指向是 fn 对象，前面有提到 jQuery.fn = jQuery.prototype ，也就是这里增加的是原型方法，也就是对象方法。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/30/jQuery的整体架构/">jQuery的源码解读(一)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
+        <p><span>发布时间:</span>2016-09-30, 11:10:06</p>
+        <p><span>最后更新:</span>2017-04-06, 16:54:12</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/30/jQuery的整体架构/" title="jQuery的源码解读(一)">http://yoursite.com/2016/09/30/jQuery的整体架构/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/30/jQuery的整体架构/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/03/03/响应式web设计/">
+                    响应式web设计
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/23/JSON（JavaScript Object Notation）/">
+                    JSON
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery的整体架构"><span class="toc-number">1.</span> <span class="toc-text">jQuery的整体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery的无new构建"><span class="toc-number">2.</span> <span class="toc-text">jQuery的无new构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链式调用"><span class="toc-number">3.</span> <span class="toc-text">链式调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件接口"><span class="toc-number">4.</span> <span class="toc-text">插件接口</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"jQuery的源码解读(一)　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/30/jQuery的整体架构/" data-title="jQuery的源码解读(一)" data-url="http://yoursite.com/2016/09/30/jQuery的整体架构/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"cychenyu"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/03/03/响应式web设计/" title="上一篇: 响应式web设计">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/23/JSON（JavaScript Object Notation）/" title="下一篇: JSON">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/prototype（显式原型）/">__proto_和prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/你的Promise/">你的Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/JS内存泄漏排查方法——Chrome Profiles/">JS内存泄漏排查方法——Chrome Profiles</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/OSI七层网络架构/">OSI七层网络架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/响应式web设计/">响应式web设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/jQuery的整体架构/">jQuery的源码解读(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/this的指向问题/">this的指向问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/jQuery/">jQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/JavaScript实现继承/">JavaScript的基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/图解http知识总结/">图解http知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/谈谈清除浮动/">清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/作用域，作用域链，域解析/">作用域，作用域链，域解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/03/什么是盒子模型/">什么是盒子模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 陈玉
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
