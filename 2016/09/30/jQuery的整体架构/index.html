@@ -23,7 +23,7 @@
 <meta property="og:description" content="当时在看源码的时候，的确有点摸不着头脑，在大佬们的一一解说下，终于有了头绪。对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码">
 <meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170406/141929687.png">
 <meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170406/144808352.jpg">
-<meta property="og:updated_time" content="2017-04-06T08:54:12.588Z">
+<meta property="og:updated_time" content="2017-04-06T09:00:11.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery的源码解读(一)">
 <meta name="twitter:description" content="当时在看源码的时候，的确有点摸不着头脑，在大佬们的一一解说下，终于有了头绪。对架构有个清晰的认识，才不会一头雾水，漫无目的解读源代码">
@@ -318,7 +318,7 @@
 <h2 id="jQuery的无new构建"><a href="#jQuery的无new构建" class="headerlink" title="jQuery的无new构建"></a>jQuery的无new构建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$().find().css()</div><div class="line">$().hide().html(&apos;....&apos;).hide()</div></pre></td></tr></table></figure>
 <p>这里涉及到两个问题（无new构建和链式调用）</p>
 <ol>
-<li>\$(“XXX”)到底是怎样实现的，内部发生了什么使我们能够如此轻易获取到对象。<br>*　\$是什么鬼？<br>window 是对象，它有两个属性，分别为 jQuery 和 \$，其值是一函数，此函数的名字是 jQuery。在函数<br>的定义实体中，其实是通过 jQuery.fn.init 函数来构造对象的，init 函数才是真正的构造函数。也就是说，  我们通过 ${ … ) 得到的其实就是 jQuery.fn.init 的实例。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var jQuery = window.jQuery = window.$ = function( selector, context ) &#123;  </div><div class="line">    // The jQuery object is actually just the init constructor &apos;enhanced&apos;  </div><div class="line">    return new jQuery.fn.init( selector, context );  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<li>$(“XXX”)到底是怎样实现的，内部发生了什么使我们能够如此轻易获取到对象。<br>*　$是什么鬼？<br>window 是对象，它有两个属性，分别为 jQuery 和 $，其值是一函数，此函数的名字是 jQuery。在函数<br>的定义实体中，其实是通过 jQuery.fn.init 函数来构造对象的，init 函数才是真正的构造函数。也就是说，  我们通过 ${ … ) 得到的其实就是 jQuery.fn.init 的实例。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var jQuery = window.jQuery = window.$ = function( selector, context ) &#123;  </div><div class="line">    // The jQuery object is actually just the init constructor &apos;enhanced&apos;  </div><div class="line">    return new jQuery.fn.init( selector, context );  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>＊jQuery.fn？fn解释下，其实这个fn没有什么特殊意思，只是jQuery.prototype的引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">理解这几句很重要jQuery.fn.init.prototype = jQuery.fn;</div></pre></td></tr></table></figure></p>
@@ -354,6 +354,7 @@
 </li>
 </ul>
 <p>需要注意的是这一句 jQuery.extend = jQuery.fn.extend = function() {} ，也就是 jQuery.extend 的实现和 jQuery.fn.extend 的实现共用了同一个方法，但是为什么能够实现不同的功能了，这就要归功于 Javascript 强大（怪异？）的 this 了。<br>1）在 jQuery.extend() 中，this 的指向是 jQuery 对象(或者说是 jQuery 类)，所以这里扩展在 jQuery 上；<br>2）在 jQuery.fn.extend() 中，this 的指向是 fn 对象，前面有提到 jQuery.fn = jQuery.prototype ，也就是这里增加的是原型方法，也就是对象方法。</p>
+<p>参考链接：<a href="http://www.cnblogs.com/aaronjs/p/3278578.html" target="_blank" rel="external">http://www.cnblogs.com/aaronjs/p/3278578.html</a></p>
 
       
     </div>
@@ -365,7 +366,7 @@
         <p><span>本文标题:</span><a href="/2016/09/30/jQuery的整体架构/">jQuery的源码解读(一)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">陈玉</a></p>
         <p><span>发布时间:</span>2016-09-30, 11:10:06</p>
-        <p><span>最后更新:</span>2017-04-06, 16:54:12</p>
+        <p><span>最后更新:</span>2017-04-06, 17:00:11</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/30/jQuery的整体架构/" title="jQuery的源码解读(一)">http://yoursite.com/2016/09/30/jQuery的整体架构/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/30/jQuery的整体架构/　　作者: 陈玉" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
