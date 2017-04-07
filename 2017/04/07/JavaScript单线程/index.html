@@ -15,16 +15,21 @@
 
 
 
-<meta name="description" content="关于ps的基础知识">
+<meta name="description" content="之前一直没有明白JavaScript单线程和事件循环是什么，看过很多文章，看到了阮一峰老师对这个问题的讲解，这个问题对于我不再神秘~~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ps的基础知识">
-<meta property="og:url" content="http://yoursite.com/2015/09/02/关于ps的基础知识/index.html">
+<meta property="og:title" content="JavaScript单线程和Event loop">
+<meta property="og:url" content="http://yoursite.com/2017/04/07/JavaScript单线程/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="关于ps的基础知识">
-<meta property="og:updated_time" content="2016-09-14T06:58:30.805Z">
+<meta property="og:description" content="之前一直没有明白JavaScript单线程和事件循环是什么，看过很多文章，看到了阮一峰老师对这个问题的讲解，这个问题对于我不再神秘~~">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170407/190823372.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170407/191910631.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170407/192257033.jpg">
+<meta property="og:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170407/192526312.png">
+<meta property="og:updated_time" content="2017-04-07T11:36:53.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ps的基础知识">
-<meta name="twitter:description" content="关于ps的基础知识">
+<meta name="twitter:title" content="JavaScript单线程和Event loop">
+<meta name="twitter:description" content="之前一直没有明白JavaScript单线程和事件循环是什么，看过很多文章，看到了阮一峰老师对这个问题的讲解，这个问题对于我不再神秘~~">
+<meta name="twitter:image" content="http://obfnbicau.bkt.clouddn.com/blog/20170407/190823372.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ps的基础知识 | 陈玉的博客</title>
+<title>JavaScript单线程和Event loop | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +272,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-关于ps的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JavaScript单线程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/02/关于ps的基础知识/" class="article-date">
-      <time datetime="2015-09-02T03:30:16.000Z" itemprop="datePublished">2015-09-02</time>
+      <a href="/2017/04/07/JavaScript单线程/" class="article-date">
+      <time datetime="2017-04-07T11:10:06.000Z" itemprop="datePublished">2017-04-07</time>
 </a>
 
 
@@ -286,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ps的基础知识
+      JavaScript单线程和Event loop
     </h1>
   
 
@@ -295,13 +300,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ps/">ps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,40 +316,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##前端ps基础技能需求：<strong>切图</strong>，<strong>修图</strong>，<strong>测量</strong></p>
-<p> <strong>前端常用 ps工具：</strong><br> 移动工具，矩形选框工具，裁切工具，吸管工具，横排文字工具，手抓，缩放，标尺，自由变换<br> <strong>ps快捷键：</strong><br>窗口（历史记录，信息（F8），图层（F7））<br>视图（参考线设置）<br>图像（图像大小（alt+ctrl+i），画布大小（alt+ctrl+c），剪裁，剪切）<br>文件（存储为web和设备所用格式（alt+shift+ctrl+c））<br>左侧工具栏的使用（移动工具，矩形选框工具，吸管工具，横排文字工具，抓手工具，放大/缩小工具）<br>Ctrl+/ctrl-放大、缩小  Ctrl+R标尺 shift+tab调板  Ctrl+h 参考线</p>
+        <h2 id="单线程你联想到什么？"><a href="#单线程你联想到什么？" class="headerlink" title="单线程你联想到什么？"></a>单线程你联想到什么？</h2><p>哦！操作系统课上讲过？对</p>
+<ol>
+<li><p>线程和进程：</p>
 <blockquote>
-<p>图片的导出格式：<br>保存文件格式:</p>
-<ol>
-<li>psd（源文件：没办法直接使用）</li>
-<li>JPG：不支持透明半透明，所有空白区域填充白色（应用：网页中的大图，高清图（体积大））</li>
-<li>GIF（png8：小图标）：支持透明，不支持半透明（小图标（动画图片）</li>
-<li>png24：支持透明，也支持半透明（图像中存在半透明效果的图片）</li>
-</ol>
+<p>进程和线程都是操作系统的概念。进程是应用程序的执行实例，每一个进程都是由私有的虚拟地址空间、代码、数据和其它系统资源所组成；进程在运行过程中能够申请创建和使用系统资源（如独立的内存区域等），这些资源也会随着进程的终止而被销毁。而线程则是进程内的一个独立执行单元，在不同的线程之间是可以共享进程资源的，所以在多线程的情况下，需要特别注意对临界资源的访问控制。在系统创建进程之后就开始启动执行进程的主线程，而进程的生命周期和这个主线程的生命周期一致，主线程的退出也就意味着进程的终止和销毁。主线程是由系统进程所创建的，同时用户也可以自主创建其它线程，这一系列的线程都会并发地运行于同一个进程中。</p>
 </blockquote>
-<p>  <em>psd测量注意事项：</em><br>文字右方和下方会有1像素的默认间隙 </p>
-<p>ps一些基本操作：</p>
-<ul>
-<li>删除图片上的文字：</li>
-</ul>
+<p>显然，在多线程操作下可以实现应用的并行处理，从而以更高的CPU利用率提高整个应用程序的性能和吞吐量。特别是现在很多语言都支持多核并行处理技术，然而JavaScript却以单线程执行，为什么呢？</p>
+</li>
+<li>Why？JavaScript单线程<br><code>用途决定：</code><br>作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？<br>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。<br>为了利用多核CPU的计算能力，HTML5的Web<br>Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。<h2 id="并发模式与Event-Loop"><a href="#并发模式与Event-Loop" class="headerlink" title="并发模式与Event Loop"></a>并发模式与Event Loop</h2>javaScript 有个基于“Event Loop”并发的模型。<br>啊，并发？不是说 JavaScript是单线程吗？ 没错，的确是单线程，但是并发与并行是有区别的。<br>前者是逻辑上的同时发生，而后者是物理上的同时发生。所以，单核处理器也能实现并发。<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170407/190823372.jpg" alt="mark"><br>并行大家都好理解，而所谓“并发”是指两个或两个以上的事件在同一时间间隔中发生。如上图的第一个表，由于计算机系统只有一个CPU，故ABC三个程序从“微观”上是交替使用CPU，但交替时间很短，用户察觉不到，形成了“宏观”意义上的并发操作。<h2 id="javaScipt怎样实现并发模式呢？"><a href="#javaScipt怎样实现并发模式呢？" class="headerlink" title="javaScipt怎样实现并发模式呢？"></a>javaScipt怎样实现并发模式呢？</h2>答案：JavaScript Runtime<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170407/191910631.jpg" alt="mark"></li>
+<li>Stack（栈）<br>这里放着JavaScript正在执行的任务。每个任务被称为帧（stack of frames）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function f(b)&#123;</div><div class="line">  var a = 12;</div><div class="line">  return a+b+35;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function g(x)&#123;</div><div class="line">  var m = 4;</div><div class="line">  return f(m*x);</div><div class="line">&#125;</div><div class="line"></div><div class="line">g(21);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上述代码调用 g 时，创建栈的第一帧，该帧包含了 g 的参数和局部变量。当 g 调用 f 时，第二帧就会被创建，并且置于第一帧之上，当然，该帧也包含了 f 的参数和局部变量。当 f 返回时，其对应的帧就会出栈。同理，当 g 返回时，栈就为空了（栈的特定就是后进先出 Last-in first-out (LIFO)）。</p>
 <ol>
-<li>矩形选框选中删除区域，按delete删除键</li>
-<li>矩形选中相应模块（盖住文字的部分），再按Ctrl+t（自由变换）推动模块，即可盖住文字</li>
+<li>Heap（堆）<br>一个用来表示内存中一大片非结构化区域的名字，对象都被分配在这。</li>
+<li>Queue（队列）<br>一个 JavaScript runtime 包含了一个任务队列，该队列是由一系列待处理的任务组成。而每个任务都有相对应的函数。当栈为空时，就会从任务队列中取出一个任务，并处理之。该处理会调用与该任务相关联的一系列函数（因此会创建一个初始栈帧）。当该任务处理完毕后，栈就会再次为空。（Queue的特点是先进先出 First-in First-out (FIFO)）。<br>为了方便描述与理解，作出以下约定：</li>
 </ol>
 <ul>
-<li>如何把选中图像变成白色：</li>
+<li>Stack栈为主线程</li>
+<li>Queue队列为任务队列（等待调度到主线程执行）<br>下图就是主线程和任务队列的示意图。<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170407/192257033.jpg" alt="mark"><h2 id="事件和回调函数"><a href="#事件和回调函数" class="headerlink" title="事件和回调函数"></a>事件和回调函数</h2>“任务队列”是一个事件的队列（也可以理解成消息的队列），IO设备完成一项任务，就在”任务队列”中添加一个事件，表示相关的异步任务可以进入”执行栈”了。主线程读取”任务队列”，就是读取里面有哪些事件。<br>“任务队列”中的事件，除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等）。只要指定过回调函数，这些事件发生时就会进入”任务队列”，等待主线程读取。<br>所谓”回调函数”（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。<br>“任务队列”是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，”任务队列”上第一位的事件就自动进入主线程。但是，由于存在后文提到的”定时器”功能，主线程首先要检查一下执行时间，某些事件只有到了规定的时间，才能返回主线程。<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。<br><img src="http://obfnbicau.bkt.clouddn.com/blog/20170407/192526312.png" alt="mark"><br>上图中，主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码调用各种外部API，它们在”任务队列”中加入各种事件（click，load，done）。只要栈中的代码执行完毕，主线程就会去读取”任务队列”，依次执行那些事件所对应的回调函数。<br>执行栈中的代码（同步任务），总是在读取”任务队列”（异步任务）之前执行。请看下面这个例子。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">   req.open(&apos;GET&apos;, url);    </div><div class="line">   req.onload = function ()&#123;&#125;;    </div><div class="line">   req.onerror = function ()&#123;&#125;;    </div><div class="line">   req.send();</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<ol>
-<li>选中要变白的图像并且选中相应图层—将右下角背景调为白色–点击油漆桶工具（位于渐变工具一栏）即可</li>
-</ol>
+<p>上面代码中的req.send方法是Ajax操作向服务器发送数据，它是一个异步任务，意味着只有当前脚本的所有代码执行完，系统才会去读取”任务队列”。所以，它与下面的写法等价。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&apos;GET&apos;, url);</div><div class="line">req.send();</div><div class="line">req.onload = function ()&#123;&#125;;    </div><div class="line">req.onerror = function ()&#123;&#125;;</div></pre></td></tr></table></figure></p>
+<p>也就是说，指定回调函数的部分（onload和onerror），在send()方法的前面或后面无关紧要，因为它们属于执行栈的一部分，系统总是执行完它们，才会去读取”任务队列”。</p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>包括setTimeout与setInterval两个方法。它们的第二个参数是指定其回调函数推迟每隔多少毫秒数后执行。<br>对于第二个参数有以下需要注意的地方：</p>
 <ul>
-<li>图像放大了之后，目的就是要仔细观察细节，图像太大以至于画布装不下了，要拖动滚动条吧太麻烦，这里不用拖动滚动条。按住“空格键”不松手，赶紧观察，发现情况了没有，鼠标变成抓手工具形状了</li>
-<li>如果要将图像调整到什么程度，要求图像都能清晰显示窗口–&gt;图层–&gt;智能对象–&gt;图像–&gt;画布大小</li>
-<li>将图像改变方向：图像–&gt;图像旋转（180度，90度，90度逆时针等）</li>
+<li>当第二个参数缺省时，默认为0；</li>
+<li>当指定的值小于4毫秒，则增加到4ms（4ms是HTML5标准指定的，对于2010年及之前的浏览器则是10ms）；<br>除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。<br>定时器功能主要由setTimeout()和setInterval()这两个函数来完成，它们的内部运行机制完全一样，区别在于前者指定的代码是一次性执行，后者则为反复执行。以下主要讨论setTimeout()。<br>setTimeout()接受两个参数，第一个是回调函数，第二个是推迟执行的毫秒数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(1);</div><div class="line">setTimeout(function()&#123;console.log(2);&#125;,1000);</div><div class="line">console.log(3);</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<blockquote>
-<p>切图：实现精确选图：拉出参考线后，选择矩形区域，按住Ctrl键（图像颜色表现有变浅的表现）<br>图层：图层后优先级与后面出现的数字无关，与排列在前面的顺序有关</p>
-</blockquote>
+<p>上面代码的执行结果是1，3，2，因为setTimeout()将第二行推迟到1000毫秒之后执行。<br>如果将setTimeout()的第二个参数设为0，就表示当前代码执行完（执行栈清空）以后，立即执行（0毫秒间隔）指定的回调函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeout(function()&#123;console.log(1);&#125;, 0);</div><div class="line">console.log(2);</div></pre></td></tr></table></figure></p>
+<p>上面代码的执行结果总是2，1，因为只有在执行完第二行以后，系统才会去执行”任务队列”中的回调函数。<br>总之，setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，也就是说，尽可能早得执行。它在”任务队列”的尾部添加一个事件，因此要等到同步任务和”任务队列”现有的事件都处理完，才会得到执行。</p>
+<p>需要注意的是，setTimeout()只是将事件插入了”任务队列”，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。<br>参考链接：<br><a href="https://segmentfault.com/a/1190000004276027" target="_blank" rel="external">https://segmentfault.com/a/1190000004276027</a><br><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/10/event-loop.html</a></p>
 
       
     </div>
@@ -353,13 +357,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2015/09/02/关于ps的基础知识/">ps的基础知识</a></p>
+        <p><span>Title:</span><a href="/2017/04/07/JavaScript单线程/">JavaScript单线程和Event loop</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">陈玉</a></p>
-        <p><span>Created:</span>2015-09-02, 11:30:16</p>
-        <p><span>Updated:</span>2016-09-14, 14:58:30</p>
+        <p><span>Created:</span>2017-04-07, 19:10:06</p>
+        <p><span>Updated:</span>2017-04-07, 19:36:53</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2015/09/02/关于ps的基础知识/" title="ps的基础知识">http://yoursite.com/2015/09/02/关于ps的基础知识/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2015/09/02/关于ps的基础知识/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/04/07/JavaScript单线程/" title="JavaScript单线程和Event loop">http://yoursite.com/2017/04/07/JavaScript单线程/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/04/07/JavaScript单线程/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -371,12 +375,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/09/03/什么是盒子模型/">
-                    什么是盒子模型
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/18/prototype（显式原型）/">
+                    __proto_和prototype
                 </a>
             </div>
-        
         
     </nav>
 
@@ -386,7 +390,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单线程你联想到什么？"><span class="toc-number">1.</span> <span class="toc-text">单线程你联想到什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发模式与Event-Loop"><span class="toc-number">2.</span> <span class="toc-text">并发模式与Event Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javaScipt怎样实现并发模式呢？"><span class="toc-number">3.</span> <span class="toc-text">javaScipt怎样实现并发模式呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件和回调函数"><span class="toc-number">4.</span> <span class="toc-text">事件和回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Loop"><span class="toc-number">5.</span> <span class="toc-text">Event Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">6.</span> <span class="toc-text">定时器</span></a></li></ol>
         
     </div>
     <style>
@@ -422,7 +426,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ps的基础知识　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JavaScript单线程和Event loop　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -438,7 +442,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2015/09/02/关于ps的基础知识/" data-title="ps的基础知识" data-url="http://yoursite.com/2015/09/02/关于ps的基础知识/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/04/07/JavaScript单线程/" data-title="JavaScript单线程和Event loop" data-url="http://yoursite.com/2017/04/07/JavaScript单线程/"></div>
     <script>
         var duoshuoQuery = {short_name:"cychenyu"};
         var loadComment = function(){
@@ -461,15 +465,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/09/03/什么是盒子模型/" title="Pre: 什么是盒子模型">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/2017/03/18/prototype（显式原型）/" title="Next: __proto_和prototype">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
