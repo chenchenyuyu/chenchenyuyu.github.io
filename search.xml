@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title><![CDATA[new做了啥？]]></title>
+      <url>http://yoursite.com/2017/04/15/new%E5%81%9A%E4%BA%86%E5%95%A5/</url>
+      <content type="html"><![CDATA[<p>当代码 new foo(…) 执行时：来自：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external">MDN</a></p>
+<ol>
+<li>一个新对象被创建。它继承自foo.prototype.</li>
+<li>构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。</li>
+<li>如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一般情况下构造函数不返回任何值，不过用户如果想覆盖这个返回值，可以自己选择返回一个普通对象来覆盖。当然，返回数组也会覆盖，因为数组也是对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Myclass()&#123;  </div><div class="line">    this.a=20;</div><div class="line">&#125;</div><div class="line">var o=new Myclass();  </div><div class="line">console.log(o.a);   //20</div><div class="line"></div><div class="line"></div><div class="line">function Person()&#123;  </div><div class="line">    this.a=20;</div><div class="line">    return &#123;  a: 21&#125;;</div><div class="line">&#125;</div><div class="line">var o=new Person();  </div><div class="line">console.log(o.a);   //21注意返回对象代替整个new出来的o</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>举一个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 正常创建一个对象</div><div class="line">function Super() &#123;&#125;;</div><div class="line">var s = new Super();</div></pre></td></tr></table></figure></p>
+<p>以上其实等价于3个步骤:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 3个步骤</div><div class="line">var s = &#123;&#125;;</div><div class="line">s.__proto__ = Super.prototype;</div><div class="line">Super.call(s);</div><div class="line"># 注：1.2两步，其实就是Object.create(Super.prototype);</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>创建一个空对象{}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var s = &#123;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝构造函数的prototype 给 实例对象的 proto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.__proto__ === Super.prototype</div></pre></td></tr></table></figure>
+</li>
+<li><p>初始化对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 把s当做Super中的this，做初始化s的操作</div><div class="line">Super.call(s);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 例如</div><div class="line">function Super() &#123;</div><div class="line">  this.y = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 通过</div><div class="line">Super.call(s);</div><div class="line"></div><div class="line"># 其实就相当于</div><div class="line">Super(_this) &#123;</div><div class="line">    _this.y = 1;</div><div class="line">&#125;</div><div class="line">Super(s);//明白this其实就是new出来那个对象了吧</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript单线程和Event loop]]></title>
       <url>http://yoursite.com/2017/04/07/JavaScript%E5%8D%95%E7%BA%BF%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h2 id="单线程你联想到什么？"><a href="#单线程你联想到什么？" class="headerlink" title="单线程你联想到什么？"></a>单线程你联想到什么？</h2><p>哦！操作系统课上讲过？对</p>
