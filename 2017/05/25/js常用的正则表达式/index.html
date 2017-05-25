@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta name="description" content="常用的一些正则表达式整理了一下，在这里分享一下。给自己留个底，也给朋友们做个参考。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON">
-<meta property="og:url" content="http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/index.html">
+<meta property="og:title" content="js常用的正则表达式">
+<meta property="og:url" content="http://yoursite.com/2017/05/25/js常用的正则表达式/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
-<meta property="og:updated_time" content="2016-11-05T16:53:40.644Z">
+<meta property="og:description" content="常用的一些正则表达式整理了一下，在这里分享一下。给自己留个底，也给朋友们做个参考。">
+<meta property="og:updated_time" content="2017-05-25T13:41:44.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON">
-<meta name="twitter:description" content="JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据">
+<meta name="twitter:title" content="js常用的正则表达式">
+<meta name="twitter:description" content="常用的一些正则表达式整理了一下，在这里分享一下。给自己留个底，也给朋友们做个参考。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JSON | 陈玉的博客</title>
+<title>js常用的正则表达式 | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-JSON（JavaScript Object Notation）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js常用的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/23/JSON（JavaScript Object Notation）/" class="article-date">
-      <time datetime="2016-09-23T02:12:08.000Z" itemprop="datePublished">2016-09-23</time>
+      <a href="/2017/05/25/js常用的正则表达式/" class="article-date">
+      <time datetime="2017-05-25T02:30:11.000Z" itemprop="datePublished">2017-05-25</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JSON
+      js常用的正则表达式
     </h1>
   
 
@@ -295,7 +295,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端基础知识/">前端基础知识</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
     </div>
 
 
@@ -311,121 +311,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h1><p>JSON是JavaScript的一个严格子集，利用一些JavaScript中的一些模式来表示结构化数据，<br><code>注意：</code></p>
-<ol>
-<li>它是一种数据格式，不是一种编程语言</li>
-<li>它并不属于JavaScript，很多编程语言都有应用到它，有针对Json的解析器和序列化器<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
-<li>简单值：使用与js相同的语法，在json中表示，字符串，数值，布尔值，null，但不支持undefined</li>
-<li>对象：复杂数据类型，表示的是一组无序的键值对，键值对中可以使简单值，也可以是复杂数据类型</li>
-<li><p>数组：复杂数据类型，表示一组有序值的列表，可以通过数组索引来访问其中的值，数组值，可以是简单值，对象，数组<br><code>注意：</code>json不支持变量，函数，对象实例，它就是一种表示结构化数据的格式</p>
-<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p><code>注意：</code>js字符串与json的最大区别：json字符串必须使用双引号（单引号将导致语法错误）</p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p> js中对象字面量：<br> var person={</p>
-<pre><code>name:&quot;Lili&quot;,
-age:29
-</code></pre><p> }；<br> 或者<br> var Object={</p>
-<pre><code>name:&quot;Lili&quot;,
-age:29
-</code></pre><p> };<br> json中对象表示：<br> {</p>
-<pre><code> &quot;name&quot;:&quot;Lili&quot;,
-&quot;age&quot;:29
-</code></pre><p> }<br><code>两者的区别：</code></p>
-<ol>
-<li>json对象中没有声明变量的概念</li>
-<li>json对象中没有末尾的分号</li>
-<li>对象属性必须加上双引号</li>
-<li><p>同一个对象中绝对不应该出现两个同名属性</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>js中数组：<br>var values=[25,”h1”,true];<br>json中的数组：<br>[25,”h1”,true]</p>
-</li>
-</ol>
-</li>
-</ol>
-<p><code>两者的而区别：</code>json数组没有变量和分号</p>
-<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><ol>
-<li>eval()函数可以解析，解释并返回js对象和数组</li>
-<li>json对象有两个方法：stringify()和parse()<br>stringify()用于把json对象序列化为json字符串<br>parse()用于把字符串解析为原生的js值<br><code>注意：</code></li>
-<li>默认情况下，JSON.stringify()输出的字符串不包括任何空格字符或缩进</li>
-<li>如过传给JSON.parse()不是有效的json，该方法会报错<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3>JSON.stringify(序列化对象，过滤器，选项)<br>过滤器：可以使数组，可以是函数<br>选项：表示是否在json中保留缩进</li>
-<li><p>过滤结果<br> 过滤器为数组：</p>
-<p> var book={</p>
-<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 };
-var jsonText=JSON.stringify(book,[&quot;title&quot;,&quot;edition&quot;]);
-</code></pre><p>过滤器为函数：</p>
-</li>
-</ol>
-<pre><code>var book={
-    &quot;title&quot;:&quot;javaScript&quot;;
-    &quot;authors&quot;:
-    [
-    &quot;Hellen&quot;
-    ],
-    edition:3,
-    year:2011 };
-    var jsonText=JSON.stringify(book,function(key,value){
-    switch(key){
-    case &quot;authors&quot;:
-    return value.join(&quot;,&quot;);
-    case &quot;year&quot;:
-    return 5000;
-    case &quot;edition&quot;:
-    return undefined;
-    default:
-    return value;
-    }
-    });
-</code></pre><ol>
-<li>字符串缩进<br>JSON.stringify()方法的而第三个参数用于结果中的缩进和空白符，如果这个参数是一个数值，那它表示每个级别缩进的空格数<br>var jsonText=JSON.stringify(book,null,4);<br><code>注意：</code> </li>
-</ol>
-<ul>
-<li>只要传入有效的缩进参数，结果字符串就会包含换行符，</li>
-<li>最大缩进的而空格数为10，所有大于10的数值都会自动转换为10<br>缩进参数</li>
-<li>缩进参数可以为非数值（制表符，两个短横线等任意字符）</li>
-</ul>
-<ol>
-<li>toJSON()方法<br>可以给任何对象添加 toJSON()方法,返回自身的JSON数据格式</li>
-</ol>
-<pre><code> var book={
-&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 
-toJSON:function(){
-return this.title;
-}
-};
-var jsonText=JSON.stringify(book);
-</code></pre><ol>
-<li><p>序列化的内部顺序：<br>假设把一个对象传入JSON.stringify()，序列化该对象的顺序如下：<br>（1）如果存在toJSON()而且能通过它取得有效值，则调用该方法，否则返回对象本身<br>（2）如果提供第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步返回的值<br>（3）对第（2）步返回的每一个值进行相应的序列化<br>（4）如果提供第三个参数，执行相应的格式化</p>
-<h2 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h2><p>JSON.stringify()方法接收的函数（称替换或过滤函数）<br>JSON.parse()方法可以接收另一个参数（称还原函数）</p>
-<p> var book={</p>
-<pre><code>&quot;title&quot;:&quot;javaScript&quot;;
-&quot;authors&quot;:
-[
-&quot;Hellen&quot;
-],
-edition:3,
-year:2011 
-releaseDate:new Date(2011,11,1)
-};
-var jsonText=JSON.stringify(book);
-var bookCopy=JSON.parse(jsonText,function(key,value){
-if(key==&quot;releaseDate&quot;){
-return new Date(value);
-}else{
-return vlaue;
-}
-});
-console.log(bookCopy.releaseDate.getFullYear());
-</code></pre></li>
-</ol>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line">一、校验数字的表达式</div><div class="line">// 1.数字：</div><div class="line">^[0-9]*$</div><div class="line">//2.n位的数字：</div><div class="line">^\d&#123;n&#125;$</div><div class="line">//3.至少n位的数字：</div><div class="line">^\d&#123;n,&#125;$</div><div class="line">//4.m-n位的数字：</div><div class="line">^\d&#123;m,n&#125;$</div><div class="line">//5.零和非零开头的数字：</div><div class="line">^(0|[1-9][0-9]*)$</div><div class="line">//6.非零开头的最多带两位小数的数字：</div><div class="line">^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</div><div class="line">//7.带1-2位小数的正数或负数：</div><div class="line">^(-)?\d+(.\d&#123;1,2&#125;)?$</div><div class="line">//8.正数、负数、和小数：</div><div class="line">^(-|+)?\d+(.\d+)?$</div><div class="line">//9.有两位小数的正实数：</div><div class="line">^[0-9]+(.[0-9]&#123;2&#125;)?$</div><div class="line">//10.有1~3位小数的正实数：</div><div class="line">^[0-9]+(.[0-9]&#123;1,3&#125;)?$</div><div class="line">//11.非零的正整数：</div><div class="line">^[1-9]\d$ 或 ^([1-9][0-9])&#123;1,3&#125;$ 或 ^+?[1-9][0-9]*$</div><div class="line">//12.非零的负整数：</div><div class="line">^-[1-9][]0-9$ 或 ^-[1-9]\d$</div><div class="line">//13.非负整数：</div><div class="line">^\d+$ 或 ^[1-9]\d*|0$</div><div class="line">//14.非正整数：</div><div class="line">^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</div><div class="line">//15.非负浮点数：</div><div class="line">^\d+(.\d+)?$ 或 ^[1-9]\d.\d|0.\d[1-9]\d|0?.0+|0$</div><div class="line">//16.非正浮点数：</div><div class="line">^((-\d+(.\d+)?)|(0+(.0+)?))$ 或 ^(-([1-9]\d.\d|0.\d[1-9]\d))|0?.0+|0$</div><div class="line">//17.正浮点数：</div><div class="line">^[1-9]\d.\d|0.\d[1-9]\d$ 或 ^(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9]))$</div><div class="line">//18.负浮点数：</div><div class="line">^-([1-9]\d.\d|0.\d[1-9]\d)$ 或 ^(-(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9])))$</div><div class="line">//19.浮点数：^(-?\d+)(.\d+)?$ 或 ^-?([1-9]\d.\d|0.\d[1-9]\d|0?.0+|0)$</div><div class="line">二、校验字符的表达式</div><div class="line">//1.汉字：</div><div class="line">^[\u4e00-\u9fa5]&#123;0,&#125;$</div><div class="line">//2.英文和数字：</div><div class="line">^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$</div><div class="line">//3.长度为3-20的所有字符：</div><div class="line">^.&#123;3,20&#125;$</div><div class="line">//4.由26个英文字母组成的字符串：</div><div class="line">^[A-Za-z]+$</div><div class="line">//5.由26个大写英文字母组成的字符串：</div><div class="line">^[A-Z]+$</div><div class="line">//6.由26个小写英文字母组成的字符串：</div><div class="line">^[a-z]+$</div><div class="line">//7.由数字和26个英文字母组成的字符串：</div><div class="line">^[A-Za-z0-9]+$</div><div class="line">//8.由数字、26个英文字母或者下划线组成的字符串：</div><div class="line">^\w+$ 或 ^\w&#123;3,20&#125;$</div><div class="line">//9.中文、英文、数字包括下划线：</div><div class="line">^[\u4E00-\u9FA5A-Za-z0-9_]+$</div><div class="line">//10.中文、英文、数字但不包括下划线等符号：</div><div class="line">^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</div><div class="line">//11. 可以输入含有^%&amp;&apos;,;=?$\&quot;等字符：</div><div class="line">//[^%&amp;&apos;,;=?$\x22]+</div><div class="line">//12.禁止输入含有~的字符：</div><div class="line">[^~\x22]+</div><div class="line">三、特殊需求表达式</div><div class="line">//1.Email地址：</div><div class="line">^\w+([-+.]\w+)@\w+([-.]\w+).\w+([-.]\w+)*$</div><div class="line">//2.域名：</div><div class="line">[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</div><div class="line">//3.InternetURL：</div><div class="line">[a-zA-z]+://[^\s] 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=])?$</div><div class="line">//4.手机号码：</div><div class="line">^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</div><div class="line">//5.电话号码(&quot;XXX-XXXXXXX&quot;、&quot;XXXX-XXXXXXXX&quot;、&quot;XXX-XXXXXXX&quot;、&quot;XXX-XXXXXXXX&quot;、&quot;XXXXXXX&quot;和&quot;XXXXXXXX)：</div><div class="line">	^((\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$</div><div class="line">//6.国内电话号码(0511-4405222、021-87888822)：</div><div class="line">\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</div><div class="line">//7.身份证号(15位、18位数字)：</div><div class="line">^\d&#123;15&#125;|\d&#123;18&#125;$</div><div class="line">//8.短身份证号码(数字、字母x结尾)：</div><div class="line">^([0-9])&#123;7,18&#125;(x|X)?$ 或 ^\d&#123;8,18&#125;|[0-9x]&#123;8,18&#125;|[0-9X]&#123;8,18&#125;?$</div><div class="line">//9.帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</div><div class="line">//10.密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：</div><div class="line">^[a-zA-Z]\w&#123;5,17&#125;$</div><div class="line">//11.强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：</div><div class="line">^(?=.\d)(?=.[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</div><div class="line">//12.日期格式：</div><div class="line">^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</div><div class="line">//13.一年的12个月(01～09和1～12)：</div><div class="line">^(0?[1-9]|1[0-2])$</div><div class="line">//14. 一个月的31天(01～09和1～31)：</div><div class="line">^((0?[1-9])|((1|2)[0-9])|30|31)$</div><div class="line">//15.钱的输入格式：</div><div class="line">//16 1.有四种钱的表示形式我们可以接受:&quot;10000.00&quot; 和 &quot;10,000.00&quot;, 和没有 &quot;分&quot; 的 &quot;10000&quot; 和 &quot;10,000&quot;：</div><div class="line">^[1-9][0-9]*$</div><div class="line">//17 2.这表示任意一个不以0开头的数字,但是,这也意味着一个字符&quot;0&quot;不通过,所以我们采用下面的形式：</div><div class="line">^(0|[1-9][0-9]*)$</div><div class="line">//18 3.一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：</div><div class="line">^(0|-?[1-9][0-9]*)$</div><div class="line">//19 4.这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：</div><div class="line">^[0-9]+(.[0-9]+)?$</div><div class="line">//20 5.必须说明的是,小数点后面至少应该有1位数,所以&quot;10.&quot;是不通过的,但是 &quot;10&quot; 和 &quot;10.2&quot; 是通过的：</div><div class="line">^[0-9]+(.[0-9]&#123;2&#125;)?$</div><div class="line">//21 6.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：</div><div class="line">^[0-9]+(.[0-9]&#123;1,2&#125;)?$</div><div class="line">//22 7.这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：</div><div class="line">^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$</div><div class="line">//23 8.1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：</div><div class="line">^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$</div><div class="line">//24 备注：这就是最终结果了,别忘了&quot;+&quot;可以用&quot;*&quot;替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</div><div class="line">//25 xml文件：</div><div class="line">^([a-zA-Z]+-?)+[a-zA-Z0-9]+\.[x|X][m|M][l|L]$</div><div class="line">//26 中文字符的正则表达式：</div><div class="line">[\u4e00-\u9fa5]</div><div class="line">//27 双字节字符：(包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</div><div class="line">[^\x00-\xff] </div><div class="line">//28 空白行的正则表达式： (可以用来删除空白行)</div><div class="line">\n\s*\r</div><div class="line">//29 HTML标记的正则表达式：(网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</div><div class="line">&lt;(\S?)[^&gt;]&gt;.?&lt;/\1&gt;|&lt;.? /&gt; </div><div class="line">//30 首尾空白字符的正则表达式：(可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</div><div class="line">^\s|\s$或(^\s)|(\s$) </div><div class="line">//31 腾讯QQ号：(腾讯QQ号从10000开始)</div><div class="line">[1-9][0-9]&#123;4,&#125; </div><div class="line">//32 中国邮政编码：(中国邮政编码为6位数字)</div><div class="line">[1-9]\d&#123;5&#125;(?!\d) </div><div class="line">//33 IP地址： (提取IP地址时有用)</div><div class="line">\d+.\d+.\d+.\d+</div><div class="line">//34 IP地址：</div><div class="line">((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.)&#123;3&#125;(?:25[0-5]|2[0-4]\d|[01]?\d?\d))</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -434,13 +320,13 @@ console.log(bookCopy.releaseDate.getFullYear());
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/09/23/JSON（JavaScript Object Notation）/">JSON</a></p>
+        <p><span>Title:</span><a href="/2017/05/25/js常用的正则表达式/">js常用的正则表达式</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">陈玉</a></p>
-        <p><span>Created:</span>2016-09-23, 10:12:08</p>
-        <p><span>Updated:</span>2016-11-06, 00:53:40</p>
+        <p><span>Created:</span>2017-05-25, 10:30:11</p>
+        <p><span>Updated:</span>2017-05-25, 21:41:44</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/09/23/JSON（JavaScript Object Notation）/" title="JSON">http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/05/25/js常用的正则表达式/" title="js常用的正则表达式">http://yoursite.com/2017/05/25/js常用的正则表达式/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/05/25/js常用的正则表达式/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -452,16 +338,10 @@ console.log(bookCopy.releaseDate.getFullYear());
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/30/jQuery的整体架构/">
-                    jQuery的源码解读(一)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/22/this的指向问题/">
-                    this的指向问题
+                <a href="/2017/04/15/new做了啥/">
+                    new做了啥？
                 </a>
             </div>
         
@@ -473,7 +353,7 @@ console.log(bookCopy.releaseDate.getFullYear());
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON（JavaScript-Object-Notation）"><span class="toc-number">1.</span> <span class="toc-text">JSON（JavaScript Object Notation）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单值"><span class="toc-number">1.1.1.</span> <span class="toc-text">简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">1.1.3.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析与序列化"><span class="toc-number">1.2.</span> <span class="toc-text">解析与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化选项"><span class="toc-number">1.2.1.</span> <span class="toc-text">序列化选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析选项"><span class="toc-number">1.3.</span> <span class="toc-text">解析选项</span></a></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -509,7 +389,7 @@ console.log(bookCopy.releaseDate.getFullYear());
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JSON　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js常用的正则表达式　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -525,7 +405,7 @@ console.log(bookCopy.releaseDate.getFullYear());
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/23/JSON（JavaScript Object Notation）/" data-title="JSON" data-url="http://yoursite.com/2016/09/23/JSON（JavaScript Object Notation）/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/05/25/js常用的正则表达式/" data-title="js常用的正则表达式" data-url="http://yoursite.com/2017/05/25/js常用的正则表达式/"></div>
     <script>
         var duoshuoQuery = {short_name:"cychenyu"};
         var loadComment = function(){
@@ -548,15 +428,13 @@ console.log(bookCopy.releaseDate.getFullYear());
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/30/jQuery的整体架构/" title="Pre: jQuery的源码解读(一)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/22/this的指向问题/" title="Next: this的指向问题">
+            <a href="/2017/04/15/new做了啥/" title="Next: new做了啥？">
                 <i class="fa fa-angle-right"></i>
             </a>
         
