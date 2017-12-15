@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="1. 一个新对象被创建。它继承自foo.prototype. 2. 构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。 3. 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一">
+<meta name="description" content="实现一个兼容性的拖拽功能，其中涉及到一些值得注意的知识点！！！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="new做了啥？">
-<meta property="og:url" content="http://yoursite.com/2017/04/15/new做了啥/index.html">
+<meta property="og:title" content="实现一个兼容性的拖拽功能">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/兼容性的拖拽功能/index.html">
 <meta property="og:site_name" content="陈玉的博客">
-<meta property="og:description" content="1. 一个新对象被创建。它继承自foo.prototype. 2. 构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。 3. 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一">
-<meta property="og:updated_time" content="2017-04-15T07:07:28.338Z">
+<meta property="og:description" content="实现一个兼容性的拖拽功能，其中涉及到一些值得注意的知识点！！！">
+<meta property="og:updated_time" content="2017-12-15T09:20:15.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="new做了啥？">
-<meta name="twitter:description" content="1. 一个新对象被创建。它继承自foo.prototype. 2. 构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。 3. 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一">
+<meta name="twitter:title" content="实现一个兼容性的拖拽功能">
+<meta name="twitter:description" content="实现一个兼容性的拖拽功能，其中涉及到一些值得注意的知识点！！！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>new做了啥？ | 陈玉的博客</title>
+<title>实现一个兼容性的拖拽功能 | 陈玉的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-new做了啥" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-兼容性的拖拽功能" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/15/new做了啥/" class="article-date">
-      <time datetime="2017-04-15T03:10:06.000Z" itemprop="datePublished">2017-04-15</time>
+      <a href="/2017/12/10/兼容性的拖拽功能/" class="article-date">
+      <time datetime="2017-12-10T02:30:11.000Z" itemprop="datePublished">2017-12-10</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      new做了啥？
+      实现一个兼容性的拖拽功能
     </h1>
   
 
@@ -301,7 +301,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端基础知识/">前端基础知识</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,27 +311,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>当代码 new foo(…) 执行时：来自：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external">MDN</a></p>
-<ol>
-<li>一个新对象被创建。它继承自foo.prototype.</li>
-<li>构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。</li>
-<li>如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一般情况下构造函数不返回任何值，不过用户如果想覆盖这个返回值，可以自己选择返回一个普通对象来覆盖。当然，返回数组也会覆盖，因为数组也是对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Myclass()&#123;  </div><div class="line">    this.a=20;</div><div class="line">&#125;</div><div class="line">var o=new Myclass();  </div><div class="line">console.log(o.a);   //20</div><div class="line"></div><div class="line"></div><div class="line">function Person()&#123;  </div><div class="line">    this.a=20;</div><div class="line">    return &#123;  a: 21&#125;;</div><div class="line">&#125;</div><div class="line">var o=new Person();  </div><div class="line">console.log(o.a);   //21注意返回对象代替整个new出来的o</div></pre></td></tr></table></figure>
+        <ol>
+<li>div 要求position:absolute脱离文档流才能自由拖拽<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#div&#123;</div><div class="line">				width: 200px;</div><div class="line">				height: 200px;</div><div class="line">				background-color: red;</div><div class="line">				position: absolute;</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>举一个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 正常创建一个对象</div><div class="line">function Super() &#123;&#125;;</div><div class="line">var s = new Super();</div></pre></td></tr></table></figure></p>
-<p>以上其实等价于3个步骤:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 3个步骤</div><div class="line">var s = &#123;&#125;;</div><div class="line">s.__proto__ = Super.prototype;</div><div class="line">Super.call(s);</div><div class="line"># 注：1.2两步，其实就是Object.create(Super.prototype);</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>创建一个空对象{}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var s = &#123;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝构造函数的prototype 给 实例对象的 proto</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.__proto__ === Super.prototype</div></pre></td></tr></table></figure>
-</li>
-<li><p>初始化对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 把s当做Super中的this，做初始化s的操作</div><div class="line">Super.call(s);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 例如</div><div class="line">function Super() &#123;</div><div class="line">  this.y = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 通过</div><div class="line">Super.call(s);</div><div class="line"></div><div class="line"># 其实就相当于</div><div class="line">Super(_this) &#123;</div><div class="line">    _this.y = 1;</div><div class="line">&#125;</div><div class="line">Super(s);//明白this其实就是new出来那个对象了吧</div></pre></td></tr></table></figure></p>
+<p>第一步：出现问题，将事件绑定到div上面，如果移动过快，导致鼠标脱离div，到div之外，而无法移动<br>解决：将事件绑定到document文档上面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var a = document.getElementById(&apos;div&apos;)</div><div class="line">		a.onmousedown = function(ev) &#123;</div><div class="line">			var oEvent = ev || event</div><div class="line">			var disX = oEvent.clientX - a.offsetLeft // 鼠标距离div边框的距离</div><div class="line">			var disY = oEvent.clientY - a.offsetTop</div><div class="line">			a.onmousemove = function(ev) &#123;</div><div class="line">				var oEvent = ev || event</div><div class="line">				var l = oEvent.clientX - disX // div的移动距离</div><div class="line">				var t = oEvent.clientY - disY</div><div class="line">				a.style.left = l + &apos;px&apos;</div><div class="line">				a.style.top = t + &apos;px&apos;</div><div class="line">			&#125;</div><div class="line">			a.onmouseup = function() &#123;</div><div class="line">				a.onmousemove = null</div><div class="line">				a.onmouseup = null</div><div class="line">			&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<p>第二步：出现问题div拖动的时候脱离可视区域，找不回div，需要对div移动做一定条件判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">var a = document.getElementById(&apos;div&apos;)</div><div class="line">a.onmousedown = function(ev) &#123;</div><div class="line">	var oEvent = ev || event</div><div class="line">	var disX = oEvent.clientX - a.offsetLeft</div><div class="line">	var disY = oEvent.clientY - a.offsetTop</div><div class="line">	document.onmousemove = function(ev) &#123;</div><div class="line">		var oEvent = ev || event</div><div class="line">		var l = oEvent.clientX - disX</div><div class="line">		var t = oEvent.clientY - disY</div><div class="line">                     // 限制在可视区域的范围之内</div><div class="line">		if(l &lt; 0) &#123;</div><div class="line">			l = 0</div><div class="line">		&#125; </div><div class="line">		else if (l &gt; document.documentElement.clientWidth - a.offsetWidth) &#123;</div><div class="line">			l = document.documentElement.clientWidth - a.offsetWidth</div><div class="line">		&#125;;</div><div class="line">		if(t &lt; 0) &#123;</div><div class="line">			t = 0</div><div class="line">		&#125;	</div><div class="line">		else if (t &gt; document.documentElement.clientHeight - a.offsetHeight) &#123;</div><div class="line">			t = document.documentElement.clientHeight - a.offsetHeight</div><div class="line">		&#125;;</div><div class="line">		a.style.left = l + &apos;px&apos;</div><div class="line">		a.style.top = t + &apos;px&apos;</div><div class="line">	&#125;</div><div class="line">	document.onmouseup = function() &#123;</div><div class="line">		document.onmousemove = null</div><div class="line">		document.onmouseup = null</div><div class="line">	&#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure></p>
+<p>第三步：如果是老版的Firefox会出拖拽出一个图层链接<br>解决：阻止浏览器的默认行为，return false;<br>第四步：运行这段代码后我们发现，在ie浏览器里特别是ie8及之前的浏览器，当你点着有文字部分的div进行拖拽的时候，一不小心就对文字进行选中了，其他浏览器的解决办法是通过return false，而如果是ie浏览器的话，我们则要使用ie浏览器特有的一个功能：事件捕获函数setCapture和解除绑定的releaseCapture函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">var a = document.getElementById(&apos;div&apos;)</div><div class="line">a.onmousedown = function(ev) &#123;</div><div class="line">	var oEvent = ev || event</div><div class="line">	var disX = oEvent.clientX - a.offsetLeft</div><div class="line">	var disY = oEvent.clientY - a.offsetTop</div><div class="line"></div><div class="line">	if (a.setCapture) &#123; //setCapture适用于ie6-ie8浏览器</div><div class="line">		a.onmousemove = moveArea</div><div class="line">		a.onmouseup = upArea</div><div class="line">		a.setCapture()</div><div class="line">	&#125; else&#123;</div><div class="line">		document.onmousemove = moveArea</div><div class="line">		document.onmouseup = upArea</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function moveArea(ev) &#123;</div><div class="line">		var oEvent = ev || event</div><div class="line">		var l = oEvent.clientX - disX</div><div class="line">		var t = oEvent.clientY - disY</div><div class="line">		// 不会超出可视区</div><div class="line">		if(l &lt; 0) &#123;</div><div class="line">			l = 0</div><div class="line">		&#125;</div><div class="line">		else if (l &gt; document.documentElement.clientWidth - a.offsetWidth) &#123;</div><div class="line">			l = document.documentElement.clientWidth - a.offsetWidth</div><div class="line">		&#125;;</div><div class="line">		if(t &lt; 0) &#123;</div><div class="line">			t = 0</div><div class="line">		&#125;	</div><div class="line">		else if (t &gt; document.documentElement.clientHeight - a.offsetHeight) &#123;</div><div class="line">			t = document.documentElement.clientHeight - a.offsetHeight</div><div class="line">		&#125;;</div><div class="line">		a.style.left = l + &apos;px&apos;</div><div class="line">		a.style.top = t + &apos;px&apos;</div><div class="line">	&#125;</div><div class="line">	//防止鼠标移动过快</div><div class="line">	function upArea() &#123;</div><div class="line">		this.onmousemove = null</div><div class="line">		this.onmouseup = null</div><div class="line">		if (a.releaseCapture) &#123;</div><div class="line">			a.releaseCapture()</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">	return false</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -340,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/04/15/new做了啥/">new做了啥？</a></p>
+        <p><span>Title:</span><a href="/2017/12/10/兼容性的拖拽功能/">实现一个兼容性的拖拽功能</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">陈玉</a></p>
-        <p><span>Created:</span>2017-04-15, 11:10:06</p>
-        <p><span>Updated:</span>2017-04-15, 15:07:28</p>
+        <p><span>Created:</span>2017-12-10, 10:30:11</p>
+        <p><span>Updated:</span>2017-12-15, 17:20:15</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/04/15/new做了啥/" title="new做了啥？">http://yoursite.com/2017/04/15/new做了啥/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/04/15/new做了啥/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/12/10/兼容性的拖拽功能/" title="实现一个兼容性的拖拽功能">http://yoursite.com/2017/12/10/兼容性的拖拽功能/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/12/10/兼容性的拖拽功能/　　By 陈玉" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -358,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/05/25/js常用的正则表达式/">
-                    js常用的正则表达式
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/04/07/JavaScript单线程/">
-                    JavaScript单线程和Event loop
+                <a href="/2017/05/25/js常用的正则表达式/">
+                    js常用的正则表达式
                 </a>
             </div>
         
@@ -415,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"new做了啥？　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"实现一个兼容性的拖拽功能　| 陈玉的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,7 +412,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/04/15/new做了啥/" data-title="new做了啥？" data-url="http://yoursite.com/2017/04/15/new做了啥/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/12/10/兼容性的拖拽功能/" data-title="实现一个兼容性的拖拽功能" data-url="http://yoursite.com/2017/12/10/兼容性的拖拽功能/"></div>
     <script>
         var duoshuoQuery = {short_name:"cychenyu"};
         var loadComment = function(){
@@ -454,15 +435,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/25/js常用的正则表达式/" title="Pre: js常用的正则表达式">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/07/JavaScript单线程/" title="Next: JavaScript单线程和Event loop">
+            <a href="/2017/05/25/js常用的正则表达式/" title="Next: js常用的正则表达式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
